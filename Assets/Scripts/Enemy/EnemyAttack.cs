@@ -29,6 +29,17 @@ public class EnemyAttack : MonoBehaviour {
 	
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
 
+		this.GetComponent<EnemyMovement> ().enabled = false;
+
+		targetAttack = other.gameObject.GetComponent<CastleLife>();
+		attackTime = Time.time;
+		onAttack = true;
+
+
+
+
+	}
 
 }

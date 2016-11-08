@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011720806472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.1, y: 4.03, z: 0}
+  m_LocalPosition: {x: 1.49, y: 3.94, z: 0}
   m_LocalScale: {x: 0.6354208, y: 0.6658378, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -93,13 +93,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011720806472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b80ceec8140184de0aa04cee19324c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
   damageSpawnTime: 1
+  targetAttack: {fileID: 0}
 --- !u!212 &212000011721270472
 SpriteRenderer:
   m_ObjectHideFlags: 1

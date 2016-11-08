@@ -19,7 +19,14 @@ public class EnemyMovement : MonoBehaviour {
 		transform.position = transform.position + dir * speed * Time.deltaTime;
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
 
+		this.GetComponent<EnemyMovement> ().enabled = false;
+
+		this.GetComponent<EnemyAttack>().targetAttack = other.gameObject.GetComponent<CastleLife> ();
+		
+		this.GetComponent<EnemyAttack> ().enabled = true;
+	}
 
 
 }

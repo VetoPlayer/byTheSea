@@ -23,9 +23,9 @@ GameObject:
   - 114: {fileID: 114000014221726188}
   - 61: {fileID: 61000012099160432}
   - 50: {fileID: 50000013561071120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010162573750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.53, y: 4.13, z: 0}
+  m_LocalPosition: {x: -6.5, y: 4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734225ac855dc469f8f4ff59908e77a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialLife: 100
+  initialLife: 400
 --- !u!212 &212000012873511360
 SpriteRenderer:
   m_ObjectHideFlags: 1

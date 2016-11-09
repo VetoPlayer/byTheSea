@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GameFieldScript.cs" />
+     <Compile Include="Assets\Scripts\Castle\BulletMovement.cs" />
      <Compile Include="Assets\Scripts\Castle\CastleLife.cs" />
      <Compile Include="Assets\Scripts\Common\EventManager.cs" />
      <Compile Include="Assets\Scripts\Common\ObjectPool.cs" />
@@ -52,6 +54,7 @@
      <Compile Include="Assets\Scripts\Common\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Common\Timer.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyLife.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyType.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />

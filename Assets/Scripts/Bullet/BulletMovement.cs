@@ -6,13 +6,11 @@ public class BulletMovement : MonoBehaviour {
 	public float speed=10;
 	public int attack=10;
 
-	public GameObject otherBullet;
-
 	Vector3 initialPosition;
 
 	// Use this for initialization
 	void Start () {
-		initialPosition = transform.position;
+		//initialPosition = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -27,9 +25,9 @@ public class BulletMovement : MonoBehaviour {
 
 		if (other.tag == "Enemy") {
 
-			other.GetComponent<EnemyLife>().decreaseLife(attack);
+			other.GetComponent<EnemyLife> ().decreaseLife (attack);
 
-			this.gameObject.SetActive (false);
+			gameObject.SetActive (false);
 
 
 		}
@@ -37,14 +35,14 @@ public class BulletMovement : MonoBehaviour {
 	
 	}
 
+
+
 	void OnDisable() {
 
-		transform.position = initialPosition;
-		otherBullet.SetActive (true);
+		//initialPosition = transform.position;
 
 
 	}
-
 
 
 }

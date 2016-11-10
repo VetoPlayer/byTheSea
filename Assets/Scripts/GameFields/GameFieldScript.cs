@@ -13,8 +13,12 @@ public class GameFieldScript : MonoBehaviour {
 	
 	}
 
-	void OnTriggerExit2D(Collider2D other){
+	void OnTriggerEnter2D(Collider2D other){
+		Debug.Log (other.GetType ());
+	}
 
+	void OnTriggerExit2D(Collider2D other){
+		Debug.Log ("bullet exit");
 		other.gameObject.SetActive (false);
 
 	}

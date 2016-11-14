@@ -62,6 +62,8 @@
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\TilePosition.cs" />
      <Compile Include="Assets\Scripts\GameFields\GameFieldScript.cs" />
+     <Compile Include="Assets\Scripts\Grid\Grid.cs" />
+     <Compile Include="Assets\Scripts\Grid\Tile.cs" />
      <Compile Include="Assets\Scripts\Inventory\Crafter.cs" />
      <Compile Include="Assets\Scripts\Inventory\ResourceButton.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourcesEnum.cs" />

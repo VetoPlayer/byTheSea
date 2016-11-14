@@ -14,11 +14,11 @@ public class Spawner : MonoBehaviour {
 
 	//Positions at which the Enemies will be spawned. 
 	[Header("Spawn Positions")]
-	public GameObject m_top;
-	public GameObject m_middle;
-	public GameObject m_bottom;
-
-
+	public GameObject m_first_lane;
+	public GameObject m_second_lane;
+	public GameObject m_third_lane;
+	public GameObject m_fourth_lane;
+	public GameObject m_fifth_lane;
 
 
 	// Use this for initialization
@@ -53,15 +53,20 @@ public class Spawner : MonoBehaviour {
 			string enemy_name = enemies[i].m_type.ToString ();
 			GameObject go = ObjectPoolingManager.Instance.GetObject (enemy_name);
 			//The enemy is spawns at the specified position, usinge the three (but possibily more) children of Spawner GameObject:
-			if(enemies[i].m_spawn_position.Equals(TilePosition.Top))
-				go.transform.position = m_top.transform.position;
+			if(enemies[i].m_spawn_position.Equals(TilePosition.FirstLane))
+				go.transform.position = m_first_lane.transform.position;
 			else
-				if(enemies[i].m_spawn_position.Equals(TilePosition.Middle))
-					go.transform.position = m_middle.transform.position;
+				if(enemies[i].m_spawn_position.Equals(TilePosition.SecondLane))
+					go.transform.position = m_second_lane.transform.position;
 				else
-					if(enemies[i].m_spawn_position.Equals(TilePosition.Bottom))
-						go.transform.position= m_bottom.transform.position;
-				
+					if(enemies[i].m_spawn_position.Equals(TilePosition.ThirdLane))
+						go.transform.position= m_third_lane.transform.position;
+					else
+						if(enemies[i].m_spawn_position.Equals(TilePosition.FourthLane))
+							go.transform.position= m_fourth_lane.transform.position;
+						else
+							if(enemies[i].m_spawn_position.Equals(TilePosition.FifthLane))
+								go.transform.position= m_fifth_lane.transform.position;
 			//No matter what, the rotation is always the Quaternion Identity
 			go.transform.rotation = Quaternion.identity;
 		}

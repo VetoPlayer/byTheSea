@@ -44,7 +44,8 @@ public class EnemyMovement : MonoBehaviour {
 
 	public void CallPlatform(){
 		//make the change of the scene
-		Debug.Log("DEFENSE BREACHED");
+		//Debug.Log("DEFENSE BREACHED");
+		EventManager.TriggerEvent("PassToPlatformScene");
 	}
 
 

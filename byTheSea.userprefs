@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Grid\Grid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Enemy\Spawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\Grid\Grid.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\Grid\kjb.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\Enemy\Spawner.cs" Line="39" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

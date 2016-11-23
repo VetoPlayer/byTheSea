@@ -15,11 +15,11 @@ public class RowManager : MonoBehaviour {
 	
 	}
 	public void setBM(BulletManager bulman){
-		bm = bulman;
+		//bm = bulman;
 	}
 
 	void OnDisable(){
-		bm.decrease ();
+		//bm.decrease ();
 	}
 
 }

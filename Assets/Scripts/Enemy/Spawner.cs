@@ -7,8 +7,7 @@ public class Spawner : MonoBehaviour {
 	[Header("Waves Scriptable Objects")]
 	public Wave[] m_waves;
 
-	[Header ("Enemies Prefabs")]
-	public GameObject m_super_enemy;
+	// Remark: since the spawner reads directly form the Scriptableobject what kind of enemy to spawn, it doesn't require any prefab
 
 	private int current_level=0;
 
@@ -23,8 +22,7 @@ public class Spawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Instantiates all enemies when created with the object pooling manager
-		ObjectPoolingManager.Instance.CreatePool(m_super_enemy, 100 ,100);
+		
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
 
@@ -33,6 +31,9 @@ public class Spawner : MonoBehaviour {
 
 	//Spawns the enemies at each new wave!
 	void Spawn(){
+		//At the beginning of each new wave a certain number of water shoul be randomically dropped over the grid
+
+
 		//Takes the subwaves from the current wave
 		Subwave[] subwav = m_waves[current_level].m_subwaves;
 		float wait_time = 0f;

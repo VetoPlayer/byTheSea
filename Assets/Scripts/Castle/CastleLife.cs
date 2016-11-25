@@ -20,17 +20,12 @@ public class CastleLife : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		Debug.Log ("hit");
 		currentLife = currentLife - attack;
 		if (currentLife <= 0) {
 			//death procedure
 			death ();
 			return true;
 		} else {
-			Debug.Log (currentLife/ initialLife);
-			float newx = currentLife / initialLife;
-			float newy = currentLife / initialLife;
-			transform.localScale = new Vector3 (newx, newy, 1);
 			return false;
 		}
 	}

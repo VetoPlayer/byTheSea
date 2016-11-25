@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour {
 
 	public float speed=1f;
+	public float speedUpTimes=3;
 
 
 	// Use this for initialization
@@ -19,7 +20,35 @@ public class EnemyMovement : MonoBehaviour {
 		transform.position = transform.position + dir * speed * Time.deltaTime;
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
 
+		if (other.tag == "Castle") {
+			Debug.Log ("CASTLE HIT"+ other.gameObject.GetComponent<CastleLife> ());
+			this.GetComponent<EnemyAttack>().setTargetAttack(other.gameObject.GetComponent<CastleLife> ());
+			this.GetComponent<EnemyAttack> ().enabled = true;
+			this.GetComponent<EnemyMovement> ().enabled = false;
+		}
+		if(other.tag == "RageArea"){
+			speed = speed * speedUpTimes; 
+			
+		}
+		if (other.tag == "SensitiveArea") {
+
+
+			// HERE CALL THE CHANGE OF THE GAMPLAY SCENE
+			CallPlatform();
+
+
+		}
+
+	}
+
+	public void CallPlatform(){
+		//make the change of the scene
+		//Debug.Log("DEFENSE BREACHED");
+		EventManager.TriggerEvent("PassToPlatformScene");
+	}
 
 
 }
+

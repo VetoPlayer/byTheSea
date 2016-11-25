@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - crafter
+=======
+  - Castle
+  - RageArea
+  - SensitiveArea
+  - Enemy
+>>>>>>> 96a13bc7097011c3dc78a7181c279b63d54ffd07
   layers:
   - Default
   - TransparentFX
@@ -14,9 +21,15 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - crafter
   - 
   - 
+=======
+  - Enemy
+  - Castle
+  - Background
+>>>>>>> 96a13bc7097011c3dc78a7181c279b63d54ffd07
   - 
   - 
   - 

@@ -3,8 +3,10 @@ using System.Collections;
 
 public enum TilePosition {
 
-	Top,
-	Middle,
-	Bottom
+	FirstLane,
+	SecondLane,
+	ThirdLane,
+	FourthLane,
+	FifthLane
 
 }

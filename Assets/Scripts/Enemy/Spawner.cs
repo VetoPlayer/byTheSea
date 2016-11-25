@@ -7,24 +7,22 @@ public class Spawner : MonoBehaviour {
 	[Header("Waves Scriptable Objects")]
 	public Wave[] m_waves;
 
-	[Header ("Enemies Prefabs")]
-	public GameObject m_super_enemy;
+	// Remark: since the spawner reads directly form the Scriptableobject what kind of enemy to spawn, it doesn't require any prefab
 
 	private int current_level=0;
 
 	//Positions at which the Enemies will be spawned. 
 	[Header("Spawn Positions")]
-	public GameObject m_top;
-	public GameObject m_middle;
-	public GameObject m_bottom;
-
-
+	public GameObject m_first_lane;
+	public GameObject m_second_lane;
+	public GameObject m_third_lane;
+	public GameObject m_fourth_lane;
+	public GameObject m_fifth_lane;
 
 
 	// Use this for initialization
 	void Start () {
-		//Instantiates all enemies when created with the object pooling manager
-		ObjectPoolingManager.Instance.CreatePool(m_super_enemy, 100 ,100);
+		
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
 
@@ -33,6 +31,9 @@ public class Spawner : MonoBehaviour {
 
 	//Spawns the enemies at each new wave!
 	void Spawn(){
+		//At the beginning of each new wave a certain number of water shoul be randomically dropped over the grid
+
+
 		//Takes the subwaves from the current wave
 		Subwave[] subwav = m_waves[current_level].m_subwaves;
 		float wait_time = 0f;
@@ -53,15 +54,20 @@ public class Spawner : MonoBehaviour {
 			string enemy_name = enemies[i].m_type.ToString ();
 			GameObject go = ObjectPoolingManager.Instance.GetObject (enemy_name);
 			//The enemy is spawns at the specified position, usinge the three (but possibily more) children of Spawner GameObject:
-			if(enemies[i].m_spawn_position.Equals(TilePosition.Top))
-				go.transform.position = m_top.transform.position;
+			if(enemies[i].m_spawn_position.Equals(TilePosition.FirstLane))
+				go.transform.position = m_first_lane.transform.position;
 			else
-				if(enemies[i].m_spawn_position.Equals(TilePosition.Middle))
-					go.transform.position = m_middle.transform.position;
+				if(enemies[i].m_spawn_position.Equals(TilePosition.SecondLane))
+					go.transform.position = m_second_lane.transform.position;
 				else
-					if(enemies[i].m_spawn_position.Equals(TilePosition.Bottom))
-						go.transform.position= m_bottom.transform.position;
-				
+					if(enemies[i].m_spawn_position.Equals(TilePosition.ThirdLane))
+						go.transform.position= m_third_lane.transform.position;
+					else
+						if(enemies[i].m_spawn_position.Equals(TilePosition.FourthLane))
+							go.transform.position= m_fourth_lane.transform.position;
+						else
+							if(enemies[i].m_spawn_position.Equals(TilePosition.FifthLane))
+								go.transform.position= m_fifth_lane.transform.position;
 			//No matter what, the rotation is always the Quaternion Identity
 			go.transform.rotation = Quaternion.identity;
 		}

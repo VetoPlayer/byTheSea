@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - crafter
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - crafter
   - 
   - 
   - 
@@ -40,4 +41,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 4149924493
+    locked: 0
+  - name: Gameplay
+    uniqueID: 4232408873
+    locked: 0
+  - name: New Layer
+    uniqueID: 743942019
+    locked: 0
+  - name: New Layer
+    uniqueID: 1220469765
+    locked: 0
+  - name: New Layer
+    uniqueID: 1407486813
+    locked: 0
+  - name: New Layer
+    uniqueID: 476839347
     locked: 0

@@ -1,34 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// Crafter.
-/// It creates resources and stack them.
-/// Once resources are enough, it triggers the creation of objects.
-/// </summary>
 public class Crafter : MonoBehaviour {
+
+	[Header("Castle Spawn Point")]
+	public Transform m_castleSpawn;
 
 	// Use this for initialization
 	void Start () {
-		// Events to listen
-		EventManager.StartListening ("Spawn_" + ResourcesEnum.Sand.ToString (), spawnSand);
-		EventManager.StartListening ("Spawn_" + ResourcesEnum.Water.ToString (), spawnWater);
+		EventManager.StartListening ("Craft_BucketL1", craftCastleL1);
 	}
 	
 	// Update is called once per frame
-	void Update () {}
-
-	/// <summary>
-	/// Spawns the sand.
-	/// </summary>
-	private void spawnSand(){
-		Debug.Log ("Spawn Sand Command Received");
+	void Update () {
 	}
 
-	/// <summary>
-	/// Spawns the water.
-	/// </summary>
-	private void spawnWater(){
-		Debug.Log ("Spawn Water Command Received");
+	private void craftCastleL1(){
+		//this.animateCrafting ();
+		print ("spawning");
+		StartCoroutine(craftCastle(3,"L1")); 
+	}
+
+	IEnumerator craftCastle(float seconds, string castleType){
+		yield return new WaitForSeconds(seconds);
+
+		GameObject go = CastlesHandler.getInstance ().getCastle ("CastleL1");
+		go.transform.position = m_castleSpawn.position;
+		go.transform.rotation = Quaternion.identity;
+
+		print ("spawned");
+
 	}
 }

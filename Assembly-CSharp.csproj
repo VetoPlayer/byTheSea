@@ -45,7 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Buckets\BucketDragDrop.cs" />
+     <Compile Include="Assets\Scripts\Buckets\BucketPositionControl.cs" />
+     <Compile Include="Assets\Scripts\Buckets\CastleRecipe.cs" />
      <Compile Include="Assets\Scripts\Castle\CastleLife.cs" />
+     <Compile Include="Assets\Scripts\Common\DraggableBehaviour.cs" />
      <Compile Include="Assets\Scripts\Common\EventManager.cs" />
      <Compile Include="Assets\Scripts\Common\ObjectPool.cs" />
      <Compile Include="Assets\Scripts\Common\ObjectPoolingManager.cs" />
@@ -56,18 +60,23 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyType.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\TilePosition.cs" />
+     <Compile Include="Assets\Scripts\Handlers\BucketsHandler.cs" />
+     <Compile Include="Assets\Scripts\Handlers\CastlesHandler.cs" />
+     <Compile Include="Assets\Scripts\Handlers\ResourcesHandler.cs" />
+     <Compile Include="Assets\Scripts\Inventory\CastleButton.cs" />
      <Compile Include="Assets\Scripts\Inventory\Crafter.cs" />
+     <Compile Include="Assets\Scripts\Inventory\CrafterGraphic.cs" />
      <Compile Include="Assets\Scripts\Inventory\ResourceButton.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourcesEnum.cs" />
      <Compile Include="Assets\Scripts\Resources\ResourcesExtension.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Subwave.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Wave.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

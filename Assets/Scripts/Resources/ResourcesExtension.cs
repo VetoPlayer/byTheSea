@@ -12,7 +12,6 @@ public static class ResourcesExtension {
 	/// </summary>
 	/// <param name="r">The resource component.</param>
 	public static void fireSpawnEvent(this ResourcesEnum r){
-		Debug.Log ("Spawn_" + r.ToString ());
 		EventManager.TriggerEvent ("Spawn_" + r.ToString());
 	}
 }

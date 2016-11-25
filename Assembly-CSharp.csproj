@@ -78,6 +78,7 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\EnemySpawn.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Subwave.cs" />
      <Compile Include="Assets\Scripts\ScriptableObjects\Wave.cs" />
+     <Compile Include="Assets\Scripts\Utils\MessageClass.cs" />
      <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

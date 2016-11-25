@@ -4,29 +4,23 @@ using System.Collections;
 public class Tile : MonoBehaviour {
 
 
-	//USELESS!!! DELETE THIS SHIT
-//	[Header("Towers Prefab that the tile has to spawn")]
-//
-//	public GameObject m_archer_caste_prefab;
-//	public GameObject m_catapult_caste_prefab;
-//	public GameObject m_cannon_caste_prefab;
-//
-//	[Header("Traps Prefab that the tile has to spawn")]
-//
-//	//TODO: The sand hole can only be placed outside the shadow area
-//	public GameObject m_sand_hole_trap_prefab;
-//	public GameObject m_beach_ball_trap_prefab;
-
-	//Tile position, used to know where to pawn things
-
-
 	private Transform tr;
+
+	public bool free=true;
+
+
+
+
+
+	// Drop Prefab!
+	public GameObject m_water_drop_prefab;
+
+
 
 	// Use this for initialization
 	void Start () {
 		//The tile takes track of its own position such that it'll spawn buildings over itself
-		tr = GetComponent<Transform> ();
-		// The Tile needs to 
+		tr = GetComponent<Transform> (); 
 	
 	}
 	
@@ -66,9 +60,16 @@ public class Tile : MonoBehaviour {
 	// This methodsets water over the selected tile.
 	public void SetWater(){
 		//It should instantiate a water sprite!
-		Debug.Log("Water setted?");
+		Debug.Log("Water setted?! Bitch");
+		free = false;
+		Instantiate (m_water_drop_prefab, tr.position, Quaternion.identity);
 	
 	
+	}
+
+	public void IsFree(MessageClass args){
+		args.isfree = free;
+		return;
 	}
 
 }

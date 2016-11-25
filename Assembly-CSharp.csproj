@@ -58,10 +58,17 @@
      <Compile Include="Assets\Scripts\Common\SfxManager.cs" />
      <Compile Include="Assets\Scripts\Common\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Common\Timer.cs" />
+     <Compile Include="Assets\Scripts\Enemy\BulletResponse.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyLife.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyType.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Fish\EnemyLife.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Fish\ShieldResponse.cs" />
+     <Compile Include="Assets\Scripts\Enemy\HermitCrab\EnemyLifeHermitCrab.cs" />
+     <Compile Include="Assets\Scripts\Enemy\HermitCrab\ShieldResponseHermitCrab.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Octopus\EnemyLifeOctopus.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Octopus\ShieldResponseOctopus.cs" />
      <Compile Include="Assets\Scripts\Enemy\RowManager.cs" />
      <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemy\TilePosition.cs" />
@@ -80,6 +87,8 @@
      <Compile Include="Assets\Scripts\ScriptableObjects\Wave.cs" />
      <Compile Include="Assets\Scripts\Utils\MessageClass.cs" />
      <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
+     <Compile Include="Assets\scr.cs" />
+     <Compile Include="Assets\scrt.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

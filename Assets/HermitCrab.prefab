@@ -28,7 +28,7 @@ GameObject:
   - 114: {fileID: 114000011630486520}
   - 114: {fileID: 114000011106719216}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: HermitCrab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b985144b892b426b8b01a62977dd749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeRate: 0.3
 --- !u!114 &114000012507936536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62a8c017e33b449e9a0dfe27e0338c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeRate: 0.3
   initialLife: 100
 --- !u!212 &212000011721270472
 SpriteRenderer:

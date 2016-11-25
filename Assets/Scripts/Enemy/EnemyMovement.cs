@@ -23,9 +23,10 @@ public class EnemyMovement : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 
 		if (other.tag == "Castle") {
-			this.GetComponent<EnemyMovement> ().enabled = false;
-			this.GetComponent<EnemyAttack>().targetAttack = other.gameObject.GetComponent<CastleLife> ();
+			Debug.Log ("CASTLE HIT"+ other.gameObject.GetComponent<CastleLife> ());
+			this.GetComponent<EnemyAttack>().setTargetAttack(other.gameObject.GetComponent<CastleLife> ());
 			this.GetComponent<EnemyAttack> ().enabled = true;
+			this.GetComponent<EnemyMovement> ().enabled = false;
 		}
 		if(other.tag == "RageArea"){
 			speed = speed * speedUpTimes; 

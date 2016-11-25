@@ -15,18 +15,5 @@ public class FireRangeScript : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Enemy") {
-			gameObject.GetComponentInParent<BulletManager> ().encrease ();
-			other.gameObject.GetComponent<RowManager> ().setBM(gameObject.GetComponentInParent<BulletManager> ());
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D other){
-		
-		if (other.tag == "Enemy") {
-			gameObject.GetComponentInParent<BulletManager> ().decrease ();
-		}
-	}
 
 }

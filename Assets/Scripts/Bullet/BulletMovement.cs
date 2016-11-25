@@ -10,7 +10,7 @@ public class BulletMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//initialPosition = transform.position;
+		GetComponent<Animator> ().SetTrigger ("Fire");
 	}
 	
 	// Update is called once per frame
@@ -26,6 +26,8 @@ public class BulletMovement : MonoBehaviour {
 		if (other.tag == "Enemy") {
 
 			other.GetComponent<EnemyLife> ().decreaseLife (attack);
+			GetComponent<Animator> ().SetTrigger ("Destroy");
+			DoAnimation ();
 
 			gameObject.SetActive (false);
 
@@ -37,12 +39,11 @@ public class BulletMovement : MonoBehaviour {
 
 
 
-	void OnDisable() {
+		IEnumerator DoAnimation()
+		{
+			yield return new WaitForSeconds(200f); // wait for two seconds.
+		}
 
-		//initialPosition = transform.position;
-
-
-	}
 
 
 }

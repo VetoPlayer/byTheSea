@@ -26,9 +26,6 @@ public class CastleLife : MonoBehaviour {
 			death ();
 			return true;
 		} else {
-			float newx = currentLife / initialLife;
-			float newy = currentLife / initialLife;
-			transform.localScale = new Vector3 (newx, newy, 1);
 			return false;
 		}
 	}

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class BulletManager : MonoBehaviour {
 
-	int nEnemy;
 	float lastShot;
 	public float timeRange;
 	public GameObject bullet;
@@ -11,38 +10,43 @@ public class BulletManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		nEnemy = 0;
+		lastShot = Time.time;
 		ObjectPoolingManager.Instance.CreatePool (bullet, 100, 200);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (((Time.time - lastShot) >= timeRange) && fire ()) {
+
+
+
 			lastShot = Time.time;
 
 			GameObject b=ObjectPoolingManager.Instance.GetObject (bullet.name);
 			b.transform.position = fireSpot.transform.position;
 			b.transform.rotation = fireSpot.transform.rotation;
+
+			GetComponent<Animator> ().SetTrigger("Fire"); 
 			
 		}
 	
 	}
 
-	public void decrease(){
-		nEnemy = nEnemy - 1;
-		Debug.Log ("Encrease:" + nEnemy);
-	}
 
-	public void encrease(){
-		nEnemy = nEnemy + 1;
-		Debug.Log ("Encrease:" + nEnemy);
-		if (nEnemy == 1) {
-			lastShot = Time.time - timeRange;
-		}
-	}
+
 
 	public bool fire(){
-		return nEnemy > 0;
+
+		LayerMask EnemyLayer = 1 << LayerMask.NameToLayer("Enemy");
+		
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right, Mathf.Infinity, EnemyLayer);
+		if (hit.collider!=null) {
+			return true;
+
+		}
+
+		return false;
+
 	}
 
 

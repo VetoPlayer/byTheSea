@@ -5,7 +5,7 @@ public class EnemyAttack : MonoBehaviour {
 
 	public int damage=10;
 	public float damageSpawnTime;
-	public CastleLife targetAttack;
+	CastleLife targetAttack;
 
 
 
@@ -31,6 +31,11 @@ public class EnemyAttack : MonoBehaviour {
 		
 	
 	}
+
+	public void setTargetAttack(CastleLife target){
+		targetAttack = target;
+	}
+
 
 
 

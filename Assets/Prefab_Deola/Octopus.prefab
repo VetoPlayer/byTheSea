@@ -24,7 +24,6 @@ GameObject:
   - 61: {fileID: 61000012512100334}
   - 50: {fileID: 50000013880389292}
   - 114: {fileID: 114000012507936536}
-  - 114: {fileID: 114000011630486520}
   - 114: {fileID: 114000011106719216}
   - 114: {fileID: 114000012596870834}
   m_Layer: 8
@@ -103,18 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfShield: 4
---- !u!114 &114000011630486520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011720806472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b985144b892b426b8b01a62977dd749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  escapeRate: 0.3
 --- !u!114 &114000012507936536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec7868b8350f4eb9876c727979b4225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeRate: 0.3
   initialLife: 100
 --- !u!212 &212000011721270472
 SpriteRenderer:

@@ -21,28 +21,6 @@ public class BulletMovement : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other){
-
-		if (other.tag == "Enemy") {
-
-			other.GetComponent<EnemyLife> ().decreaseLife (attack);
-			GetComponent<Animator> ().SetTrigger ("Destroy");
-			DoAnimation ();
-
-			gameObject.SetActive (false);
-
-
-		}
-
-	
-	}
-
-
-
-		IEnumerator DoAnimation()
-		{
-			yield return new WaitForSeconds(200f); // wait for two seconds.
-		}
 
 
 

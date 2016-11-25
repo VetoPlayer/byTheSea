@@ -28,7 +28,7 @@ public class ShieldResponseOctopus : MonoBehaviour {
 			numberOfShield = numberOfShield - 1;
 			if (numberOfShield < 0) {
 				//LEVA L'ATTACCO
-				gameObject.GetComponent<BulletResponse> ().escapeRate = -0.1f;
+				gameObject.GetComponent<EnemyLife> ().escapeRate = 1.1f;
 			} else {
 				//CONTRATTACCO?????
 			}

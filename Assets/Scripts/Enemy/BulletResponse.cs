@@ -34,7 +34,7 @@ public class BulletResponse : MonoBehaviour {
 
 
 	public bool hit(){
-		if (Random.value < escapeRate)
+		if (Random.value > escapeRate)
 			return true;
 		else
 			return false;

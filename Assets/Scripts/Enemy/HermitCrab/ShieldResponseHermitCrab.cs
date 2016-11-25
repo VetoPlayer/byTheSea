@@ -29,7 +29,7 @@ public class ShieldResponseHermitCrab : MonoBehaviour {
 		if (shield > 0) {
 			shield = shield - attack;
 			if (shield < 0) {
-				gameObject.GetComponent<BulletResponse> ().escapeRate = -0.1f;
+				gameObject.GetComponent<EnemyLife> ().escapeRate = 1.1f;
 			}
 		}
 	}

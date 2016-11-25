@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyLifeHermitCrab : MonoBehaviour {
 
-
+	public float escapeRate=0.3f;
 	public int initialLife = 100;
 
 	int currentLife=100;
@@ -38,6 +38,39 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 		this.gameObject.SetActive (false);
 
 		//CALL SOMETHING??
+	}
+
+
+	void OnTriggerEnter2D(Collider2D other){
+
+		if (other.gameObject.tag == "Bullet") {
+			response( other.GetComponent<BulletMovement> ().attack, other.gameObject);
+		}
+
+	}
+
+
+	public void response(int attack, GameObject bullet){
+
+		if (hit ()) {
+			decreaseLife (attack);
+			bullet.SetActive (false);
+
+		} else {
+
+
+
+		}
+
+
+	}
+
+
+	public bool hit(){
+		if (Random.value > escapeRate)
+			return true;
+		else
+			return false;
 	}
 
 }

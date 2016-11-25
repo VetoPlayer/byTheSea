@@ -25,7 +25,6 @@ GameObject:
   - 50: {fileID: 50000013880389292}
   - 114: {fileID: 114000012507936536}
   - 114: {fileID: 114000013001018670}
-  - 114: {fileID: 114000011630486520}
   - 114: {fileID: 114000011106719216}
   m_Layer: 8
   m_Name: Fish
@@ -102,18 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1504b1025a354a04968ce0e869b0573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000011630486520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011720806472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b985144b892b426b8b01a62977dd749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  escapeRate: 0.3
 --- !u!114 &114000012507936536
 MonoBehaviour:
   m_ObjectHideFlags: 1

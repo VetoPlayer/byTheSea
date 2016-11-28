@@ -149,8 +149,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010909817892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.13, y: 1.04, z: 0}
-  m_LocalScale: {x: 2.3589277, y: 15.62831, z: 1}
+  m_LocalPosition: {x: 101.6, y: 13.7, z: 90}
+  m_LocalScale: {x: 33.315205, y: 122.77579, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013170781870}
@@ -199,13 +199,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_waves:
   - {fileID: 11400000, guid: e05000029226b774fb7abb035b5db1f6, type: 2}
-  m_super_enemy: {fileID: 1000011720806472, guid: 1d90cc397a8df425da66065a7f7f6fb3,
-    type: 2}
   m_first_lane: {fileID: 1000011474416852}
   m_second_lane: {fileID: 1000011999666318}
   m_third_lane: {fileID: 1000014132186880}
   m_fourth_lane: {fileID: 1000013697869150}
   m_fifth_lane: {fileID: 1000013081191868}
+  m_grid: {fileID: 0}
+  m_timer: {fileID: 0}
+  m_crabs: {fileID: 1000012571522658, guid: eb2a74bf20f11294186302a4da9d0d44, type: 2}
 --- !u!212 &212000013068844310
 SpriteRenderer:
   m_ObjectHideFlags: 1

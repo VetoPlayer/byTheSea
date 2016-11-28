@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Bullet
   - crafter
+  - SensitiveArea
+  - RageArea
+  - Castle
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - 
   - Enemy
   - crafter
-  - 
+  - Castle
   - 
   - 
   - 

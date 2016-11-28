@@ -26,9 +26,25 @@ GameObject:
   - 114: {fileID: 114000012507936536}
   - 114: {fileID: 114000011106719216}
   - 114: {fileID: 114000012596870834}
+  - 114: {fileID: 114000013239228070}
   m_Layer: 8
   m_Name: Octopus
   m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000013757991698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000012946504742}
+  m_Layer: 8
+  m_Name: InkFireSpot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,11 +56,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011720806472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.48, y: 4.32, z: 0}
+  m_LocalPosition: {x: 3.9, y: 4.01, z: 0}
   m_LocalScale: {x: 0.6151253, y: 0.6466991, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000012946504742}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000012946504742
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013757991698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010373897836}
   m_RootOrder: 0
 --- !u!50 &50000013880389292
 Rigidbody2D:
@@ -128,6 +158,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escapeRate: 0.3
   initialLife: 100
+--- !u!114 &114000013239228070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d3020c7cadb48e28846f479f68a5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkBullet: {fileID: 1000012759694830, guid: 68c0c7251e97247078dc7621579b1f7c, type: 2}
+  inkFireSpot: {fileID: 0}
+  timeRange: 1
 --- !u!212 &212000011721270472
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -157,7 +201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88d187062380742e6b694836e59422a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: febd589fc877349ce9129359159cdb5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

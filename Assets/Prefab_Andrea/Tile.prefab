@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.469999, y: 7.38, z: 0}
+  m_LocalPosition: {x: 4.750437, y: 0.48794353, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   free: 1
-  m_water_drop_prefab: {fileID: 0}
+  m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
+    type: 2}
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1

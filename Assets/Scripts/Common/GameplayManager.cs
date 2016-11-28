@@ -17,9 +17,14 @@ public class GameplayManager : MonoBehaviour {
 	public GameObject m_sand_hole_trap_prefab;
 	public GameObject m_beach_ball_trap_prefab;
 	[Header("Enemies")]
-	public GameObject m_crab_enemy;
+	public GameObject m_crab_prefab;
+
+
 	[Header("Tiles")]
 	public GameObject m_tile_prefab;
+
+	[Header("Others")]
+	public GameObject m_water_drop;
 
 
 
@@ -32,10 +37,16 @@ public class GameplayManager : MonoBehaviour {
 		EventManager.StartListening ("PassToPlatformScene", GoToPlatformScene);
 
 		//Instantiates all enemies when created with the object pooling manager
-		ObjectPoolingManager.Instance.CreatePool(m_crab_enemy, 50 ,50);
+		ObjectPoolingManager.Instance.CreatePool(m_crab_prefab, 20 , 20);
+		ObjectPoolingManager.Instance.CreatePool(m_water_drop, 20 , 20);
+
 		//TODO: PoolEverything
 
 
+		//TODO DELETE
+		GameObject go = ObjectPoolingManager.Instance.GetObject("Water");
+		//go.transform.position = tr.position;
+		//go.transform.rotation = Quaternion.identity;
 	}
 	
 	// Update is called once per frame

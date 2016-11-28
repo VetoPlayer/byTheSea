@@ -7,20 +7,6 @@ public class Grid : MonoBehaviour
 {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	[Header("Dimensions of the invisible grid")]
 	[Range(4, 18)]
 	public static int m_columns = 8;                                     
@@ -33,8 +19,12 @@ public class Grid : MonoBehaviour
 
 
 
-	[Header("Tile Prefab")]
-	public GameObject m_tile_prefab;                              
+	//TODO To delete
+	public GameObject m_water;
+
+
+
+                              
 
 	// Light Part of the grid
 	public List<GameObject> m_light_grid = new List<GameObject> ();
@@ -44,7 +34,6 @@ public class Grid : MonoBehaviour
 
 
 	void Start () {
-		spawnRandomWater (2);
 	}
 
 	// Update is called once per frame
@@ -59,12 +48,13 @@ public class Grid : MonoBehaviour
 
 	// Water is spawned only on the light part!
 	public void spawnRandomWater(int water_units){
-		int randomIndex = Random.Range (0,m_light_grid.Count);
-		Debug.Log (randomIndex);
-		MessageClass args = new MessageClass ();
-		m_light_grid [randomIndex].SendMessage ("IsFree", args);
-		if (args.isfree) {
-			m_light_grid [randomIndex].SendMessage ("SetWater");
+		for(int i=0; i < water_units; i++){
+			int randomIndex = Random.Range (0,m_light_grid.Count);
+			MessageClass args = new MessageClass ();
+			m_light_grid [randomIndex].SendMessage ("IsFree", args);
+			if (args.isfree) {
+				m_light_grid [randomIndex].SendMessage ("SetWater");
+			}
 		}
 	}
 

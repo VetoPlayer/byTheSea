@@ -6,21 +6,19 @@ public class Tile : MonoBehaviour {
 
 	private Transform tr;
 
-	public bool free=true;
+	private bool free=true;
 
-
-
-
-
-	// Drop Prefab!
-	public GameObject m_water_drop_prefab;
-
-
+	public GameObject m_my_tile_water;
 
 	// Use this for initialization
 	void Start () {
 		//The tile takes track of its own position such that it'll spawn buildings over itself
 		tr = GetComponent<Transform> (); 
+
+
+
+		// I don't like IT! It seems it's the only way
+		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
 	
 	}
 	
@@ -35,18 +33,6 @@ public class Tile : MonoBehaviour {
 		// The tile accesses to the global variable to see if there is a building
 		// BuildableEnum building_to_build = GlobalVariables.instance.GetBuilding();
 
-//
-//		if (building_to_build != BuildableEnum.NoBuilding) {
-//			GameObject go = ObjectPoolingManager.Instance.GetObject (building_to_build.ToString ());
-//			go.transform.position = tr.transform.position;
-//		}
-	
-
-		//Here a control has to be performed: the tile has to understand what kind of tower or trap needs to be spawned.
-		//Boolean global variables?
-		//TODO: You need a gameobject pool of castles and traps
-//		Instantiate(m_archer_caste_prefab,
-
 
 
 	}
@@ -60,9 +46,12 @@ public class Tile : MonoBehaviour {
 	// This methodsets water over the selected tile.
 	public void SetWater(){
 		//It should instantiate a water sprite!
-		Debug.Log("Water setted?! Bitch");
+
 		free = false;
-		Instantiate (m_water_drop_prefab, tr.position, Quaternion.identity);
+		GameObject go = ObjectPoolingManager.Instance.GetObject("Water");
+		go.transform.position = tr.position;
+		go.transform.rotation = Quaternion.identity;
+		Debug.Log("Water setted?! Lo spero!");
 	
 	
 	}

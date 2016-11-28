@@ -20,18 +20,31 @@ public class Spawner : MonoBehaviour {
 	public GameObject m_fifth_lane;
 
 
+	[Header("Grid Reference")]
+	public GameObject m_grid;
+
+	[Header("Timer Reference")]
+	public GameObject m_timer;
+
+
 	// Use this for initialization
 	void Start () {
 		
+
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
-
+		// For the very first time, it triggers itself
+		Spawn();
 	
 	}
 
-	//Spawns the enemies at each new wave!
+	//Spawns the enemies at each new wave! !!!!WARNING!!!! It's really easy to go outofindex. TODO: implement a control
 	void Spawn(){
-		//At the beginning of each new wave a certain number of water shoul be randomically dropped over the grid
+		//At the beginning of each new wave a certain number of water are randomically dropped over the grid
+		m_grid.SendMessage("spawnRandomWater", m_waves[current_level].n_water_drops);
+
+		//Call the timer to keep track of the time for the next wave 
+		m_timer.SendMessage("StartTiming", m_waves[current_level].wave_time);
 
 
 		//Takes the subwaves from the current wave

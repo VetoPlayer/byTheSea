@@ -18,6 +18,17 @@ public class ResourcesHandler : MonoBehaviour {
 	/// </summary>
 	public Text m_waterText;
 
+	[Header("Starting resources quantity"), Range(0,100)]
+	/// <summary>
+	/// The starting sand count.
+	/// </summary>
+	public int m_startingSand;
+	/// <summary>
+	/// The starting water count.
+	/// </summary>
+	[Range(0,999)]
+	public int m_startingWater;
+
 	[Header("Maximum resources quantity"), Range(0,999)]
 	/// <summary>
 	/// The max sand count.
@@ -66,6 +77,10 @@ public class ResourcesHandler : MonoBehaviour {
 		// Events to listen
 		EventManager.StartListening ("Spawn_" + ResourcesEnum.Sand.ToString (), spawnSand);
 		EventManager.StartListening ("Spawn_" + ResourcesEnum.Water.ToString (), spawnWater);
+
+		// Setting counters:
+		this.sandCounter = this.m_startingSand;
+		this.waterCounter = this.m_startingWater;
 
 		// update label text
 		this.updateLabels ();

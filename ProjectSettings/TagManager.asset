@@ -22,7 +22,7 @@ TagManager:
   - Enemy
   - crafter
   - Castle
-  - 
+  - Grid
   - 
   - 
   - 
@@ -50,6 +50,15 @@ TagManager:
   - name: UI
     uniqueID: 3492943905
     locked: 0
+  - name: Grid
+    uniqueID: 2069410497
+    locked: 0
+  - name: Enemies
+    uniqueID: 11472899
+    locked: 0
   - name: Gameplay
     uniqueID: 4029950623
+    locked: 0
+  - name: Objects
+    uniqueID: 1017536363
     locked: 0

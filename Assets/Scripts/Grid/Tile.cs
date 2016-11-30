@@ -51,11 +51,6 @@ public class Tile : MonoBehaviour {
 		EventManager.StartListening ("CannonCastle",setCannonCastle);
 		EventManager.StartListening ("BaseCastle",setBaseCastle);
 
-		//TESTS By ME!!
-
-
-		EventManager.TriggerEvent ("ArcherCastle");
-
 	}
 	
 	// Update is called once per frame
@@ -97,6 +92,8 @@ public class Tile : MonoBehaviour {
 		//It should instantiate a water sprite!
 	
 		free = false;
+		//WATER
+		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
 		go.transform.position = tr.position;
 		go.transform.rotation = Quaternion.identity;

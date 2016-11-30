@@ -53,7 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sandText: {fileID: 0}
   m_waterText: {fileID: 0}
-  m_startingSand: 10
-  m_startingWater: 0
   m_maxSand: 999
   m_maxWater: 999

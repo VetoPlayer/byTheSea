@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013819366050}
   - 212: {fileID: 212000010395402362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - 50: {fileID: 50000011528385910}
   - 114: {fileID: 114000010123328112}
   - 114: {fileID: 114000012354306626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArrowCastle
   m_TagString: Castle
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013502055248}
   - 212: {fileID: 212000010789576758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012952327924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Firespot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

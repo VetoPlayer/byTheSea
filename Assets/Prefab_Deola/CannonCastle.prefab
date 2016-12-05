@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013343445910}
   - 212: {fileID: 212000013457373302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012827876502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Firespot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010801710572}
   - 212: {fileID: 212000010237401390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - 50: {fileID: 50000014029521100}
   - 114: {fileID: 114000012147854260}
   - 114: {fileID: 114000010729716458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CannonCastle
   m_TagString: Castle
   m_Icon: {fileID: 0}

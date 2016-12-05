@@ -10,6 +10,13 @@ TagManager:
   - SensitiveArea
   - RageArea
   - Castle
+  - moving_point
+  - tile
+  - jump_point
+  - double_jump_point
+  - platform
+  - climb_point
+  - stop_climb_point
   layers:
   - Default
   - TransparentFX
@@ -61,4 +68,7 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 1017536363
+    locked: 0
+  - name: Platform
+    uniqueID: 2944891685
     locked: 0

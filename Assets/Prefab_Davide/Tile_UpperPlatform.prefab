@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012647495574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.831, y: -4.5359, z: 0}
+  m_LocalPosition: {x: -58.6, y: 1.1, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2.3077698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -145,8 +145,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 2.4836423, y: 2.4778237}
-  - {x: 2.4796407, y: 1.2752075}
+  - {x: 2.47626, y: 2.4696865}
+  - {x: 2.4626465, y: 1.2715783}
 --- !u!114 &114000012744643170
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,6 +21,8 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	private Transform tr;
 	private Rigidbody2D rb2d;
 
+	private float gravityScale;
+
 	private bool targetAcquired;
 	private bool moving;
 	private bool climbing;
@@ -36,14 +38,17 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		this.rb2d = this.gameObject.GetComponent<Rigidbody2D> () as Rigidbody2D;
 		this.direction = Vector3.left;
 		this.tr.position = this.m_spawnPoint.position;
+
+		this.gravityScale = this.rb2d.gravityScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (moving)
+		if (moving) {
 			this.tr.position = this.tr.position + this.m_walkingSpeed * this.direction;
-		else if (climbing)
+		} else if (climbing) {
 			this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.up;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -54,13 +59,7 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 		// SIMPLE MOVEMENT
 		if (other.gameObject.tag == "tile" || other.gameObject.tag == "moving_point") {
-			Point point = other.gameObject.GetComponent<Point> () as Point;
-			try{
-				this.target = point.getNextPoint ();
-				this.direction = this.setNewDirection(this.target);
-				print("next point: "+this.target.ToString());
-			}
-			catch(NoMorePointsException e){}
+			this.moveToNextPoint (other.gameObject.GetComponent<Point> () as Point);
 		}
 
 		// JUMP
@@ -78,8 +77,11 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		// LADDERS
 		if (other.gameObject.tag == "climb_point") {
 			this.toggleClimbing (true);
+			this.rb2d.gravityScale = 0f;
 		}
 		if (other.gameObject.tag == "stop_climb_point") {
+			this.rb2d.gravityScale = this.gravityScale;
+			this.moveToNextPoint (other.gameObject.GetComponent<Point> () as Point);
 			this.toggleClimbing (false);
 		}
 
@@ -88,11 +90,22 @@ public class EnemyPlatformWalk : MonoBehaviour {
 			this.flip ();
 		}
 
-
-
+		if (other.gameObject.tag == "treasure") {
+			this.moving = false;
+		}
+			
 		// TREASURE / FINAL GOAL REACTION
 
 		// ...
+	}
+
+	private void moveToNextPoint(Point p){
+		try{
+			this.target = p.getNextPoint ();
+			this.direction = this.setNewDirection(this.target);
+			print("next point: "+this.target.ToString()+" Direction: "+this.direction.ToString());
+		}
+		catch(NoMorePointsException e){}
 	}
 
 	private void toggleClimbing(bool climb){
@@ -115,6 +128,6 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	}
 
 	private Vector3 setNewDirection (Vector3 target){
-		return this.target.normalized;
+		return (target - this.tr.position).normalized;
 	}
 }

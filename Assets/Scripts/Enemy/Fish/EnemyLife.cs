@@ -25,7 +25,10 @@ public class EnemyLife : MonoBehaviour {
 
 	public bool decreaseLife(int attack){
 		
-		currentLife = currentLife - gameObject.GetComponent<ShieldResponse>().response( attack-armor );
+		int prev = currentLife;
+		currentLife = currentLife - ( attack-armor );
+		GetComponent < LifeBarManager>().UpdateBar (currentLife, initialLife);
+		lifeAnim ( currentLife, prev);
 		if (currentLife <= 0) {
 			//death procedure
 			death ();
@@ -75,6 +78,16 @@ public class EnemyLife : MonoBehaviour {
 			return true;
 		else
 			return false;
+	}
+
+
+	private void lifeAnim(int curr, int prev){
+		if (((prev > ((2f / 3) * initialLife)) && (curr <= ((2f / 3) * initialLife))) ||
+			((prev > ((1f / 3) * initialLife)) && (curr <= ((1f / 3) * initialLife)))) {
+			Animator animator = GetComponent<Animator> () as Animator;
+			animator.SetTrigger ("Damaged");
+		}
+
 	}
 
 

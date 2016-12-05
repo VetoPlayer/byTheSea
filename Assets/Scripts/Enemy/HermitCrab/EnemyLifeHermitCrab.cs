@@ -24,6 +24,7 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 	public bool decreaseLife(int attack){
 		prevLife = currentLife;
 		currentLife = currentLife - ( attack-armor );
+		GetComponent < LifeBarManager>().UpdateBar (currentLife, initialLife);
 		lifeAnim (currentLife, prevLife);
 		if (currentLife <= 0) {
 			//death procedure

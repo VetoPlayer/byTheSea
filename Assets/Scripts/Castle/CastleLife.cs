@@ -4,6 +4,7 @@ using System.Collections;
 public class CastleLife : MonoBehaviour {
 
 	public float initialLife=100;
+	public int armor = 10;
 
 	float currentLife;
 
@@ -20,7 +21,7 @@ public class CastleLife : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		currentLife = currentLife - attack;
+		currentLife = currentLife - (attack - armor);
 		if (currentLife <= 0) {
 			//death procedure
 			death ();

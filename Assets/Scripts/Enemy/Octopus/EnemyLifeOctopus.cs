@@ -5,6 +5,7 @@ public class EnemyLifeOctopus : MonoBehaviour {
 
 	public float escapeRate=0.3f;
 	public int initialLife = 100;
+	public int armor = 10;
 
 	int currentLife=100;
 
@@ -21,7 +22,7 @@ public class EnemyLifeOctopus : MonoBehaviour {
 
 	public bool decreaseLife(int attack){
 		
-		currentLife = currentLife - gameObject.GetComponent<ShieldResponseOctopus>().response( attack );
+		currentLife = currentLife - gameObject.GetComponent<ShieldResponseOctopus>().response( attack-armor );
 		if (currentLife <= 0) {
 			//death procedure
 			death ();

@@ -26,6 +26,7 @@ GameObject:
   - 114: {fileID: 114000012507936536}
   - 114: {fileID: 114000011106719216}
   - 114: {fileID: 114000013259468764}
+  - 95: {fileID: 95000013483613136}
   m_Layer: 8
   m_Name: HermitCrab
   m_TagString: Enemy
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011720806472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.81, y: 1.25, z: 90}
+  m_LocalPosition: {x: 11.562246, y: 1.9, z: 90}
   m_LocalScale: {x: 0.6151253, y: 0.6466991, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -74,9 +75,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.900063, y: 1.1208}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.666546, y: 8.237169}
+--- !u!95 &95000013483613136
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e567aab5b72ae4c939abb9e395224ea1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010186446792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d94a69f17bc4e2b964c3814651164e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: 30
+  shield: 0
 --- !u!114 &114000012507936536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escapeRate: 0.3
   initialLife: 100
+  armor: 0
 --- !u!212 &212000011721270472
 SpriteRenderer:
   m_ObjectHideFlags: 1

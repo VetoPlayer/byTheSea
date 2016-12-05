@@ -10,6 +10,7 @@ public class EnemyLife : MonoBehaviour {
 	public int initialLife = 100;
 
 	int currentLife=100;
+	public int armor = 10;
 
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class EnemyLife : MonoBehaviour {
 
 	public bool decreaseLife(int attack){
 		
-		currentLife = currentLife - gameObject.GetComponent<ShieldResponse>().response( attack );
+		currentLife = currentLife - gameObject.GetComponent<ShieldResponse>().response( attack-armor );
 		if (currentLife <= 0) {
 			//death procedure
 			death ();

@@ -28,7 +28,7 @@ public class ShieldResponseHermitCrab : MonoBehaviour {
 	public void decreaseShield(int attack){
 		if (shield > 0) {
 			shield = shield - attack;
-			if (shield < 0) {
+			if (shield <= 0) {
 				gameObject.GetComponent<EnemyLife> ().escapeRate = 1.1f;
 			}
 		}

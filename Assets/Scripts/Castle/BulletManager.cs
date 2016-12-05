@@ -26,7 +26,6 @@ public class BulletManager : MonoBehaviour {
 			b.transform.position = fireSpot.transform.position;
 			b.transform.rotation = fireSpot.transform.rotation;
 
-			GetComponent<Animator> ().SetTrigger("Fire"); 
 			
 		}
 	

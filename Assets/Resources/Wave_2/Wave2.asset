@@ -8,8 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a44955077d13943b663445e9f15de2, type: 3}
-  m_Name: EnemySecond
+  m_Script: {fileID: 11500000, guid: 8543bda1cf307be48be4cb998a9b430a, type: 3}
+  m_Name: Wave2
   m_EditorClassIdentifier: 
-  m_type: 0
-  m_spawn_position: 1
+  m_subwaves: []
+  wave_time: 20
+  n_water_drops: 2

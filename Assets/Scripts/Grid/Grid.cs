@@ -17,11 +17,8 @@ public class Grid : MonoBehaviour
 	// Number of columns of "shadowed" tiles
 	public int shadowed_area = 3;
 
-
-
-	//TODO To delete
+	//Instantiate all the water prefabs
 	public GameObject m_water;
-
 
 
                               
@@ -34,6 +31,8 @@ public class Grid : MonoBehaviour
 
 
 	void Start () {
+
+		ObjectPoolingManager.Instance.CreatePool (m_water,60,60);
 	}
 
 	// Update is called once per frame

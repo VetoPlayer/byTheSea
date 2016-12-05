@@ -149,8 +149,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010909817892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.6, y: 13.7, z: 90}
-  m_LocalScale: {x: 33.315205, y: 122.77579, z: 1}
+  m_LocalPosition: {x: 107.8, y: 11, z: 90}
+  m_LocalScale: {x: 27.387363, y: 114.87196, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013170781870}
@@ -204,9 +204,12 @@ MonoBehaviour:
   m_third_lane: {fileID: 1000014132186880}
   m_fourth_lane: {fileID: 1000013697869150}
   m_fifth_lane: {fileID: 1000013081191868}
-  m_grid: {fileID: 0}
-  m_timer: {fileID: 0}
-  m_crabs: {fileID: 1000012571522658, guid: eb2a74bf20f11294186302a4da9d0d44, type: 2}
+  m_grid: {fileID: 1000012078204526, guid: b8988c50183d1d342841f69f91b7c7e2, type: 2}
+  m_timer: {fileID: 1000011945814962, guid: 582358bf2b83efd47a75f44809c4a052, type: 2}
+  m_hermit_crab: {fileID: 1000011720806472, guid: 3629b839f87074eadb4f0e2e26d58680,
+    type: 2}
+  m_octopus: {fileID: 1000011720806472, guid: a622030104bcc480091fbae64bac1b42, type: 2}
+  m_fish: {fileID: 1000011720806472, guid: 660040014613045f3a2e9b5fbd79ecd8, type: 2}
 --- !u!212 &212000013068844310
 SpriteRenderer:
   m_ObjectHideFlags: 1

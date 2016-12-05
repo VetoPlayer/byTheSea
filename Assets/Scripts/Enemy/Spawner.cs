@@ -26,14 +26,24 @@ public class Spawner : MonoBehaviour {
 	[Header("Timer Reference")]
 	public GameObject m_timer;
 
-	[Header("Crabs!")]
-	public GameObject m_crabs;
+	[Header("HermitCrabs Prefab")]
+	public GameObject m_hermit_crab;
 
+	[Header("Octopus Prefab")]
+	public GameObject m_octopus;
+
+	[Header("Fish Prefab")]
+	public GameObject m_fish;
 
 	// Use this for initialization
 	void Start () {
-		//CRABS
-		ObjectPoolingManager.Instance.CreatePool (m_crabs,30,30);
+		//HERMITCRABS
+		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,30,30);
+		//OCTOPUS
+		ObjectPoolingManager.Instance.CreatePool (m_octopus,30,30);
+		//FISH
+		ObjectPoolingManager.Instance.CreatePool (m_fish,30,30);
+
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
 		// For the very first time, it triggers itself

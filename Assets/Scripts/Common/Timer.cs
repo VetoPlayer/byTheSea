@@ -18,7 +18,8 @@ public class Timer : MonoBehaviour {
 	IEnumerator StartTimingCoroutine(float waiting_time){
 		yield return new WaitForSeconds (waiting_time);
 
-		//TODO Check out for the event "NewWave"
+		// Todo: trigger the wave animation
+		Debug.Log ("A New Wave Arrives!");
 		EventManager.TriggerEvent ("NewWave");
 	}
 

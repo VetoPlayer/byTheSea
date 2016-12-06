@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012078204526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.50018, y: -240.55988, z: 0}
+  m_LocalPosition: {x: 291, y: 396, z: 125.3}
   m_LocalScale: {x: 13.476556, y: 11.34381, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -52,10 +52,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208a04e99380bd741981779d8ffe161e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadowed_area: 3
-  m_water: {fileID: 0}
+  shadowed_area: 4
+  m_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839, type: 2}
   m_light_grid: []
-  m_shadow_grid: []
+  m_shadow_grid:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &212000010892479394
 SpriteRenderer:
   m_ObjectHideFlags: 1

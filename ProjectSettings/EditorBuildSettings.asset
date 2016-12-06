@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/PlatformScene.unity
   - enabled: 1
     path: Assets/Scenes/Deola - TestScene.unity
+  - enabled: 1
+    path: Assets/Giulia/scene/TDmain.unity

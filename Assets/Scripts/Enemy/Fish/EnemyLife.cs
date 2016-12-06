@@ -41,10 +41,11 @@ public class EnemyLife : MonoBehaviour {
 
 	public void death (){
 
-		//CHANGE THIS, OR NOT
+		//Call for realeasing the sand
+		GetComponent <ReleaseSandOnDeath>().realeaseSand();
+		//Deactivates Itself
 		this.gameObject.SetActive (false);
 
-		//CALL SOMETHING??
 	}
 
 

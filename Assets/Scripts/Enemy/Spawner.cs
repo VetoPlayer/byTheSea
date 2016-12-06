@@ -32,8 +32,8 @@ public class Spawner : MonoBehaviour {
 	[Header("Octopus Prefab")]
 	public GameObject m_octopus;
 
-	[Header("Fish Prefab")]
-	public GameObject m_fish;
+	[Header("Crab Prefab")]
+	public GameObject m_crab;
 
 	// Use this for initialization
 	void Start () {
@@ -41,8 +41,8 @@ public class Spawner : MonoBehaviour {
 		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,30,30);
 		//OCTOPUS
 		ObjectPoolingManager.Instance.CreatePool (m_octopus,30,30);
-		//FISH
-		ObjectPoolingManager.Instance.CreatePool (m_fish,30,30);
+		//CRAB
+		ObjectPoolingManager.Instance.CreatePool (m_crab,30,30);
 
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
@@ -53,23 +53,29 @@ public class Spawner : MonoBehaviour {
 
 	//Spawns the enemies at each new wave! !!!!WARNING!!!! It's really easy to go outofindex. TODO: implement a control
 	void Spawn(){
-		//At the beginning of each new wave a certain number of water are randomically dropped over the grid
-		m_grid.SendMessage("spawnRandomWater", m_waves[current_level].n_water_drops);
+		if (current_level < m_waves.Length) {
+			//At the beginning of each new wave a certain number of water are randomically dropped over the grid
+			m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
 
-		//Call the timer to keep track of the time for the next wave 
-		m_timer.SendMessage("StartTiming", m_waves[current_level].wave_time);
+			//Call the timer to keep track of the time for the next wave 
+			m_timer.SendMessage ("StartTiming", m_waves [current_level].wave_time);
 
 
-		//Takes the subwaves from the current wave
-		Subwave[] subwav = m_waves[current_level].m_subwaves;
-		float wait_time = 0f;
-		for (int i = 0; i < subwav.Length; i++) {
-			wait_time = wait_time + subwav [i].m_spawn_time;
-			StartCoroutine (SpawnAtSubwave(wait_time, subwav[i].m_enemies));
+			//Takes the subwaves from the current wave
+			Subwave[] subwav = m_waves [current_level].m_subwaves;
+			float wait_time = 0f;
+			for (int i = 0; i < subwav.Length; i++) {
+				wait_time = wait_time + subwav [i].m_spawn_time;
+				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies));
+			}
+
+			//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
+			current_level++;
+		} else {
+			//Else repeat in a forever loop the very last 3 Levels!
+			current_level = current_level - 2;
+			Spawn ();
 		}
-
-		//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
-		current_level++;
 	}
 
 

@@ -3,15 +3,27 @@ using System.Collections;
 
 public class CastleSpawn : MonoBehaviour {
 
-	// Use this for initialization
+	[Header("Set Here The Kind of Tower Spawned")]
+
+	public BuildableEnum m_type= BuildableEnum.NoBuilding;
+
 	// Triggers the event used by the tiles in order to spawn the right objects.
-	void Start () {
-		EventManager.TriggerEvent ("ArcherCastle");
+	void OnEnable () {
+		if (m_type == BuildableEnum.ArcherTower) {
+			EventManager.TriggerEvent ("ArcherCastle");
+		}
+		if (m_type == BuildableEnum.CannonTower) {
+			EventManager.TriggerEvent ("CannonCastle");
+		}
+		if (m_type == BuildableEnum.CatapultTower) {
+			EventManager.TriggerEvent ("CatapultCastle");
+		}
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnDisable(){
+		EventManager.TriggerEvent ("StopBuilding");
+
 	}
+
 }

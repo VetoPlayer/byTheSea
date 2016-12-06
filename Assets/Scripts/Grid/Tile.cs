@@ -19,8 +19,6 @@ public class Tile : MonoBehaviour {
 	[Header("Cannon Castle")]
 	public GameObject m_cannon_castle_prefab;
 
-	[Header("Base Castle")]
-	public GameObject m_base_castle_prefab;
 
 
 	private bool creative_mode = false;
@@ -30,7 +28,7 @@ public class Tile : MonoBehaviour {
 	// Tower instance that is being previewed
 	private GameObject tower_preview;
 
-	//Tower insance that has been built so far
+	//Tower instance that has been built so far
 	private GameObject tower_built;
 
 
@@ -41,21 +39,23 @@ public class Tile : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		//The tile takes track of its own position such that it'll spawn buildings over itself
 
 
 		//WATER
-		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
+		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50, 50);
 
 		// ArcherCastle
+		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 50, 50);
 
-		ObjectPoolingManager.Instance.CreatePool ( m_archer_castle_prefab, 50,50);
+		// Cannon Castle
+		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
 
 
-		EventManager.StartListening ("ArcherCastle",setArcherCastle);
-		EventManager.StartListening ("CannonCastle",setCannonCastle);
-		EventManager.StartListening ("BaseCastle",setBaseCastle);
+		EventManager.StartListening ("ArcherCastle", setArcherCastle);
+		EventManager.StartListening ("CannonCastle", setCannonCastle);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 	}
@@ -68,11 +68,20 @@ public class Tile : MonoBehaviour {
 	// Here The Single Tile has to spawn an image over itself (to be setted s its son)
 	void OnMouseOver(){
 		if (displaying_in_prevew == false && free == true && creative_mode == true && castle_to_build != BuildableEnum.NoBuilding) {
-			string castle_name = castle_to_build.ToString ();
-			GameObject go = ObjectPoolingManager.Instance.GetObject (castle_name);
-			go.transform.position = tr.transform.position;
-			go.transform.rotation = Quaternion.identity;
-			tower_preview = go;
+			if (castle_to_build == BuildableEnum.ArcherTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+				tower_preview = go;
+			}
+			if (castle_to_build == BuildableEnum.CannonTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+				tower_preview = go;
+			}
+
+
 			displaying_in_prevew = true;
 		}
 			
@@ -98,7 +107,7 @@ public class Tile : MonoBehaviour {
 
 	//Puts every tile off the creative mode
 	public void setStopBuilding(){
-
+		castle_to_build = BuildableEnum.NoBuilding;
 		creative_mode = false;
 
 	}
@@ -117,7 +126,7 @@ public class Tile : MonoBehaviour {
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
 		go.transform.parent = this.gameObject.transform;
-		go.transform.position = new Vector3(tr.position.x, tr.position.y, 89f);
+		go.transform.position = new Vector3(tr.position.x, tr.position.y, 89f);//TODO!! Discuss tomorrow with Giulia
 		go.transform.rotation = Quaternion.identity;
 
 	
@@ -129,15 +138,14 @@ public class Tile : MonoBehaviour {
 		return;
 	}
 
-
-	private void setBaseCastle(){
-		//TODO
+	public bool IsFree(){
+		return free;
 	}
 
 
 	private void setArcherCastle(){
 		creative_mode = true;
-		castle_to_build = BuildableEnum.ArcherTower;
+		castle_to_build = BuildableEnum.ArcherTower;	
 	}
 
 

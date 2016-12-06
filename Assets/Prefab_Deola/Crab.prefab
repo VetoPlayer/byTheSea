@@ -45,7 +45,7 @@ GameObject:
   - 95: {fileID: 95000012244061036}
   - 114: {fileID: 114000012631863150}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Crab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

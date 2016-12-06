@@ -23,14 +23,12 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 	private float gravityScale;
 
-	private bool targetAcquired;
 	private bool moving;
 	private bool climbing;
 	private bool jumping;
 
 	// Use this for initialization
 	void Start () {
-		this.targetAcquired = false;
 		this.moving = true;
 		this.climbing = false;
 		this.jumping = false;
@@ -129,5 +127,9 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 	private Vector3 setNewDirection (Vector3 target){
 		return (target - this.tr.position).normalized;
+	}
+
+	public Vector3 getMovingDirection(){
+		return this.direction;
 	}
 }

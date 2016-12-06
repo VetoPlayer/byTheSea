@@ -54,8 +54,8 @@ public class CastleButton : MonoBehaviour {
 
 		// It directly triggers the event in order to make the Crafter begin "crafting" the castle
 		EventManager.TriggerEvent ("Craft_" + m_type.ToString());
-		//TODO: Remove it!!
-		Debug.Log("Craft_" + m_type.ToString());
+
+		//Debug.Log("Craft_" + m_type.ToString());
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

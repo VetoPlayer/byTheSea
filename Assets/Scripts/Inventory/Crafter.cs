@@ -24,7 +24,7 @@ public class Crafter : MonoBehaviour {
 		EventManager.StartListening ("Craft_ArcherTower", craftArcherTower);
 
 		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 5,5);
-		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 5, 5);
+		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 5,5);
 
 
 	}
@@ -35,7 +35,6 @@ public class Crafter : MonoBehaviour {
 
 	private void craftCannonTower(){
 		//this.animateCrafting ();
-		print ("spawning");
 		StartCoroutine(craftCastle(m_time_cannon,m_cannon_castle_prefab.name)); 
 	}
 

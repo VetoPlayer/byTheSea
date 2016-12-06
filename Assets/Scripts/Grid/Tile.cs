@@ -90,6 +90,7 @@ public class Tile : MonoBehaviour {
 	void OnMouseUp(){
 		tower_built = tower_preview;
 		free = false;
+		Debug.Log ("Tower Built and placed over the tile!");
 	}
 		
 		

@@ -8,7 +8,8 @@ public class AdjRes : MonoBehaviour {
 		Resolution[] resolutions = Screen.resolutions;
 		print ("RESOLUTION:");
 		print(Screen.currentResolution);
-		Screen.SetResolution(resolutions[2].width, resolutions[2].height, true);
+		print (resolutions [8]);
+		Screen.SetResolution(resolutions[8].width, resolutions[8].height, true);
 		print(Screen.currentResolution);
 	}
 

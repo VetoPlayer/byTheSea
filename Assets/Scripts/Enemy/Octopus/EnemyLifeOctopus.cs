@@ -5,6 +5,7 @@ public class EnemyLifeOctopus : MonoBehaviour {
 
 	public float escapeRate=0.3f;
 	public int initialLife = 100;
+	public int armor = 10;
 
 	int currentLife=100;
 
@@ -20,8 +21,10 @@ public class EnemyLifeOctopus : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		
-		currentLife = currentLife - gameObject.GetComponent<ShieldResponseOctopus>().response( attack );
+		int prev = currentLife;
+		currentLife = currentLife - ( attack-armor );
+		GetComponent < LifeBarManager>().UpdateBar (currentLife, initialLife);
+		lifeAnim ( currentLife, prev);
 		if (currentLife <= 0) {
 			//death procedure
 			death ();
@@ -70,6 +73,16 @@ public class EnemyLifeOctopus : MonoBehaviour {
 			return true;
 		else
 			return false;
+	}
+
+
+	private void lifeAnim(int curr, int prev){
+		if (((prev > ((2f / 3) * initialLife)) && (curr <= ((2f / 3) * initialLife))) ||
+			((prev > ((1f / 3) * initialLife)) && (curr <= ((1f / 3) * initialLife)))) {
+			Animator animator = GetComponent<Animator> () as Animator;
+			animator.SetTrigger ("Damaged");
+		}
+
 	}
 
 }

@@ -6,7 +6,9 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 	public float escapeRate=0.3f;
 	public int initialLife = 100;
 
+	int prevLife;
 	int currentLife=100;
+	public int armor = 0;
 
 
 	// Use this for initialization
@@ -20,8 +22,10 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		
-		currentLife = currentLife - gameObject.GetComponent<ShieldResponseHermitCrab>().response( attack );
+		prevLife = currentLife;
+		currentLife = currentLife - ( attack-armor );
+		GetComponent < LifeBarManager>().UpdateBar (currentLife, initialLife);
+		lifeAnim (currentLife, prevLife);
 		if (currentLife <= 0) {
 			//death procedure
 			death ();
@@ -34,10 +38,22 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 	public void death (){
 
+		Animator animator = GetComponent<Animator> () as Animator;
+		animator.SetTrigger ("Death");
+
 		//CHANGE THIS, OR NOT
 		this.gameObject.SetActive (false);
 
 		//CALL SOMETHING??
+	}
+
+	private void lifeAnim(int curr, int prev){
+		if (((prev > ((2f / 3) * initialLife)) && (curr <= ((2f / 3) * initialLife))) ||
+		    ((prev > ((1f / 3) * initialLife)) && (curr <= ((1f / 3) * initialLife)))) {
+				Animator animator = GetComponent<Animator> () as Animator;
+				animator.SetTrigger ("Damaged");
+		}
+		
 	}
 
 
@@ -69,8 +85,12 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 	public bool hit(){
 		if (Random.value > escapeRate)
 			return true;
-		else
+		else {
+			Animator animator = GetComponent<Animator>() as Animator;
+			animator.SetTrigger("Hide");
 			return false;
+
+		}
 	}
 
 }

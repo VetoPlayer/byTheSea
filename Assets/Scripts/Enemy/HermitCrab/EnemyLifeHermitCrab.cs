@@ -41,10 +41,26 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 		Animator animator = GetComponent<Animator> () as Animator;
 		animator.SetTrigger ("Death");
 
+<<<<<<< HEAD
 		//CHANGE THIS, OR NOT
+=======
+		//Call for realeasing the sand
+		GetComponent <ReleaseSandOnDeath>().realeaseSand();
+
+		//Deactivates Itself
+>>>>>>> 8e395b1b81f45c9d77e3f4cb1cd7a6003cd6d80f
 		this.gameObject.SetActive (false);
 
-		//CALL SOMETHING??
+
+	}
+
+	private void lifeAnim(int curr, int prev){
+		if (((prev > ((2f / 3) * initialLife)) && (curr <= ((2f / 3) * initialLife))) ||
+		    ((prev > ((1f / 3) * initialLife)) && (curr <= ((1f / 3) * initialLife)))) {
+				Animator animator = GetComponent<Animator> () as Animator;
+				animator.SetTrigger ("Damaged");
+		}
+		
 	}
 
 	private void lifeAnim(int curr, int prev){

@@ -209,7 +209,7 @@ MonoBehaviour:
   m_hermit_crab: {fileID: 1000011720806472, guid: 3629b839f87074eadb4f0e2e26d58680,
     type: 2}
   m_octopus: {fileID: 1000011720806472, guid: a622030104bcc480091fbae64bac1b42, type: 2}
-  m_fish: {fileID: 1000011720806472, guid: 660040014613045f3a2e9b5fbd79ecd8, type: 2}
+  m_crab: {fileID: 1000011720806472, guid: 1d90cc397a8df425da66065a7f7f6fb3, type: 2}
 --- !u!212 &212000013068844310
 SpriteRenderer:
   m_ObjectHideFlags: 1

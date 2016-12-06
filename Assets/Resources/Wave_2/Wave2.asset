@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: 
   m_subwaves: []
-  wave_time: 20
+  wave_time: 4
   n_water_drops: 2

@@ -34,10 +34,16 @@ public class Tile : MonoBehaviour {
 	private GameObject tower_built;
 
 
+	void Awake(){
+		tr = GetComponent<Transform> (); 
+	}
+
+
+
 	// Use this for initialization
 	void Start () {
 		//The tile takes track of its own position such that it'll spawn buildings over itself
-		tr = GetComponent<Transform> (); 
+
 
 		//WATER
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
@@ -84,18 +90,21 @@ public class Tile : MonoBehaviour {
 	void OnMouseUp(){
 		tower_built = tower_preview;
 		free = false;
-
+		Debug.Log ("Tower Built and placed over the tile!");
 	}
+		
+		
 
 	// This methodsets water over the selected tile.
 	public void SetWater(){
 		//It should instantiate a water sprite!
 	
 		free = false;
-		//WATER
+		//Instantiate the water and set it as its child
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
-		go.transform.position = tr.position;
+		go.transform.parent = this.gameObject.transform;
+		go.transform.position = new Vector3(tr.position.x, tr.position.y, 89f);
 		go.transform.rotation = Quaternion.identity;
 
 	
@@ -122,6 +131,10 @@ public class Tile : MonoBehaviour {
 	private void setCannonCastle(){
 		creative_mode = true;
 		castle_to_build = BuildableEnum.CannonTower;
+	}
+
+	public void setFree(){
+		free=true;
 	}
 		
 }

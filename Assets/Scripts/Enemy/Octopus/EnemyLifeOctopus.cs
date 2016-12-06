@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class EnemyLifeOctopus : MonoBehaviour {
+	
 
 	public float escapeRate=0.3f;
 	public int initialLife = 100;
@@ -37,10 +38,11 @@ public class EnemyLifeOctopus : MonoBehaviour {
 
 	public void death (){
 
-		//CHANGE THIS, OR NOT
+		//Call for realeasing the sand
+		GetComponent <ReleaseSandOnDeath>().realeaseSand();
+		//Deactivates Itself
 		this.gameObject.SetActive (false);
 
-		//CALL SOMETHING??
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

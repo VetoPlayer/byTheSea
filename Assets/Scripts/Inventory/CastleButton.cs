@@ -10,6 +10,9 @@ public class CastleButton : MonoBehaviour {
 	/// </summary>
 	public GameObject m_bucket;
 
+	[Header("Type of castle the button has to craft")]
+	public BuildableEnum m_type;
+
 	[Header("Castle Button GameOBject")]
 	public Button m_button;
 
@@ -23,6 +26,11 @@ public class CastleButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		//Pools the bucket animation
+
+		ObjectPoolingManager.Instance.CreatePool (m_bucket,5,5);
+
 		this.castleRecipe = this.m_bucket.GetComponent<CastleRecipe> () as CastleRecipe;
 		this.m_button = GetComponent<Button> () as Button;
 		this.m_button.interactable = false;
@@ -39,9 +47,15 @@ public class CastleButton : MonoBehaviour {
 		int sand = this.castleRecipe.getSand ();
 		int water = this.castleRecipe.getWater ();
 		ResourcesHandler.getInstance ().use (water, sand);
-		GameObject go = BucketsHandler.getInstance ().getBucket (this.m_bucket.name);
+		//GameObject go = BucketsHandler.getInstance ().getBucket (this.m_bucket.name);
+		GameObject go = ObjectPoolingManager.Instance.GetObject(m_bucket.name);
 		go.transform.position = m_spawnPosition.position;
 		go.transform.rotation = Quaternion.identity;
+
+		// It directly triggers the event in order to make the Crafter begin "crafting" the castle
+		EventManager.TriggerEvent ("Craft_" + m_type.ToString());
+
+		//Debug.Log("Craft_" + m_type.ToString());
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

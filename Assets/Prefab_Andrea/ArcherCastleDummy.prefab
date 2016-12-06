@@ -24,6 +24,7 @@ GameObject:
   - 61: {fileID: 61000011698302004}
   - 114: {fileID: 114000013143004604}
   - 114: {fileID: 114000012070128734}
+  - 114: {fileID: 114000012819399456}
   m_Layer: 0
   m_Name: ArcherCastleDummy
   m_TagString: Untagged
@@ -81,6 +82,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_targetObject: {fileID: 0}
+--- !u!114 &114000012819399456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010693015254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfad59b64db754164892f8314ca6f03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_quantityOfSand: 2
+  m_quantityOfWater: 1
 --- !u!114 &114000013143004604
 MonoBehaviour:
   m_ObjectHideFlags: 1

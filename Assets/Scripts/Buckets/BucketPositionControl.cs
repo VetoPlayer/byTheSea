@@ -66,7 +66,7 @@ public class BucketPositionControl : MonoBehaviour {
 
 	void OnMouseUp(){
 		this.dragging = false;
-		this.gameObject.SetActive (false);
+
 
 		Debug.Log ("BucketPositionControl: Mouse Released");
 
@@ -80,10 +80,29 @@ public class BucketPositionControl : MonoBehaviour {
 		if (hit.transform != null) {
 			hit.transform.gameObject.SendMessage ("BuildCastle");
 		}
-
-
 			// Else the tower build process fails and the resources have to be given back to the player
-			// To know the resources what about if you put here the TowerRecipe Script?
+			// I actually use the tower script
+		else {
+			//Give the Sand back
+			int sand_number= GetComponent<CastleRecipe> ().getSand ();
+			for (int i = 0; i < sand_number; i++) {
+				ResourcesEnum.Sand.fireSpawnEvent ();
+			}
+			// Give The Water Back
+			int water_number= GetComponent<CastleRecipe> ().getSand ();
+			for (int i = 0; i < water_number; i++) {
+				ResourcesEnum.Water.fireSpawnEvent ();
+			}	
+
+
+
+			//GetComponent<CastleRecipe> ().getSand ();
+
+		}
+
+
+		//No Matter What The GameObject deactivates itself
+		this.gameObject.SetActive (false);
 	}
 
 

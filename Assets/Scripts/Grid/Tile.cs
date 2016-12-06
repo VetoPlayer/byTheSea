@@ -56,6 +56,7 @@ public class Tile : MonoBehaviour {
 		EventManager.StartListening ("ArcherCastle",setArcherCastle);
 		EventManager.StartListening ("CannonCastle",setCannonCastle);
 		EventManager.StartListening ("BaseCastle",setBaseCastle);
+		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 	}
 	
@@ -87,11 +88,23 @@ public class Tile : MonoBehaviour {
 	}
 
 
-	void OnMouseUp(){
+	//Build up the castle in the tile
+	public void BuildCastle(){
 		tower_built = tower_preview;
 		free = false;
-		Debug.Log ("Tower Built and placed over the tile!");
+		//An Event to reset the costruction of the preview for all the tiles has to be called here
+		EventManager.TriggerEvent ("StopBuilding");
 	}
+
+	//Puts every tile off the creative mode
+	public void setStopBuilding(){
+
+		creative_mode = false;
+
+	}
+
+
+
 		
 		
 

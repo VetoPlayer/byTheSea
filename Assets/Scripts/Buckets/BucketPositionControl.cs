@@ -68,14 +68,22 @@ public class BucketPositionControl : MonoBehaviour {
 		this.dragging = false;
 		this.gameObject.SetActive (false);
 
+		Debug.Log ("BucketPositionControl: Mouse Released");
+
 		//TODO
 		// If it its a Tile, sent it the message to stop previewing things and to actually spawn the caste
+		RaycastHit2D hit = Physics2D.Raycast(
+								tr.position,
+								tr.position, // Vector representing the direction of the ray 
+								500f,
+								1 << LayerMask.NameToLayer("tile"));
+		if (hit.transform != null) {
+			hit.transform.gameObject.SendMessage ("BuildCastle");
+		}
 
-		// you send the message like hit.transform.gameObject.sendMessage("BuildCastle");
 
-
-		// Else the tower build process fails and the resources have to be given back to the player
-
+			// Else the tower build process fails and the resources have to be given back to the player
+			// To know the resources what about if you put here the TowerRecipe Script?
 	}
 
 

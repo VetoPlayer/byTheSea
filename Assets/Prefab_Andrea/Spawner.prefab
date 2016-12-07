@@ -181,13 +181,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_waves:
   - {fileID: 11400000, guid: e05000029226b774fb7abb035b5db1f6, type: 2}
+  - {fileID: 11400000, guid: 3aaae577865b79d4ba4b360d01e11a85, type: 2}
   m_first_lane: {fileID: 1000011474416852}
   m_second_lane: {fileID: 1000011999666318}
   m_third_lane: {fileID: 1000014132186880}
   m_fourth_lane: {fileID: 1000013697869150}
   m_fifth_lane: {fileID: 1000013081191868}
-  m_grid: {fileID: 1000012078204526, guid: b8988c50183d1d342841f69f91b7c7e2, type: 2}
-  m_timer: {fileID: 1000011945814962, guid: 582358bf2b83efd47a75f44809c4a052, type: 2}
+  m_grid: {fileID: 0}
+  m_timer: {fileID: 0}
   m_hermit_crab: {fileID: 1000011720806472, guid: 3629b839f87074eadb4f0e2e26d58680,
     type: 2}
   m_octopus: {fileID: 1000011720806472, guid: a622030104bcc480091fbae64bac1b42, type: 2}
@@ -245,6 +246,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 526.7, y: 378.6}
+  m_AnchoredPosition: {x: 592.6, y: 379.4}
   m_SizeDelta: {x: 0.3, y: 0.4}
   m_Pivot: {x: 0.5, y: 0.5}

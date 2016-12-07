@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8543bda1cf307be48be4cb998a9b430a, type: 3}
   m_Name: Wave2
   m_EditorClassIdentifier: 
-  m_subwaves: []
+  m_subwaves:
+  - {fileID: 11400000, guid: 81bd9d4b4d33d36498bc70b1965f9b98, type: 2}
   wave_time: 4
   n_water_drops: 2

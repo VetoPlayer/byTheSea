@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialLife: 100
+  armor: 10
 --- !u!212 &212000013324590142
 SpriteRenderer:
   m_ObjectHideFlags: 1

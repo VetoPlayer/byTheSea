@@ -33,6 +33,8 @@ public class Grid : MonoBehaviour
 	void Start () {
 
 		ObjectPoolingManager.Instance.CreatePool (m_water,60,60);
+
+		setTilesAsLightOnes ();
 	}
 
 	// Update is called once per frame
@@ -55,6 +57,13 @@ public class Grid : MonoBehaviour
 				m_light_grid [randomIndex].SendMessage ("SetWater");
 			}
 		}
+	}
+
+	// Sets the tiles as light ones such that they'll won't allow the player to build over them
+	private void setTilesAsLightOnes(){
+		for(int i=0; i < m_light_grid.Count; i++)
+			m_light_grid [i].SendMessage ("setLightTile");
+
 	}
 
 

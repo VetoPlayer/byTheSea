@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012383090534}
   - 212: {fileID: 212000012223078366}
-  - 114: {fileID: 114000013944435806}
   - 61: {fileID: 61000011496964154}
+  - 114: {fileID: 114000010866436682}
   m_Layer: 12
   m_Name: Tile
   m_TagString: tile
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 459.6, y: 359, z: 100}
+  m_LocalPosition: {x: 528.8, y: 368.4, z: 100}
   m_LocalScale: {x: 0.28516597, y: 0.29428563, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -56,7 +56,7 @@ BoxCollider2D:
   m_Offset: {x: -0.104214855, y: -0.13741335}
   serializedVersion: 2
   m_Size: {x: 30.803427, y: 30.957098}
---- !u!114 &114000013944435806
+--- !u!114 &114000010866436682
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,16 +64,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012130322500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248abae1600aa124a943c9f50f81d82c, type: 3}
+  m_Script: {fileID: 11500000, guid: fddf2019c7624fb44a6df5855f60582a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  free: 1
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
-  m_archer_castle_prefab: {fileID: 1000010314805818, guid: e867d795d1fce6a4e845a6fef9342125,
+  m_archer_castle_prefab: {fileID: 1000010489009116, guid: 08b34b7f515cf4b99b2627c217836bc6,
     type: 2}
-  m_cannon_castle_prefab: {fileID: 1000013796728796, guid: 811e6f9a86fadc9469bea1f73fb10fd3,
+  m_cannon_castle_prefab: {fileID: 1000013781776324, guid: df8428b34e5e1412c8484aec734008f1,
     type: 2}
-  m_base_castle_prefab: {fileID: 0}
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1

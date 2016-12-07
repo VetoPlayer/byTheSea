@@ -33,6 +33,11 @@ public class EnemyPlatformAttack : MonoBehaviour {
 		this.tr = this.gameObject.GetComponent<Transform> () as Transform;
 		this.movementHandler = this.gameObject.GetComponent<EnemyPlatformWalk> () as EnemyPlatformWalk;
 	}
+
+	void OnDisable(){
+		this.attackingPlayer = false;
+		this.attackingTreasure = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {

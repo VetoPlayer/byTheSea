@@ -14,7 +14,6 @@ public class Point : MonoBehaviour {
 	void Update () {}
 
 	public Vector3 getNextPoint(){
-		print ("I have: " + (this.m_nextPoints.Count).ToString());
 		if (this.m_nextPoints.Count != 0) {
 			int element = Random.Range (0, this.m_nextPoints.Count - 1);
 			return m_nextPoints [element].position;

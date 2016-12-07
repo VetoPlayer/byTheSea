@@ -186,6 +186,8 @@ GameObject:
   - 61: {fileID: 98649174}
   - 50: {fileID: 98649173}
   - 114: {fileID: 98649177}
+  - 114: {fileID: 98649178}
+  - 114: {fileID: 98649179}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -209,7 +211,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &98649174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -252,7 +254,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1350075611
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e1d2007bb7b3e46628f41ed924b37e35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -264,7 +266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 98649172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.56, y: -10.49, z: 0}
+  m_LocalPosition: {x: -10.8, y: -10.5, z: 0}
   m_LocalScale: {x: 1.776773, y: 1.776773, z: 1.776773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -283,7 +285,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_walkSpeed: 7
-  m_jumpSpeed: 17
+  m_jumpSpeed: 20
+--- !u!114 &98649178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 98649172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c00d2142a684a6e943c2f42e3dc4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_armor: 0.1
+  m_life: 1
+--- !u!114 &98649179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 98649172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e81c6dc1a15b494ba7c668ea4ec15bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackPower: 0.5
+  m_enemyAttackDistance: 5
 --- !u!1001 &244253066
 Prefab:
   m_ObjectHideFlags: 0
@@ -305,15 +333,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
       propertyPath: m_LocalRotation.w
@@ -322,6 +350,10 @@ Prefab:
     - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011018086322, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7fbad281083514ef5bf23320be83261c, type: 2}
@@ -520,6 +552,8 @@ GameObject:
   - 4: {fileID: 1248647113}
   - 212: {fileID: 1248647112}
   - 61: {fileID: 1248647111}
+  - 61: {fileID: 1248647114}
+  - 114: {fileID: 1248647115}
   m_Layer: 0
   m_Name: Treasure
   m_TagString: treasure
@@ -568,7 +602,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1017536363
+  m_SortingLayerID: -1350075611
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -581,12 +615,39 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248647110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.71, y: -12.8, z: 0}
-  m_LocalScale: {x: 1.9528145, y: 2.0128074, z: 1.2328959}
+  m_LocalPosition: {x: -7.44, y: -12.8, z: 0}
+  m_LocalScale: {x: 3.265705, y: 2.6384416, z: 1.2328959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!61 &1248647114
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248647110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.62500006, y: 0.625}
+  serializedVersion: 2
+  m_Size: {x: 1.2500001, y: 1.25}
+--- !u!114 &1248647115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248647110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c00d2142a684a6e943c2f42e3dc4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_armor: 0.1
+  m_life: 1
 --- !u!1 &1361930063
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,9 +785,11 @@ GameObject:
   - 50: {fileID: 1505970135}
   - 114: {fileID: 1505970137}
   - 114: {fileID: 1505970140}
+  - 114: {fileID: 1505970141}
+  - 58: {fileID: 1505970142}
   m_Layer: 0
   m_Name: Walker
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,7 +872,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1350075611
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6f8ba075275bd8e47a0defef2cd66954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -822,7 +885,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1505970134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.38, y: -10.17, z: 0}
+  m_LocalPosition: {x: 26.89, y: -5.11, z: 0}
   m_LocalScale: {x: 0.4512168, y: 0.4512168, z: 0.4512168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -840,7 +903,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attackSpeed: 2
-  m_attackPower: 0.5
+  m_attackPower: 0.2
+  m_treasureAttackDistance: 2
+  m_playerAttackDistance: 3
+--- !u!114 &1505970141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505970134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c00d2142a684a6e943c2f42e3dc4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_armor: 0.1
+  m_life: 1
+--- !u!58 &1505970142
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505970134}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4903396
 --- !u!1001 &2000674731
 Prefab:
   m_ObjectHideFlags: 0

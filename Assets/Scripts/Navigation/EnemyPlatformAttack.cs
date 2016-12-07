@@ -4,19 +4,30 @@ using System.Collections;
 public class EnemyPlatformAttack : MonoBehaviour {
 
 	[Header("Attack Parameters")]
+	[Range(0f,2f), Tooltip("Attack frequency of the enemy")]
 	public float m_attackSpeed = 0.5f;
+	[Range(0f, 1f), Tooltip("Percentage of Damage inflicted by the enemy to player/treasure")]
 	public float m_attackPower = 0.5f;
+
+	[Header("Attack distances")]
+	[Range(0f,15f), Tooltip("This enemy will attack the treasure with this distance")]
+	public float m_treasureAttackDistance = 1f;
+	[Range(0f,15f), Tooltip("This enemy will attack the player with this distance")]
+	public float m_playerAttackDistance = 1f;
 
 	private EnemyPlatformWalk movementHandler;
 	private Transform tr;
 	private Vector3 shootingDirection;
+	private GameObject target;
 
-	private bool playerDetected;
+	private bool attackingPlayer;
+	private bool attackingTreasure;
 	private float lastAttack;
 
 	// Use this for initialization
 	void Start () {
-		this.playerDetected = false;
+		this.attackingPlayer = false;
+		this.attackingTreasure = false;
 		this.lastAttack = Time.time;
 
 		this.tr = this.gameObject.GetComponent<Transform> () as Transform;
@@ -27,6 +38,7 @@ public class EnemyPlatformAttack : MonoBehaviour {
 	void Update () {
 		this.updateShootingDirection ();
 		this.detectPlayer ();
+		this.detectTreasure ();
 		this.shootingRoutine ();
 	}
 
@@ -37,22 +49,51 @@ public class EnemyPlatformAttack : MonoBehaviour {
 	private void detectPlayer(){
 
 		RaycastHit2D hit = Physics2D.Raycast (
-			this.tr.position, 
-			this.shootingDirection, 
-			Mathf.Infinity, 
-			1 << LayerMask.NameToLayer("Default"));
+								this.tr.position, 
+								this.shootingDirection, 
+								this.m_playerAttackDistance, 
+								1 << LayerMask.NameToLayer("Default"));
 		
 		if (hit.transform != null) {
-			if (hit.transform.gameObject.tag == "Player") {
-				this.playerDetected = true;
+
+			if (hit.transform.gameObject.tag == "Player"  && hit.distance <= this.m_playerAttackDistance) {
+				this.attackingPlayer = true;
+				this.target = hit.transform.gameObject;
+			} else {
+				this.attackingPlayer = false;
+			}
+		}
+	}
+
+	private void detectTreasure(){
+
+		RaycastHit2D hit = Physics2D.Raycast (
+			                   this.tr.position,
+			                   this.shootingDirection,
+							   this.m_treasureAttackDistance,
+			                   1 << LayerMask.NameToLayer ("Default"));
+
+		if (hit.transform != null) {
+			if (hit.transform.gameObject.tag == "treasure" && hit.distance <= this.m_treasureAttackDistance) {
+				this.movementHandler.toggleMoving (false);
+				this.attackingTreasure = true;
+				this.target = hit.transform.gameObject;
+			} else {
+				this.movementHandler.toggleMoving (true);
+				this.attackingTreasure = false;
 			}
 		}
 	}
 
 	private void shootingRoutine(){
-		if (this.playerDetected && (Time.time - this.lastAttack) > this.m_attackSpeed) {
-			print ("Enemy Shooting");
+
+		if ((this.attackingPlayer || this.attackingTreasure) && ((Time.time - this.lastAttack) > this.m_attackSpeed)) {
+			// attack target
+			PlatformEntityLife otherLife = this.target.GetComponent<PlatformEntityLife> () as PlatformEntityLife;
+			otherLife.damage (this.m_attackPower);
 			this.lastAttack = Time.time;
+
+			//TODO: need to call animator for attack animation
 		}
 	}
 }

@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LandingScript : MonoBehaviour {
 
+	private List<string> landingTags;
+
 	// Use this for initialization
-	void Start () {}
+	void Start () {
+		this.landingTags = new List<string> {
+			"platform",
+			"Enemy",
+			"treasure"
+		};
+	}
 	
 	// Update is called once per frame
 	void Update () {}
@@ -12,7 +21,7 @@ public class LandingScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		if(other.gameObject.tag == "platform" ){
+		if(this.landingTags.Contains(other.gameObject.tag)){
 			this.gameObject.GetComponentInParent<PlayerMovements>().setLanding(true);
 		}
 

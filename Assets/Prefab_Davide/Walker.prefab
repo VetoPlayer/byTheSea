@@ -20,12 +20,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011990923672}
   - 212: {fileID: 212000010337638510}
-  - 114: {fileID: 114000011181773778}
   - 61: {fileID: 61000013909550652}
   - 50: {fileID: 50000012794691560}
+  - 114: {fileID: 114000011181773778}
+  - 114: {fileID: 114000014233297176}
+  - 114: {fileID: 114000011687270702}
+  - 58: {fileID: 58000010616919412}
   m_Layer: 0
   m_Name: Walker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014221738542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.6, y: -6.8, z: 0}
-  m_LocalScale: {x: 0.61226547, y: 0.61226547, z: 0.61226547}
+  m_LocalPosition: {x: 26.89, y: -5.11, z: 0}
+  m_LocalScale: {x: 0.4512168, y: 0.4512168, z: 0.4512168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,6 +63,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58000010616919412
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014221738542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.4903396
 --- !u!61 &61000013909550652
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -71,9 +88,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.023063617, y: 0.06463638}
+  m_Offset: {x: -0.21268767, y: 0.18315065}
   serializedVersion: 2
-  m_Size: {x: 0.89020544, y: 1.4906441}
+  m_Size: {x: 8.190738, y: 3.5291035}
 --- !u!114 &114000011181773778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,9 +103,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoint: {fileID: 0}
-  m_walkingSpeed: 0.2
+  m_walkingSpeed: 0.1
   m_jumpSpeed: 6.5
   m_doubleJumpFactor: 1.65
+--- !u!114 &114000011687270702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014221738542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c00d2142a684a6e943c2f42e3dc4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_armor: 0.1
+  m_life: 1
+--- !u!114 &114000014233297176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014221738542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3255ebc57b9554835a69ef63b05c6121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackSpeed: 2
+  m_attackPower: 0.2
+  m_treasureAttackDistance: 2
+  m_playerAttackDistance: 3
 --- !u!212 &212000010337638510
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,8 +161,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 11472899
-  m_SortingOrder: 0
+  m_SortingLayerID: -1350075611
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6f8ba075275bd8e47a0defef2cd66954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

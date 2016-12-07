@@ -62,13 +62,11 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 		// JUMP
 		if (other.gameObject.tag == "jump_point" && !this.jumping) {
-			print ("jump point");
 			this.jump (this.m_jumpSpeed);
 		}
 
 		// DOUBLE JUMP
 		if (other.gameObject.tag == "double_jump_point" && !this.jumping) {
-			print ("double jump point");
 			this.jump (this.m_jumpSpeed * this.m_doubleJumpFactor);
 		}
 
@@ -87,10 +85,6 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		if (other.gameObject.tag == "flip_point") {
 			this.flip ();
 		}
-
-		if (other.gameObject.tag == "treasure") {
-			this.moving = false;
-		}
 			
 		// TREASURE / FINAL GOAL REACTION
 
@@ -101,9 +95,12 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		try{
 			this.target = p.getNextPoint ();
 			this.direction = this.setNewDirection(this.target);
-			print("next point: "+this.target.ToString()+" Direction: "+this.direction.ToString());
 		}
 		catch(NoMorePointsException e){}
+	}
+
+	public void toggleMoving(bool moving){
+		this.moving = moving;
 	}
 
 	private void toggleClimbing(bool climb){
@@ -116,7 +113,6 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	}
 
 	private void jump(float speed){
-		print ("Jump with speed: " + speed.ToString ());
 		this.toggleJumping (true);
 		this.rb2d.AddForce (Vector3.up * speed, ForceMode2D.Impulse);
 	}

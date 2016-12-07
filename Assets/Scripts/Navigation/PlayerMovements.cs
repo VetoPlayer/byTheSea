@@ -55,4 +55,8 @@ public class PlayerMovements : MonoBehaviour {
 	public void setLanding(bool newVal){
 		landing = newVal;
 	}
+
+	public Vector3 getMovementDirection(){
+		return this.direction;
+	}
 }

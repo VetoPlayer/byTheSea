@@ -434,7 +434,7 @@ Prefab:
         type: 2}
       propertyPath: m_archer_castle_prefab
       value: 
-      objectReference: {fileID: 1000010314805818, guid: e867d795d1fce6a4e845a6fef9342125,
+      objectReference: {fileID: 1000010489009116, guid: 08b34b7f515cf4b99b2627c217836bc6,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e7cdc7b447c18a4f8bd689596f7a272, type: 2}
@@ -1944,10 +1944,6 @@ Prefab:
     - target: {fileID: 1000012130322500, guid: 6e7cdc7b447c18a4f8bd689596f7a272, type: 2}
       propertyPath: m_Name
       value: Tile (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000012383090534, guid: 6e7cdc7b447c18a4f8bd689596f7a272, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.6231492
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e7cdc7b447c18a4f8bd689596f7a272, type: 2}

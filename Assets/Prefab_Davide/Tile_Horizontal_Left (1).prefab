@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012741973430}
   - 58: {fileID: 58000012742151168}
   - 114: {fileID: 114000011004962818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MovePoint_1
   m_TagString: moving_point
   m_Icon: {fileID: -1944569537103914328, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   - 212: {fileID: 212000011344883118}
   - 68: {fileID: 68000013510545702}
   - 114: {fileID: 114000011976116710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tile_Horizontal_Left (1)
   m_TagString: tile
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - 4: {fileID: 4000010197580152}
   - 212: {fileID: 212000010315187300}
   - 61: {fileID: 61000011568385632}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Platform
   m_TagString: platform
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011368133612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.14, y: 4.15, z: 0}
+  m_LocalPosition: {x: -27.8, y: -14.7, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 2.3077698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:

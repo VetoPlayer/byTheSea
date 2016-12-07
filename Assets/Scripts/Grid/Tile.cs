@@ -82,7 +82,9 @@ public class Tile : MonoBehaviour {
 
 	// Here The Single Tile has to spawn an image over itself (to be setted s its son)
 	void OnMouseOver(){
+
 		if (displaying_in_prevew == false && is_shadow_tile== true && free == true && creative_mode == true && castle_to_build != BuildableEnum.NoBuilding) {
+
 			if (castle_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
 				go.transform.position = tr.transform.position;
@@ -142,6 +144,7 @@ public class Tile : MonoBehaviour {
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
 		go.transform.parent = this.gameObject.transform;
 		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99f);//TODO!! Discuss tomorrow with Giulia
+
 		go.transform.rotation = Quaternion.identity;
 
 	

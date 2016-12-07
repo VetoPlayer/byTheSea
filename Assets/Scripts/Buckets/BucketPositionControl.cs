@@ -28,6 +28,7 @@ public class BucketPositionControl : MonoBehaviour {
 								1 << LayerMask.NameToLayer("tile"));
 		//If a Tile is hit
 		if (hit.transform != null) {
+
 			//Checks wheter is free or not
 			MessageClass args = new MessageClass ();
 			hit.transform.gameObject.SendMessage ("IsFree", args);
@@ -59,6 +60,15 @@ public class BucketPositionControl : MonoBehaviour {
 			} else {
 				GiveResourcesBack ();
 			}
+
+			MessageClass args = new MessageClass ();
+			hit.transform.gameObject.SendMessage ("IsFree", args);
+			if (args.isfree) {
+				hit.transform.gameObject.SendMessage ("BuildCastle");
+			} else {
+				GiveResourcesBack ();
+			}
+
 
 		}
 

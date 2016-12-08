@@ -13,18 +13,28 @@ public class PlatformEntityLife : MonoBehaviour {
 	public GameObject m_lifebar;
 
 	private Lifebar lifebarHandler;
+	private float life;
 
 	// Use this for initialization
 	void Start () {
+		this.life = this.m_life;
 		this.lifebarHandler = this.m_lifebar.GetComponent<Lifebar> () as Lifebar;
+	}
+
+	void OnDisable(){
+		this.m_life = this.life;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		// entity is dead
-		if (this.m_life <= 0f)
+		if (this.m_life <= 0f) {
+			string name = this.gameObject.name.Replace ("(Clone)", "");
+			print ("[Event] Entity_" + name + "_died");
+			EventManager.TriggerEvent("Entity_"+name+"_died");
 			this.gameObject.SetActive (false);
+		}
 	}
 
 	public void damage(float percentage){

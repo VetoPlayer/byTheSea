@@ -18,6 +18,9 @@ TagManager:
   - climb_point
   - stop_climb_point
   - treasure
+  - treasure_shield
+  - stop_point
+  - platform_stopper
   layers:
   - Default
   - TransparentFX

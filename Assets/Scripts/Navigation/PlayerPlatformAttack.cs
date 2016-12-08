@@ -17,11 +17,9 @@ public class PlayerPlatformAttack : MonoBehaviour {
 	private Transform tr;
 	private Vector3 attackDirection;
 
-	private bool canAttack;
 
 	// Use this for initialization
 	void Start () {
-		this.canAttack = false;
 		this.target = null;
 		this.tr = this.gameObject.GetComponent<Transform> () as Transform;
 		this.movementsHandler = this.gameObject.GetComponent<PlayerMovements> () as PlayerMovements;
@@ -31,27 +29,6 @@ public class PlayerPlatformAttack : MonoBehaviour {
 	void Update () {
 		this.updateAttackDirection ();
 		this.attackRoutine ();
-	}
-
-	private void detectEnemies(){
-
-		RaycastHit2D hit = Physics2D.Raycast (
-			this.tr.position, 
-			this.attackDirection, 
-			this.m_enemyAttackDistance, 
-			1 << LayerMask.NameToLayer("Default"));
-
-		if (hit.transform != null) {
-			print (hit.transform.gameObject.tag.ToString());
-			print ("first condition: " + (hit.transform.gameObject.tag == "Enemy").ToString ()+ " - second condition: " + (hit.distance <= this.m_enemyAttackDistance));
-			if (hit.transform.gameObject.tag == "Enemy"  && hit.distance <= this.m_enemyAttackDistance) {
-				print ("can");
-				this.canAttack = true;
-				this.target = hit.transform.gameObject;
-			} else {
-				this.canAttack = false;
-			}
-		}
 	}
 
 	private void updateAttackDirection(){

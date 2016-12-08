@@ -24,11 +24,13 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	private float gravityScale;
 
 	private bool moving;
+	private bool canMove;
 	private bool climbing;
 	private bool jumping;
 
 	// Use this for initialization
 	void Start () {
+		this.canMove = true;
 		this.moving = true;
 		this.climbing = false;
 		this.jumping = false;
@@ -42,14 +44,16 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (moving) {
+		if (this.moving && this.canMove) {
 			this.tr.position = this.tr.position + this.m_walkingSpeed * this.direction;
-		} else if (climbing) {
+		} else if (this.climbing) {
 			this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.up;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+
+		print (other.gameObject.tag);
 
 		if (other.gameObject.tag == "platform") {
 			this.toggleJumping (false);
@@ -57,6 +61,7 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 		// SIMPLE MOVEMENT
 		if (other.gameObject.tag == "tile" || other.gameObject.tag == "moving_point") {
+			this.canMove = true;
 			this.moveToNextPoint (other.gameObject.GetComponent<Point> () as Point);
 		}
 
@@ -68,6 +73,12 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		// DOUBLE JUMP
 		if (other.gameObject.tag == "double_jump_point" && !this.jumping) {
 			this.jump (this.m_jumpSpeed * this.m_doubleJumpFactor);
+		}
+
+		// STOP POINT
+		if (other.gameObject.tag == "stop_point") {
+			this.toggleMoving (false);
+			this.canMove = false;
 		}
 
 		// LADDERS

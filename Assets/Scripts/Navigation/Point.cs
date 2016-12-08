@@ -7,6 +7,9 @@ public class Point : MonoBehaviour {
 	[Header("Next Point in the Path")]
 	public List<Transform> m_nextPoints;
 
+	public bool m_disableOnEnter;
+
+
 	// Use this for initialization
 	void Start () {}
 	
@@ -20,5 +23,19 @@ public class Point : MonoBehaviour {
 		} else {
 			throw new NoMorePointsException ("no more points");
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+
+		if (this.m_disableOnEnter && other.gameObject.tag == "Enemy") {
+			StartCoroutine (deactivate (1f));
+		}
+	}
+
+	IEnumerator deactivate(float time){
+
+		yield return new WaitForSeconds (time);
+
+		this.gameObject.SetActive (false);
 	}
 }

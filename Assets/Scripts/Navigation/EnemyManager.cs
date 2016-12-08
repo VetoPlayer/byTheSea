@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemyManager : MonoBehaviour {
 
 	[Header("Enemies")]
 	[Header("Crab")]
@@ -18,10 +18,12 @@ public class EnemySpawner : MonoBehaviour {
 
 	private float timeLastCrabSpawned;
 	private int crabCount;
+	private int crabDiedCtr;
 
 	// Use this for initialization
 	void Start () {
 		this.timeLastCrabSpawned = Time.time;
+		EventManager.StartListening ("Entity_" + this.m_enemyCrab.name + "_died", crabDied);
 	}
 	
 	// Update is called once per frame
@@ -33,10 +35,9 @@ public class EnemySpawner : MonoBehaviour {
 		if ((Time.time - this.timeLastCrabSpawned) >= this.m_crabSpawnFrequency && (this.crabCount < this.m_crabsNumber)) {
 			GameObject enemy = EnemyPool.getInstance ().getEnemy (this.m_enemyCrab.name);
 			Transform spawn = this.selectRandomSpawn ();
-			print (spawn.position.ToString ());
 			enemy.transform.position = spawn.position;
-			print (enemy.transform.position.ToString ());
 			enemy.transform.rotation = spawn.rotation;
+			enemy.SetActive (true);
 			this.crabCount++;
 			this.timeLastCrabSpawned = Time.time;
 		}
@@ -45,6 +46,14 @@ public class EnemySpawner : MonoBehaviour {
 	private Transform selectRandomSpawn(){
 		int rand = Random.Range (0, this.m_spawnPoints.Length);
 		return this.m_spawnPoints [rand];
+	}
+
+	private void crabDied(){
+		this.crabDiedCtr++;
+		if (this.crabDiedCtr == this.m_crabsNumber) {
+			print ("[Event]: EndAction_PlayerWins"); 
+			EventManager.TriggerEvent ("EndAction_PlayerWins");
+		}
 	}
 
 }

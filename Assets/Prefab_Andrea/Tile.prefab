@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012383090534}
   - 212: {fileID: 212000012223078366}
   - 61: {fileID: 61000011496964154}
-  - 114: {fileID: 114000010866436682}
+  - 114: {fileID: 114000013626845350}
   m_Layer: 12
   m_Name: Tile
   m_TagString: tile
@@ -56,7 +56,7 @@ BoxCollider2D:
   m_Offset: {x: -0.104214855, y: -0.13741335}
   serializedVersion: 2
   m_Size: {x: 30.803427, y: 30.957098}
---- !u!114 &114000010866436682
+--- !u!114 &114000013626845350
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012130322500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddf2019c7624fb44a6df5855f60582a, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c0a0303638e7744a98fa5529b5822d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   free: 1
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

@@ -27,8 +27,10 @@ public class BucketPositionControl : MonoBehaviour {
 								500f,
 								1 << LayerMask.NameToLayer("tile"));
 		//If a Tile is hit
-		if (hit.transform != null) {
+		Debug.Log("Per ora non l'ho visto");
 
+		if (hit.transform != null) {
+			Debug.Log ("lo vedo");
 			//Checks wheter is free or not
 			MessageClass args = new MessageClass ();
 			hit.transform.gameObject.SendMessage ("IsFree", args);
@@ -40,17 +42,16 @@ public class BucketPositionControl : MonoBehaviour {
 			} else {
 				GiveResourcesBack ();
 			}
-		}
-		else {
+		} else {
 			//If the tower button is hit
-			RaycastHit2D hit2 = Physics2D.Raycast(
-				tr.position,
-				tr.position, // Vector representing the direction of the ray 
-				500f,
-				1 << LayerMask.NameToLayer("castlebutton"));
+			RaycastHit2D hit2 = Physics2D.Raycast (
+				                    tr.position,
+				                    tr.position, // Vector representing the direction of the ray 
+				                    500f,
+				                    1 << LayerMask.NameToLayer ("castlebutton"));
 			if (hit2.transform != null) {
 				Debug.Log ("Button Hit");
-				ArgsTower button_type= new ArgsTower();
+				ArgsTower button_type = new ArgsTower ();
 				hit2.transform.gameObject.SendMessage ("GetCastleButtonType", button_type);
 				if (button_type.tower_kind == m_kind) {
 					hit2.transform.gameObject.SendMessage ("AddOneCastle");
@@ -60,16 +61,6 @@ public class BucketPositionControl : MonoBehaviour {
 			} else {
 				GiveResourcesBack ();
 			}
-
-			MessageClass args = new MessageClass ();
-			hit.transform.gameObject.SendMessage ("IsFree", args);
-			if (args.isfree) {
-				hit.transform.gameObject.SendMessage ("BuildCastle");
-			} else {
-				GiveResourcesBack ();
-			}
-
-
 		}
 
 
@@ -81,6 +72,7 @@ public class BucketPositionControl : MonoBehaviour {
 	// Else the tower build process fails and the resources have to be given back to the player
 	private void GiveResourcesBack(){
 		// I actually use the tower script
+		Debug.Log("GiveResourceBackCalled");
 		//Give the Sand back
 		int sand_number= GetComponent<CastleRecipe> ().getSand ();
 		for (int i = 0; i < sand_number; i++) {

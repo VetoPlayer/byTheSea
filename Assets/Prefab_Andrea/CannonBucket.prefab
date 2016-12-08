@@ -22,7 +22,6 @@ GameObject:
   - 61: {fileID: 61000013233250324}
   - 50: {fileID: 50000013503883958}
   - 212: {fileID: 212000013947742764}
-  - 114: {fileID: 114000011215330002}
   - 114: {fileID: 114000013656479674}
   m_Layer: 0
   m_Name: CannonBucket
@@ -75,18 +74,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.14820844}
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.4035831}
---- !u!114 &114000011215330002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012362854908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f3802de944746bfb4be0f004c28756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_targetObject: {fileID: 0}
 --- !u!114 &114000013656479674
 MonoBehaviour:
   m_ObjectHideFlags: 1

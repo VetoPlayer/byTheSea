@@ -23,8 +23,8 @@ GameObject:
   - 114: {fileID: 114000011786209328}
   - 61: {fileID: 61000011698302004}
   - 114: {fileID: 114000013143004604}
-  - 114: {fileID: 114000012070128734}
   - 114: {fileID: 114000012819399456}
+  - 114: {fileID: 114000014031978328}
   m_Layer: 0
   m_Name: ArcherCastleDummy
   m_TagString: Untagged
@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010693015254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 141.3461, y: 96.68467, z: 90}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: 561, y: 349.3, z: 100}
+  m_LocalScale: {x: 2.8112915, y: 2.7132328, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,18 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c7347deaeeb4ea8b6b919cb8c5f219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000012070128734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010693015254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f3802de944746bfb4be0f004c28756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_targetObject: {fileID: 0}
 --- !u!114 &114000012819399456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +94,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951f3f0f759d44b4da36fb7e2fe93978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_type: 1
+--- !u!114 &114000014031978328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010693015254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6664b5042443e44dad1100f85aa84f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_kind: 1
 --- !u!212 &212000013695096096
 SpriteRenderer:
   m_ObjectHideFlags: 1

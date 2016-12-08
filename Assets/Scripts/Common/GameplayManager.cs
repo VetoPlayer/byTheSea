@@ -16,6 +16,10 @@ public class GameplayManager : MonoBehaviour {
 		EventManager.StartListening ("PassToPlatformScene", GoToPlatformScene);
 		// Start listening to the GameOverScreen Event: If the player survives until the last level, the winning scene has to be shown to him 
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
+
+
+
+
 	}
 	
 	// Update is called once per frame

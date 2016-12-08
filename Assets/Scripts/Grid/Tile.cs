@@ -70,7 +70,6 @@ public class Tile : MonoBehaviour {
 
 
 	public void setLightTile(){
-		Debug.Log ("light tile setted");
 		is_shadow_tile = false;
 	}
 
@@ -116,6 +115,7 @@ public class Tile : MonoBehaviour {
 
 	//Build up the castle in the tile
 	public void BuildCastle(){
+		Debug.Log ("I'm HerE!");
 		tower_built = tower_preview;
 		free = false;
 		//An Event to reset the costruction of the preview for all the tiles has to be called here
@@ -136,16 +136,15 @@ public class Tile : MonoBehaviour {
 
 	// This methodsets water over the selected tile.
 	public void SetWater(){
-		//It should instantiate a water sprite!
 	
 		free = false;
 		//Instantiate the water and set it as its child
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
-		go.transform.parent = this.gameObject.transform;
-		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99f);//TODO!! Discuss tomorrow with Giulia
-
+		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99);
 		go.transform.rotation = Quaternion.identity;
+		//Pass to go the parent reference by calling him with some kind of message
+		go.SendMessage("setDaddy", this.gameObject);
 
 	
 	

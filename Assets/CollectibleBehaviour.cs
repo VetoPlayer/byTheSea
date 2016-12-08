@@ -11,6 +11,13 @@ public class CollectibleBehaviour : MonoBehaviour {
 	/// </summary>
 	public ResourcesEnum m_resource;
 
+
+
+	private GameObject daddy;
+
+
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -29,15 +36,25 @@ public class CollectibleBehaviour : MonoBehaviour {
 		// Make the resource manager collect the corresponding ResourceEnum type
 		this.m_resource.fireSpawnEvent ();
 
+		//TODO: Give to the player a starting number of resources:
+		ResourcesEnum initial_resource = ResourcesEnum.Sand;
+		initial_resource.fireSpawnEvent ();
+
 		//Send to the corresponding parent tile the message to set it free
 		if (m_resource == ResourcesEnum.Water) {
-			this.transform.parent.SendMessage ("setFree");
+			daddy.SendMessage ("setFree");
 		}
 
 
 		// Deactivates itself
 		this.gameObject.SetActive (false);
 	}
+
+	public void setDaddy(GameObject dad){
+		daddy = dad;
+
+	}
+
 
 		
 }

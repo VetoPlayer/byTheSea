@@ -9,12 +9,6 @@ public class CastleSpawn : MonoBehaviour {
 
 	// Triggers the event used by the tiles in order to spawn the right objects.
 	void OnEnable () {
-		EventManager.TriggerEvent ("ArcherCastle");
-	}
-	
-	// Update is called once per frame
-	void OnDisable () {
-		EventManager.TriggerEvent ("StopBuilding");
 		if (m_type == BuildableEnum.ArcherTower) {
 			EventManager.TriggerEvent ("ArcherCastle");
 		}
@@ -24,6 +18,12 @@ public class CastleSpawn : MonoBehaviour {
 		if (m_type == BuildableEnum.CatapultTower) {
 			EventManager.TriggerEvent ("CatapultCastle");
 		}
+	}
+	
+	// Update is called once per frame
+	void OnDisable () {
+		EventManager.TriggerEvent ("StopBuilding");
+	
 	
 	}
 }

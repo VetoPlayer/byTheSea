@@ -33,7 +33,7 @@ public class GameplayManager : MonoBehaviour {
 	}
 
 	void GoToPlatformScene(){
-		SceneManager.LoadScene ("PlatformScene");
+		SceneManager.LoadScene ("FirstPlatform");
 	}
 
 	void GoToGameOverScene(){

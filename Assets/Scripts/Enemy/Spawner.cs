@@ -54,6 +54,10 @@ public class Spawner : MonoBehaviour {
 	//Spawns the enemies at each new wave! !!!!WARNING!!!! It's really easy to go outofindex. TODO: implement a control
 	void Spawn(){
 		if (current_level < m_waves.Length) {
+
+			Animator animator = GetComponent<Animator> () as Animator;
+			animator.SetTrigger ("Wave");
+
 			//At the beginning of each new wave a certain number of water are randomically dropped over the grid
 			m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
 

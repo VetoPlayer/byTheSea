@@ -63,6 +63,7 @@ public class TowerButtonBehaviour : MonoBehaviour {
 
 
 	public void AddOneCastle(){
+		Debug.Log ("The button has been raycasted successfully");
 		m_castle_numbers++;
 		m_button_text.text = "Towers Number:" + m_castle_numbers;
 	}

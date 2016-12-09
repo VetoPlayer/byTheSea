@@ -126,6 +126,7 @@ public class Tile : MonoBehaviour {
 	public void setStopBuilding(){
 		castle_to_build = BuildableEnum.NoBuilding;
 		creative_mode = false;
+		displaying_in_prevew = false;
 
 	}
 

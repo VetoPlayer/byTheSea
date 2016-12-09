@@ -5,7 +5,12 @@ using UnityEngine.UI;
 public class TowerButtonBehaviour : MonoBehaviour {
 
 	[Header("Kind of tower the button deals with")]
+	//Type setted by the interface
 	public BuildableEnum m_type = BuildableEnum.NoBuilding;
+
+	// Castle the player is going to build up
+	private BuildableEnum castle_to_build= BuildableEnum.NoBuilding;
+
 
 	//Number of castle unit the button is actually holding
 	private int m_castle_numbers=0;
@@ -30,8 +35,16 @@ public class TowerButtonBehaviour : MonoBehaviour {
 	void Start(){
 		ObjectPoolingManager.Instance.CreatePool (m_archer_dummy_prefab, 5, 5);
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_dummy_prefab, 5, 5);
-		string event_to_listen_to = "TowerButtons" + m_type.ToString ();
-		EventManager.StartListening (event_to_listen_to,AddOneCastle);
+
+		EventManager.StartListening ("ArcherCastle", setArcherCastle);
+		EventManager.StartListening ("CannonCastle", setCannonCastle);
+		EventManager.StartListening ("StopBuilding", setStopBuilding);
+
+		EventManager.StartListening("MouseReleased", AddOneCastle);
+
+
+
+
 
 	}
 
@@ -75,14 +88,10 @@ public class TowerButtonBehaviour : MonoBehaviour {
 
 
 	public void AddOneCastle(){
-		if (the_mouse_is_over_me) {
-			Debug.Log ("Castle added");
+		if (the_mouse_is_over_me && m_type == castle_to_build) {
+			EventManager.TriggerEvent ("SettedWithSuccess");
 			m_castle_numbers++;
 			m_button_text.text = "Towers Number:" + m_castle_numbers;
-		} else {
-			Debug.Log ("FIGGAA");
-			GiveResourcesBack ();
-
 		}
 	}
 
@@ -102,6 +111,22 @@ public class TowerButtonBehaviour : MonoBehaviour {
 		for (int i = 0; i < water_number; i++) {
 			ResourcesEnum.Water.fireSpawnEvent ();
 		}
+	}
+
+
+	private void setArcherCastle(){
+		castle_to_build = BuildableEnum.ArcherTower;	
+	}
+
+
+	private void setCannonCastle(){
+		castle_to_build = BuildableEnum.CannonTower;
+
+	}
+
+	//Puts every tile off the creative mode
+	public void setStopBuilding(){
+		castle_to_build = BuildableEnum.NoBuilding;
 	}
 
 }

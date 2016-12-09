@@ -70,17 +70,22 @@ MonoBehaviour:
   free: 1
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
+  m_preview_dummy_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
+    type: 2}
+  m_preview_dummy_cannon_castle_prefab: {fileID: 1000011745986116, guid: 3575b1d15748a164691d730adbef14b0,
+    type: 2}
   m_archer_castle_prefab: {fileID: 1000010489009116, guid: 08b34b7f515cf4b99b2627c217836bc6,
     type: 2}
   m_cannon_castle_prefab: {fileID: 1000013781776324, guid: df8428b34e5e1412c8484aec734008f1,
     type: 2}
+  is_shadow_tile: 1
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

@@ -12,9 +12,9 @@ public class Crafter : MonoBehaviour {
 	[Range(0,10)]
 	public float m_time_cannon= 3.0f;
 
-	[Header("Archer Castle Dummy Prefab")]
+	[Header("Archer Castle Button Prefab")]
 	public GameObject m_archer_castle_prefab;
-	[Header("Cannon Castle Dummy Prefab")]
+	[Header("Cannon Castle Button Prefab")]
 	public GameObject m_cannon_castle_prefab;
 
 	// Use this for initialization

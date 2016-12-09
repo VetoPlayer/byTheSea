@@ -10,9 +10,22 @@ public class Tile : MonoBehaviour {
 
 	private bool displaying_in_prevew=false;
 
+
+	private bool pointed_by_the_mouse=false;
+
+
+
 	[Header("Water Resource to be spawn over the tile")]
 	public GameObject m_my_tile_water;
 
+	//DUMMY TOWERS PREVIEW: ACTUALLY THEY ARE SIMPLY A SPRITE AND WON'T SHOOT TO THE INCOMING ENEMIES
+	[Header("Archer Castle")]
+	public GameObject m_preview_dummy_archer_castle_prefab;
+
+	[Header("Cannon Castle")]
+	public GameObject m_preview_dummy_cannon_castle_prefab;
+
+	//REAL TOWERS THAT HAVE TO BE BUILT
 	[Header("Archer Castle")]
 	public GameObject m_archer_castle_prefab;
 
@@ -32,7 +45,7 @@ public class Tile : MonoBehaviour {
 	private GameObject tower_built;
 
 	// boolean to express wheter a tile is shadow (and so you cna build on top of it) or not
-	private bool is_shadow_tile= true; 
+	public bool is_shadow_tile= true; 
 
 
 	void Awake(){
@@ -50,17 +63,24 @@ public class Tile : MonoBehaviour {
 		//WATER
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50, 50);
 
+		// ArcherCastle preview
+		ObjectPoolingManager.Instance.CreatePool (m_preview_dummy_archer_castle_prefab, 5, 5);
+
+		// Cannon Castle preview
+		ObjectPoolingManager.Instance.CreatePool (m_preview_dummy_cannon_castle_prefab, 5, 5);
+
 		// ArcherCastle
 		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 50, 50);
 
 		// Cannon Castle
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
 
-
+		// Castle Spawn Events. they update the castle_to_build enum variable
 		EventManager.StartListening ("ArcherCastle", setArcherCastle);
 		EventManager.StartListening ("CannonCastle", setCannonCastle);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
+		EventManager.StartListening ("MouseReleased",BuildCastle);
 	}
 	
 	// Update is called once per frame
@@ -69,11 +89,13 @@ public class Tile : MonoBehaviour {
 	}
 
 
+
+
 	public void setLightTile(){
 		is_shadow_tile = false;
 	}
 
-	public void isLightTile(MessageClass args){
+	public void isShadowTile(MessageClass args){
 		args.isfree = is_shadow_tile;
 		return;
 	}
@@ -81,9 +103,47 @@ public class Tile : MonoBehaviour {
 
 	// Here The Single Tile has to spawn an image over itself (to be setted s its son)
 	void OnMouseOver(){
-
+		pointed_by_the_mouse = true;
+		Debug.Log ("displaying" + displaying_in_prevew + "isshadowtile " + is_shadow_tile + "free: "+ free + "creative mode" + creative_mode + "castle to build= "+ castle_to_build);
 		if (displaying_in_prevew == false && is_shadow_tile== true && free == true && creative_mode == true && castle_to_build != BuildableEnum.NoBuilding) {
 
+			if (castle_to_build == BuildableEnum.ArcherTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_archer_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+				tower_preview = go;
+			}
+			if (castle_to_build == BuildableEnum.CannonTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_cannon_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+				tower_preview = go;
+			}
+			//So you show it only one time
+			displaying_in_prevew = true;
+
+
+		}
+			
+	}
+
+	// Here The Single Tile has to make the image over itself disappear
+	void OnMouseExit(){
+		pointed_by_the_mouse = false;
+		if (displaying_in_prevew == true && free == true) {
+			tower_preview.SetActive (false);
+			displaying_in_prevew = false;
+		}
+			
+	}
+
+
+	//Build up the castle in the tile
+	public void BuildCastle(){
+		EventManager.TriggerEvent ("DestroyPreview");
+		if (pointed_by_the_mouse == true) {
+			Debug.Log ("BuildCastle has been called");
+			EventManager.TriggerEvent ("SettedWithSuccess");
 			if (castle_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
 				go.transform.position = tr.transform.position;
@@ -96,31 +156,14 @@ public class Tile : MonoBehaviour {
 				go.transform.rotation = Quaternion.identity;
 				tower_preview = go;
 			}
+			free = false;
+			EventManager.TriggerEvent ("StopBuilding");
 
-
-			displaying_in_prevew = true;
 		}
-			
-	}
-
-	// Here The Single Tile has to make the image over itself disappear
-	void OnMouseExit(){
-		if (displaying_in_prevew == true && free == true) {
-			tower_preview.SetActive (false);
-			displaying_in_prevew = false;
-		}
-			
 	}
 
 
-	//Build up the castle in the tile
-	public void BuildCastle(){
-		Debug.Log ("I'm HerE!");
-		tower_built = tower_preview;
-		free = false;
-		//An Event to reset the costruction of the preview for all the tiles has to be called here
-		EventManager.TriggerEvent ("StopBuilding");
-	}
+
 
 	//Puts every tile off the creative mode
 	public void setStopBuilding(){

@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0a0303638e7744a98fa5529b5822d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  free: 1
+  m_contains_base_tower: 0
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
   m_preview_dummy_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
@@ -78,7 +78,8 @@ MonoBehaviour:
     type: 2}
   m_cannon_castle_prefab: {fileID: 1000013781776324, guid: df8428b34e5e1412c8484aec734008f1,
     type: 2}
-  is_shadow_tile: 1
+  m_base_castle_prefab: {fileID: 1000013082592870, guid: b45dfdefa2e0a2646a422e988af849ee,
+    type: 2}
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1

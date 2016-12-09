@@ -66,7 +66,7 @@ public class TowerButtonBehaviour : MonoBehaviour {
 				go.transform.rotation = Quaternion.identity;
 			}
 
-			m_button_text.text=  "Towers Number:" + m_castle_numbers;
+			m_button_text.text=  "" + m_castle_numbers + "";
 
 		}
 
@@ -91,7 +91,7 @@ public class TowerButtonBehaviour : MonoBehaviour {
 		if (the_mouse_is_over_me && m_type == castle_to_build) {
 			EventManager.TriggerEvent ("SettedWithSuccess");
 			m_castle_numbers++;
-			m_button_text.text = "Towers Number:" + m_castle_numbers;
+			m_button_text.text = "" + m_castle_numbers + "";
 		}
 	}
 

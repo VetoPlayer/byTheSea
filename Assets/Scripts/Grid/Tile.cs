@@ -5,8 +5,12 @@ public class Tile : MonoBehaviour {
 
 
 	private Transform tr;
-	[Header("Free variable to set false only if a base tower is over it")]
-	public bool free=true;
+	[Header("Variable to set false only if a base tower is over it")]
+	public bool m_contains_base_tower=false;
+
+
+	private bool free=true;
+
 
 	private bool displaying_in_prevew=false;
 
@@ -32,6 +36,9 @@ public class Tile : MonoBehaviour {
 	[Header("Cannon Castle")]
 	public GameObject m_cannon_castle_prefab;
 
+	[Header("Base Castle")]
+	public GameObject m_base_castle_prefab;
+
 
 
 	private bool creative_mode = false;
@@ -45,7 +52,7 @@ public class Tile : MonoBehaviour {
 	private GameObject tower_built;
 
 	// boolean to express wheter a tile is shadow (and so you cna build on top of it) or not
-	public bool is_shadow_tile= true; 
+	private bool is_shadow_tile= true; 
 
 
 	void Awake(){
@@ -75,12 +82,24 @@ public class Tile : MonoBehaviour {
 		// Cannon Castle
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
 
+		// Base Castle
+
+		ObjectPoolingManager.Instance.CreatePool (m_base_castle_prefab, 10, 10);
+
 		// Castle Spawn Events. they update the castle_to_build enum variable
 		EventManager.StartListening ("ArcherCastle", setArcherCastle);
 		EventManager.StartListening ("CannonCastle", setCannonCastle);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 		EventManager.StartListening ("MouseReleased",BuildCastle);
+
+
+		if (m_contains_base_tower == true) {
+			GameObject go = ObjectPoolingManager.Instance.GetObject (m_base_castle_prefab.name);
+			go.transform.position = tr.transform.position;
+			go.transform.rotation = Quaternion.identity;
+			free = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -104,7 +123,7 @@ public class Tile : MonoBehaviour {
 	// Here The Single Tile has to spawn an image over itself (to be setted s its son)
 	void OnMouseOver(){
 		pointed_by_the_mouse = true;
-		Debug.Log ("displaying" + displaying_in_prevew + "isshadowtile " + is_shadow_tile + "free: "+ free + "creative mode" + creative_mode + "castle to build= "+ castle_to_build);
+		//Debug.Log ("displaying" + displaying_in_prevew + "isshadowtile " + is_shadow_tile + "free: "+ free + "creative mode" + creative_mode + "castle to build= "+ castle_to_build);
 		if (displaying_in_prevew == false && is_shadow_tile== true && free == true && creative_mode == true && castle_to_build != BuildableEnum.NoBuilding) {
 
 			if (castle_to_build == BuildableEnum.ArcherTower) {

@@ -34,10 +34,10 @@ public class EnemyManager : MonoBehaviour {
 	private void crabSpawn(){
 		if ((Time.time - this.timeLastCrabSpawned) >= this.m_crabSpawnFrequency && (this.crabCount < this.m_crabsNumber)) {
 			GameObject enemy = EnemyPool.getInstance ().getEnemy (this.m_enemyCrab.name);
-			Transform spawn = this.selectRandomSpawn ();
+            Transform spawn = this.selectRandomSpawn ();
 			enemy.transform.position = spawn.position;
 			enemy.transform.rotation = spawn.rotation;
-			enemy.SetActive (true);
+            Debug.Log(enemy.transform.position);
 			this.crabCount++;
 			this.timeLastCrabSpawned = Time.time;
 		}
@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour {
 
 	private Transform selectRandomSpawn(){
 		int rand = Random.Range (0, this.m_spawnPoints.Length);
-		return this.m_spawnPoints [rand];
+        return this.m_spawnPoints [rand];
 	}
 
 	private void crabDied(){

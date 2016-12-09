@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyPlatformWalk : MonoBehaviour {
 
-	[Header("Spawn Point")]
-	public Transform m_spawnPoint;
+	//[Header("Spawn Point")]
+	//public Transform m_spawnPoint;
 
 	[Header("Moving Parameters"), Range(0f,5f)]
 	public float m_walkingSpeed = 0.05f;
@@ -12,8 +12,6 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	public float m_jumpSpeed = 1f;
 	[Range(0,5f)]
 	public float m_doubleJumpFactor = 1.3f;
-
-
 
 	private Vector3 target;
 	private Vector3 direction;
@@ -37,18 +35,18 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		this.tr = this.gameObject.GetComponent<Transform> () as Transform;
 		this.rb2d = this.gameObject.GetComponent<Rigidbody2D> () as Rigidbody2D;
 		this.direction = Vector3.left;
-		this.tr.position = this.m_spawnPoint.position;
+		//this.tr.position = this.m_spawnPoint.position;
 
 		this.gravityScale = this.rb2d.gravityScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (this.moving && this.canMove) {
+
+        if (this.climbing)
+            this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.up;
+        else if (this.moving && this.canMove)
 			this.tr.position = this.tr.position + this.m_walkingSpeed * this.direction;
-		} else if (this.climbing) {
-			this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.up;
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -114,11 +112,12 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		this.moving = moving;
 	}
 
-	private void toggleClimbing(bool climb){
-		this.moving = !climb;
-		this.climbing = climb;
-	}
-
+    private void toggleClimbing(bool climb) {
+        this.moving = !climb;
+        this.climbing = climb;
+        GetComponent<BoxCollider2D>().enabled = !climb;
+    }
+    
 	private void toggleJumping(bool jumping){
 		this.jumping = jumping;
 	}

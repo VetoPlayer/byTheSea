@@ -121,8 +121,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010919688014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.04, y: 13.47, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 2.3077698}
+  m_LocalPosition: {x: 60.9, y: -6, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012283190174}
@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints:
   - {fileID: 4000012283190174}
+  m_disableOnEnter: 0
 --- !u!114 &114000012070749760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints:
   - {fileID: 4000013961485342}
+  m_disableOnEnter: 0
 --- !u!114 &114000012785816666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints:
   - {fileID: 4000013098041024}
+  m_disableOnEnter: 0
 --- !u!114 &114000014189217114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nextPoints: []
+  m_disableOnEnter: 0
 --- !u!212 &212000013199978024
 SpriteRenderer:
   m_ObjectHideFlags: 1

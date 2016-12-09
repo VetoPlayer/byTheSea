@@ -53,7 +53,6 @@ public class Crafter : MonoBehaviour {
 		go.transform.position = m_castleSpawn.position;
 		go.transform.rotation = Quaternion.identity;
 
-		print ("spawned");
 
 	}
 }

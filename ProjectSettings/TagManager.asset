@@ -21,6 +21,7 @@ TagManager:
   - treasure_shield
   - stop_point
   - platform_stopper
+  - castlebutton
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Castle
   - Grid
   - tile
-  - 
+  - castlebutton
   - 
   - 
   - 

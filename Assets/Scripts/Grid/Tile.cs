@@ -180,7 +180,7 @@ public class Tile : MonoBehaviour {
 
 
 	void Save(){
-		Debug.Log ("Tile Saved");
+		//Debug.Log ("Tile Saved");
 		SavedInfo.instance.SaveTile (tile_id, tile_building);
 
 	}

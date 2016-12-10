@@ -42,14 +42,31 @@ public class TowerButtonBehaviour : MonoBehaviour {
 
 		EventManager.StartListening("MouseReleased", AddOneCastle);
 
-
-
+		EventManager.StartListening ("PassToPlatformScene", Save);
+		Load ();
 
 
 	}
 
+	private void Save(){
+		Debug.Log ("MethodINvoked");
+		SavedInfo.instance.SaveTowerButton (m_type,m_castle_numbers);
+		Debug.Log ("Button Saved: "+ m_type + " " + m_castle_numbers);
+	}
+
+	private void Load(){
+		if (!SavedInfo.instance.isFirstScene ()) {
+			m_castle_numbers = SavedInfo.instance.LoadTowerButtonInformation (m_type);
+			m_button_text.text = "" + m_castle_numbers + "";
+		}
+	}
+
+
+
+
+
 	public void SpawnCastle(){
-		Debug.Log ("Button Pressed");
+		//Debug.Log ("Button Pressed");
 		if (m_castle_numbers > 0) {
 			//Spawn the relative castle, basing upon the BuildableEnum
 			m_castle_numbers--;

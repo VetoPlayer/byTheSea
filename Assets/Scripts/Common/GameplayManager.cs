@@ -7,13 +7,6 @@ using POLIMIGameCollective;
 /// </summary>
 public class GameplayManager : MonoBehaviour {
 
-	[Header("Initial Water Amount")]
-	[Range(0,20)]
-	public int m_initial_water;
-
-	[Header("Initial Sand Amount")]
-	[Range(0,20)]
-	public int m_initial_sand;
 
 
 	// Use this for initialization
@@ -25,27 +18,22 @@ public class GameplayManager : MonoBehaviour {
 		// Start listening to the GameOverScreen Event: If the player survives until the last level, the winning scene has to be shown to him 
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
 
-		Debug.Log ("Hey man! I am the game manager!");
-		//Give the player some initial resoruces
-		StartCoroutine(InitializePlayerResources());
+		EventManager.StartListening ("PassToTowerDefenseScene",GoToTowerDefenseScene);
 
 
-
-	}
-
-
-	IEnumerator InitializePlayerResources(){
-		yield return new WaitForSeconds (0.3f);
-		for (int i = 0; i < m_initial_water; i++) {
-			ResourcesEnum.Water.fireSpawnEvent ();
-		}
-		for (int i = 0; i < m_initial_sand; i++) {
-			ResourcesEnum.Sand.fireSpawnEvent ();
-		}
 
 
 
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,8 +51,17 @@ public class GameplayManager : MonoBehaviour {
 //		}
 	}
 
+	void GoToTowerDefenseScene(){
+		SceneManager.LoadScene ("TDmain");
+	}
+
+
 	void GoToPlatformScene(){
-		SceneManager.LoadScene ("FirstPlatform");
+
+
+		SavedInfo.instance.setNotFirstSceneAnymore ();
+		//Debug.Log ("Not First scene anymore");
+		SceneManager.LoadScene ("Platform");
 	}
 
 	void GoToGameOverScene(){
@@ -72,5 +69,9 @@ public class GameplayManager : MonoBehaviour {
 
 	}
 
-	//TODO: add the Gameover event, scene and link them here
+
+
+
+
+
 }

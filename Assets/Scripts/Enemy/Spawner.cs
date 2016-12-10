@@ -35,6 +35,9 @@ public class Spawner : MonoBehaviour {
 	[Header("Crab Prefab")]
 	public GameObject m_crab;
 
+	[Header("Waiting Time")]
+	[Range(0f, 20f)]
+	public int m_waiting_time;
 	// Use this for initialization
 	void Start () {
 		//HERMITCRABS
@@ -47,9 +50,46 @@ public class Spawner : MonoBehaviour {
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);
 		// For the very first time, it triggers itself
-		Spawn();
+
+		Load();
+
+		StartCoroutine (WaitForTheSpawning());
+
+		EventManager.StartListening ("PassToPlatformScene", Save);
 	
 	}
+
+	IEnumerator WaitForTheSpawning(){
+		yield return new WaitForSeconds (m_waiting_time);
+		//Indirect call to the Spawn() method and other things in the game
+		EventManager.TriggerEvent ("NewWave");
+	}
+
+
+
+
+	private void Load(){
+		//Debug.Log ("Spawer tries to load");
+		if (!SavedInfo.instance.isFirstScene ()) {
+			current_level = SavedInfo.instance.LoadCurrentLevel ();
+			Debug.Log ("Level Loaded:"+ current_level);
+		}
+	}
+
+	private void Save(){
+		SavedInfo.instance.SaveLevel (current_level);
+		Debug.Log ("Level Saved");
+	}
+
+
+
+
+
+
+
+
+
+
 
 	//Spawns the enemies at each new wave! !!!!WARNING!!!! It's really easy to go outofindex. TODO: implement a control
 	void Spawn(){

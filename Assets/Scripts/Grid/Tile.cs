@@ -39,8 +39,6 @@ public class Tile : MonoBehaviour {
 	[Header("Base Castle")]
 	public GameObject m_base_castle_prefab;
 
-
-
 	private bool creative_mode = false;
 
 	private BuildableEnum castle_to_build =  BuildableEnum.NoBuilding;
@@ -55,8 +53,28 @@ public class Tile : MonoBehaviour {
 	private bool is_shadow_tile= true; 
 
 
+	//TILE IDENTIFIER USED FOR CHANGING SCENES
+	public int tile_id;
+
+	//Building To be saved
+	public BuildableEnum tile_building = BuildableEnum.NoBuilding;
+
+	//TILE READY: HAS ITS IDENTIFIER ASSIGNED FOR SURE
+
+	private bool tile_ready= false;
+
+	public void SetID(int id){
+		tile_id = id;
+	}
+
+
+
+
 	void Awake(){
 		tr = GetComponent<Transform> (); 
+		// Base Castle
+
+		ObjectPoolingManager.Instance.CreatePool (m_base_castle_prefab, 10, 10);
 	}
 
 
@@ -82,9 +100,7 @@ public class Tile : MonoBehaviour {
 		// Cannon Castle
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
 
-		// Base Castle
-
-		ObjectPoolingManager.Instance.CreatePool (m_base_castle_prefab, 10, 10);
+	
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
 		EventManager.StartListening ("ArcherCastle", setArcherCastle);
@@ -94,13 +110,83 @@ public class Tile : MonoBehaviour {
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
 
-		if (m_contains_base_tower == true) {
+		EventManager.StartListening ("PassToPlatformScene",Save);
+		EventManager.StartListening ("FinishedTileIDAssignement", setTileReady);
+
+
+
+
+		if (m_contains_base_tower == true && SavedInfo.instance.isFirstScene()) {
 			GameObject go = ObjectPoolingManager.Instance.GetObject (m_base_castle_prefab.name);
 			go.transform.position = tr.transform.position;
 			go.transform.rotation = Quaternion.identity;
 			free = false;
 		}
 	}
+
+
+	private void Load(){
+		if (!SavedInfo.instance.isFirstScene ()) {
+			if (!tile_ready) {
+				StartCoroutine (WaitTileToBeReady ());
+			} else {
+				BuildableEnum building = SavedInfo.instance.LoadTileInformation (tile_id);
+				BuildLoadedCastle (building);
+
+			}
+
+
+		}
+	}
+
+
+	IEnumerator WaitTileToBeReady(){
+		yield return new WaitForSeconds (0.5f);
+		while (!tile_ready) {
+			yield return new WaitForSeconds (0.5f);
+		}
+		Load ();
+
+	}
+
+
+	private void BuildLoadedCastle(BuildableEnum thing_to_build){
+		//TODO check: it has to initialize everything in the right way.
+		//You don't need to check wheter it's a light or dark tile because it's from an already existed, controlled scene
+		if (thing_to_build != BuildableEnum.NoBuilding) {
+			free = false;
+			if (thing_to_build == BuildableEnum.ArcherTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+
+			}
+			if (thing_to_build == BuildableEnum.CannonTower) {
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
+				go.transform.position = tr.transform.position;
+				go.transform.rotation = Quaternion.identity;
+
+			}
+
+		}
+
+
+	}
+
+
+	public void setTileReady(){
+		tile_ready = true;
+	}
+
+
+	void Save(){
+		Debug.Log ("Tile Saved");
+		SavedInfo.instance.SaveTile (tile_id, tile_building);
+
+	}
+
+
+
 	
 	// Update is called once per frame
 	void Update () {

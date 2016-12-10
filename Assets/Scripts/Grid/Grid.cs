@@ -35,11 +35,21 @@ public class Grid : MonoBehaviour
 		ObjectPoolingManager.Instance.CreatePool (m_water,60,60);
 
 		setTilesAsLightOnes ();
+
+		InitializeTiles ();
 	}
 
-	// Update is called once per frame
-	void Update () {
-
+	void InitializeTiles (){
+		int tile_id = 0;
+		for (int i = 0; i < m_light_grid.Count; i++) {
+			m_light_grid [i].SendMessage ("SetID", tile_id);
+			tile_id++;
+		}
+		for (int i = 0; i < m_shadow_grid.Count; i++) {
+			m_shadow_grid[i].SendMessage("SetID", tile_id);
+			tile_id++;
+		}
+		EventManager.TriggerEvent ("FinishedTileIDAssignement");
 	}
 		
 

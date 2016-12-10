@@ -107,7 +107,8 @@ public class TowerButtonBehaviour : MonoBehaviour {
 	public void AddOneCastle(){
 		if (the_mouse_is_over_me && m_type == castle_to_build) {
 			EventManager.TriggerEvent ("SettedWithSuccess");
-			Debug.Log ("Event:SettedWithSuccess");
+			EventManager.TriggerEvent ("StopBuilding");
+			//Debug.Log ("Event:SettedWithSuccess");
 			m_castle_numbers++;
 			m_button_text.text = "" + m_castle_numbers + "";
 		}

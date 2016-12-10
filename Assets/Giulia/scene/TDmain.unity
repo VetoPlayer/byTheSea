@@ -3425,7 +3425,7 @@ Prefab:
     - target: {fileID: 114000013979725628, guid: 83ad03dfc46059d478ed19145c4ce8b7,
         type: 2}
       propertyPath: m_initial_water
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114000013979725628, guid: 83ad03dfc46059d478ed19145c4ce8b7,
         type: 2}

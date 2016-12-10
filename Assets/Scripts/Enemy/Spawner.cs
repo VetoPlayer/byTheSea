@@ -77,8 +77,9 @@ public class Spawner : MonoBehaviour {
 			current_level++;
 		} else {
 			//Else repeat in a forever loop the very last 3 Levels!
-			current_level = current_level - 2;
-			Spawn ();
+//			current_level = current_level - 2;
+//			Spawn ();
+			EventManager.StopListening("NewWave",Spawn);
 		}
 	}
 

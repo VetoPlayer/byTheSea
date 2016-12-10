@@ -19,15 +19,23 @@ public class GameplayManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Make the music start
-		MusicManager.Instance.PlayMusic ("GameplayMusic");
+		//MusicManager.Instance.PlayMusic ("GameplayMusic");
 		// Start listening in order to change scene when needed
 		EventManager.StartListening ("PassToPlatformScene", GoToPlatformScene);
 		// Start listening to the GameOverScreen Event: If the player survives until the last level, the winning scene has to be shown to him 
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
 
-
+		Debug.Log ("Hey man! I am the game manager!");
 		//Give the player some initial resoruces
-		//TODO: fix it
+		StartCoroutine(InitializePlayerResources());
+
+
+
+	}
+
+
+	IEnumerator InitializePlayerResources(){
+		yield return new WaitForSeconds (0.3f);
 		for (int i = 0; i < m_initial_water; i++) {
 			ResourcesEnum.Water.fireSpawnEvent ();
 		}
@@ -36,8 +44,15 @@ public class GameplayManager : MonoBehaviour {
 		}
 
 
+
 	}
-	
+
+
+
+
+
+
+
 	// Update is called once per frame
 	void Update () {
 // TODO: IF "Esc" Button is pressed, pause the game. Something like the code below

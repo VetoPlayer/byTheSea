@@ -36,10 +36,6 @@ public class CollectibleBehaviour : MonoBehaviour {
 		// Make the resource manager collect the corresponding ResourceEnum type
 		this.m_resource.fireSpawnEvent ();
 
-		//TODO: Give to the player a starting number of resources:
-		ResourcesEnum initial_resource = ResourcesEnum.Sand;
-		initial_resource.fireSpawnEvent ();
-
 		//Send to the corresponding parent tile the message to set it free
 		if (m_resource == ResourcesEnum.Water) {
 			daddy.SendMessage ("setFree");

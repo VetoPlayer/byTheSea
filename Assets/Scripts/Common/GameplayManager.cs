@@ -7,6 +7,14 @@ using POLIMIGameCollective;
 /// </summary>
 public class GameplayManager : MonoBehaviour {
 
+	[Header("Initial Water Amount")]
+	[Range(0,20)]
+	public int m_initial_water;
+
+	[Header("Initial Sand Amount")]
+	[Range(0,20)]
+	public int m_initial_sand;
+
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +26,14 @@ public class GameplayManager : MonoBehaviour {
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
 
 
+		//Give the player some initial resoruces
+		//TODO: fix it
+		for (int i = 0; i < m_initial_water; i++) {
+			ResourcesEnum.Water.fireSpawnEvent ();
+		}
+		for (int i = 0; i < m_initial_sand; i++) {
+			ResourcesEnum.Sand.fireSpawnEvent ();
+		}
 
 
 	}

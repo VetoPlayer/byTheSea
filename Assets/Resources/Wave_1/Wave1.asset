@@ -14,5 +14,5 @@ MonoBehaviour:
   m_subwaves:
   - {fileID: 11400000, guid: ce417a811e6a346478b00ebaba36ca28, type: 2}
   - {fileID: 11400000, guid: d07a140a62638e943a21dc61c451f076, type: 2}
-  wave_time: 1.1
+  wave_time: 8
   n_water_drops: 1

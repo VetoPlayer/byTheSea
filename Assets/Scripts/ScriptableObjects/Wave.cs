@@ -9,7 +9,7 @@ public class Wave : ScriptableObject {
 	public Subwave[] m_subwaves;
 
 	[Header("Time to the next Wave")]
-	[Range(0f,20f)]
+	[Range(0f,200f)]
 	public float wave_time;
 
 	[Header("Water drops to be dropped at the begin")]

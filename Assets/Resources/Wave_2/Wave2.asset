@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_subwaves:
   - {fileID: 11400000, guid: 81bd9d4b4d33d36498bc70b1965f9b98, type: 2}
-  wave_time: 4
-  n_water_drops: 2
+  wave_time: 15
+  n_water_drops: 3

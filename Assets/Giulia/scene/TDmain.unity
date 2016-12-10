@@ -3412,6 +3412,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013979725628, guid: 83ad03dfc46059d478ed19145c4ce8b7,
+        type: 2}
+      propertyPath: m_initial_water
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013979725628, guid: 83ad03dfc46059d478ed19145c4ce8b7,
+        type: 2}
+      propertyPath: m_initial_sand
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83ad03dfc46059d478ed19145c4ce8b7, type: 2}
   m_IsPrefabParent: 0

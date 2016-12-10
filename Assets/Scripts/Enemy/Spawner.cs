@@ -38,11 +38,11 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//HERMITCRABS
-		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,30,30);
+		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,70,70);
 		//OCTOPUS
-		ObjectPoolingManager.Instance.CreatePool (m_octopus,30,30);
+		ObjectPoolingManager.Instance.CreatePool (m_octopus,70,70);
 		//CRAB
-		ObjectPoolingManager.Instance.CreatePool (m_crab,30,30);
+		ObjectPoolingManager.Instance.CreatePool (m_crab,70,70);
 
 		//Starts listening to the NextWave event: at that time it will spawn the enemies for the next wave
 		EventManager.StartListening ("NewWave",Spawn);

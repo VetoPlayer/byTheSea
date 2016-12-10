@@ -21,7 +21,6 @@ public class Timer : MonoBehaviour {
 		animator.SetTrigger ("Start");
 		yield return new WaitForSeconds (waiting_time);
 
-		// TODO: trigger the wave animation
 		EventManager.TriggerEvent ("NewWave");
 	}
 

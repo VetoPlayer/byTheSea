@@ -20,7 +20,7 @@ public class TowerFailHandler : MonoBehaviour {
 
 		EventManager.StartListening("MouseReleased", CheckSuccessfulConstruction);
 
-		EventManager.StopListening ("SettedWithSuccess", SetSuccess);
+		EventManager.StartListening ("SettedWithSuccess", SetSuccess);
 
 	
 	}
@@ -46,6 +46,8 @@ public class TowerFailHandler : MonoBehaviour {
 			if (castle_to_build == BuildableEnum.CannonTower) {
 				m_cannon_button.SendMessage("GiveResourcesBack");
 			}
+			//It has to come afterwards the if statements.
+			EventManager.TriggerEvent ("StopBuilding");
 		}
 
 		//If it has been successful it does nothing but set the operation_success vartiable as false

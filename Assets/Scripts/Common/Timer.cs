@@ -5,7 +5,7 @@ public class Timer : MonoBehaviour {
 
 	Animator animator;
 
-	static public float timeAnimationBase = 0.19f;
+	static public float timeAnimationBase = 0.33f;
 
 	// Use this for initialization
 	void Awake () {

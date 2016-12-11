@@ -13,4 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemies:
   - {fileID: 11400000, guid: 484aa5bd7f37f7147a94d3e6a1752c27, type: 2}
-  m_spawn_time: 4
+  - {fileID: 11400000, guid: 7eb3c3ba7b23a99488bd8065b8bbc2e6, type: 2}
+  - {fileID: 11400000, guid: 3710071e4d48b884bb1d66dc18cffa22, type: 2}
+  - {fileID: 11400000, guid: f56485a41628a614b937ae7d601490f5, type: 2}
+  m_spawn_time: 7

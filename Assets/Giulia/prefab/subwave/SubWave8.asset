@@ -11,5 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79662570f0aeb994ca19740ecb4851a7, type: 3}
   m_Name: SubWave8
   m_EditorClassIdentifier: 
-  m_enemies: []
-  m_spawn_time: 0
+  m_enemies:
+  - {fileID: 11400000, guid: 1e13b3f57548b924e8866ffd58541770, type: 2}
+  - {fileID: 11400000, guid: 484aa5bd7f37f7147a94d3e6a1752c27, type: 2}
+  - {fileID: 11400000, guid: 1957f844d22233f4b854222fa6bec81a, type: 2}
+  - {fileID: 11400000, guid: 1022ebcceceaf01448a3bf1f30ccfa80, type: 2}
+  - {fileID: 11400000, guid: 7c535d014e39f244f894dcfb229ef802, type: 2}
+  m_spawn_time: 27

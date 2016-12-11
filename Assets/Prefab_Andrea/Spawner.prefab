@@ -197,9 +197,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c515794c7fd94c92829042a3b8a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 0}
   m_waves:
   - {fileID: 11400000, guid: 12128b6eff430bd42bddff9647732e09, type: 2}
   - {fileID: 11400000, guid: 6cd42a24aad272f4698eee448cf56c71, type: 2}
+  - {fileID: 11400000, guid: 8d7cff11c4ee1584897c587fa3390e60, type: 2}
+  - {fileID: 11400000, guid: 4fb70b418a14e984d806d56abd299ae9, type: 2}
+  - {fileID: 11400000, guid: 385914bf4775acf44bd1a6e3839d6206, type: 2}
   m_first_lane: {fileID: 1000011474416852}
   m_second_lane: {fileID: 1000011999666318}
   m_third_lane: {fileID: 1000014132186880}
@@ -211,6 +215,7 @@ MonoBehaviour:
     type: 2}
   m_octopus: {fileID: 1000011720806472, guid: a622030104bcc480091fbae64bac1b42, type: 2}
   m_crab: {fileID: 1000011720806472, guid: 1d90cc397a8df425da66065a7f7f6fb3, type: 2}
+  m_waiting_time: 5
 --- !u!212 &212000013068844310
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -264,6 +269,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 588.9, y: 385.8}
-  m_SizeDelta: {x: 0.7, y: 0.8}
+  m_AnchoredPosition: {x: 580.9, y: 385.7802}
+  m_SizeDelta: {x: 0.3, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -11,6 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8543bda1cf307be48be4cb998a9b430a, type: 3}
   m_Name: Wave4
   m_EditorClassIdentifier: 
-  m_subwaves: []
-  wave_time: 0
-  n_water_drops: 0
+  m_subwaves:
+  - {fileID: 11400000, guid: 6e7c51990231a664da45b50d778540d3, type: 2}
+  - {fileID: 11400000, guid: c8d76bd9a934a3741adba5e62aaf6e06, type: 2}
+  - {fileID: 11400000, guid: eec7fbc5e7dda034385063de31e5ddeb, type: 2}
+  - {fileID: 11400000, guid: b790e187571e446439393292f4143221, type: 2}
+  - {fileID: 11400000, guid: 77250ad9addfa1541b1a196444b78da7, type: 2}
+  wave_time: 35
+  n_water_drops: 6

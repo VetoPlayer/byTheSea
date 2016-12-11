@@ -14,4 +14,4 @@ MonoBehaviour:
   m_enemies:
   - {fileID: 11400000, guid: ad99f6bb038d88d41af3efabc0038094, type: 2}
   - {fileID: 11400000, guid: a45ce42341ee1eb4a8e1334833332b07, type: 2}
-  m_spawn_time: 4
+  m_spawn_time: 38

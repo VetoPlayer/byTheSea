@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79662570f0aeb994ca19740ecb4851a7, type: 3}
+  m_Name: SubWave17
+  m_EditorClassIdentifier: 
+  m_enemies:
+  - {fileID: 11400000, guid: 2f49bfddee6ad0246b35966c500dddab, type: 2}
+  - {fileID: 11400000, guid: 7eb3c3ba7b23a99488bd8065b8bbc2e6, type: 2}
+  - {fileID: 11400000, guid: a45ce42341ee1eb4a8e1334833332b07, type: 2}
+  m_spawn_time: 14

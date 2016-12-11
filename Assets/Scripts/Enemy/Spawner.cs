@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour {
 
+	[Header("Syncronized Timer")]
+	public GameObject timer;
+	private Animator animatorTimer;
+
 	
 	[Header("Waves Scriptable Objects")]
 	public Wave[] m_waves;
@@ -91,12 +95,9 @@ public class Spawner : MonoBehaviour {
 
 
 
-	//Spawns the enemies at each new wave! !!!!WARNING!!!! It's really easy to go outofindex. TODO: implement a control
-	void Spawn(){
+void Spawn(){
 		if (current_level < m_waves.Length) {
 
-			Animator animator = GetComponent<Animator> () as Animator;
-			animator.SetTrigger ("Wave");
 
 			//At the beginning of each new wave a certain number of water are randomically dropped over the grid
 			m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
@@ -108,9 +109,17 @@ public class Spawner : MonoBehaviour {
 			//Takes the subwaves from the current wave
 			Subwave[] subwav = m_waves [current_level].m_subwaves;
 			float wait_time = 0f;
+			float timeNext = 0f;
 			for (int i = 0; i < subwav.Length; i++) {
 				wait_time = wait_time + subwav [i].m_spawn_time;
-				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies));
+
+				if (i + 1 == subwav.Length)
+					timeNext = 0.0f;
+				else
+					timeNext = subwav [i + 1].m_spawn_time;
+				if (i == 0)
+					timeNext = -timeNext;
+				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, timeNext));
 			}
 
 			//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
@@ -125,8 +134,22 @@ public class Spawner : MonoBehaviour {
 
 
 	//Couroutine that, after a given amount of waiting time, spawns the enemies
-	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies ){
+	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies, float timeNext ){
+		if (timeNext < 0.0f) {
+			timeNext = -timeNext;
+			animatorTimer.speed = 0.19f / waiting_time;
+			animatorTimer.SetTrigger ("Start");
+		}
+
 		yield return new WaitForSeconds (waiting_time);
+
+		if (timeNext != 0.0f) {
+			animatorTimer.speed = 0.19f / timeNext;
+			animatorTimer.SetTrigger ("Start");
+		}
+
+		Animator animator = GetComponent<Animator> () as Animator;
+		animator.SetTrigger ("Wave");
 		for (int i = 0; i < enemies.Length; i++) {
 			string enemy_name = enemies[i].m_type.ToString ();
 			GameObject go = ObjectPoolingManager.Instance.GetObject (enemy_name);

@@ -247,18 +247,20 @@ public class Tile : MonoBehaviour {
 	public void BuildCastle(){
 		EventManager.TriggerEvent ("DestroyPreview");
 		if (pointed_by_the_mouse == true) {
-			Debug.Log ("BuildCastle has been called");
+			//Debug.Log ("BuildCastle has been called");
 			EventManager.TriggerEvent ("SettedWithSuccess");
 			if (castle_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
 				go.transform.position = tr.transform.position;
 				go.transform.rotation = Quaternion.identity;
+				go.SendMessage ("SetParentTile", this.gameObject);
 				tower_preview = go;
 			}
 			if (castle_to_build == BuildableEnum.CannonTower) {
 				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
 				go.transform.position = tr.transform.position;
 				go.transform.rotation = Quaternion.identity;
+				go.SendMessage ("SetParentTile", this.gameObject);
 				tower_preview = go;
 			}
 			free = false;
@@ -303,10 +305,7 @@ public class Tile : MonoBehaviour {
 		args.isfree = free;
 		return;
 	}
-
-	public bool IsFree(){
-		return free;
-	}
+		
 
 
 	private void setArcherCastle(){
@@ -322,6 +321,8 @@ public class Tile : MonoBehaviour {
 
 	public void setFree(){
 		free=true;
+		castle_to_build = BuildableEnum.NoBuilding;
+		tile_building = BuildableEnum.NoBuilding;
 	}
 		
 }

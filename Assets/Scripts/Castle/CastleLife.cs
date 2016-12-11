@@ -8,16 +8,16 @@ public class CastleLife : MonoBehaviour {
 
 	float currentLife;
 
+	private GameObject castle_parent_tile;
+
 
 	// Use this for initialization
 	void Start () {
 		currentLife = initialLife;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-
+	public void SetParentTile(GameObject tile){
+		castle_parent_tile = tile;
 	}
 
 	public bool decreaseLife(int attack){
@@ -32,7 +32,13 @@ public class CastleLife : MonoBehaviour {
 		}
 	}
 
+
+	// When the Castle is destroyed it has to free its corresponding tile
 	public void death (){
+
+		castle_parent_tile.SendMessage ("SetFree");
+
+
 
 		this.gameObject.SetActive (false);
 

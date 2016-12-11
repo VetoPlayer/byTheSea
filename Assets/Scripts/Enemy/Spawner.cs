@@ -44,6 +44,7 @@ public class Spawner : MonoBehaviour {
 	public int m_waiting_time;
 	// Use this for initialization
 	void Start () {
+		animatorTimer = timer.GetComponent<Animator> ();
 		//HERMITCRABS
 		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,70,70);
 		//OCTOPUS
@@ -64,6 +65,8 @@ public class Spawner : MonoBehaviour {
 	}
 
 	IEnumerator WaitForTheSpawning(){
+		animatorTimer.speed = Timer.timeAnimationBase / m_waiting_time;
+		animatorTimer.SetTrigger ("Start");
 		yield return new WaitForSeconds (m_waiting_time);
 		//Indirect call to the Spawn() method and other things in the game
 		EventManager.TriggerEvent ("NewWave");
@@ -109,17 +112,11 @@ void Spawn(){
 			//Takes the subwaves from the current wave
 			Subwave[] subwav = m_waves [current_level].m_subwaves;
 			float wait_time = 0f;
-			float timeNext = 0f;
+	
 			for (int i = 0; i < subwav.Length; i++) {
 				wait_time = wait_time + subwav [i].m_spawn_time;
 
-				if (i + 1 == subwav.Length)
-					timeNext = 0.0f;
-				else
-					timeNext = subwav [i + 1].m_spawn_time;
-				if (i == 0)
-					timeNext = -timeNext;
-				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, timeNext));
+				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies));
 			}
 
 			//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
@@ -134,19 +131,11 @@ void Spawn(){
 
 
 	//Couroutine that, after a given amount of waiting time, spawns the enemies
-	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies, float timeNext ){
-		if (timeNext < 0.0f) {
-			timeNext = -timeNext;
-			animatorTimer.speed = 0.19f / waiting_time;
-			animatorTimer.SetTrigger ("Start");
-		}
+	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies ){
+
 
 		yield return new WaitForSeconds (waiting_time);
 
-		if (timeNext != 0.0f) {
-			animatorTimer.speed = 0.19f / timeNext;
-			animatorTimer.SetTrigger ("Start");
-		}
 
 		Animator animator = GetComponent<Animator> () as Animator;
 		animator.SetTrigger ("Wave");

@@ -24,6 +24,11 @@ public class CastleButton : MonoBehaviour {
 	/// </summary>
 	private CastleRecipe castleRecipe;
 
+	/// <summary>
+	/// The waiting: the button remain disabled when the player is actually in the building process 
+	/// </summary>
+	private bool not_waiting=true;
+
 	// Use this for initialization
 	void Start () {
 
@@ -34,13 +39,21 @@ public class CastleButton : MonoBehaviour {
 		this.castleRecipe = this.m_bucket.GetComponent<CastleRecipe> () as CastleRecipe;
 		this.m_button = GetComponent<Button> () as Button;
 		this.m_button.interactable = false;
+
+		EventManager.StartListening ("Craft_CannonTower", SetWaiting);
+		EventManager.StartListening ("Craft_ArcherTower", SetWaiting);
+		EventManager.StartListening ("StopBuilding", SetWaiting);
 	}
-	
-	// Update is called once per frame
+
+
+	public void SetWaiting(){
+		not_waiting = !not_waiting;
+	}
+
 	void Update () {
 		int sand = this.castleRecipe.getSand ();
 		int water = this.castleRecipe.getWater ();
-		this.m_button.interactable = ResourcesHandler.getInstance ().canCreate (sand, water);
+		this.m_button.interactable = ResourcesHandler.getInstance ().canCreate (sand, water) && not_waiting;
 	}
 
 	public void SpawnCastle(){

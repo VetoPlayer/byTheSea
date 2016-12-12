@@ -32,25 +32,7 @@ public class EnemyMovement : MonoBehaviour {
 		}
 		if(other.tag == "RageArea"){
 			speed = speed * speedUpTimes; 
-			
 		}
-		if (other.tag == "SensitiveArea") {
-
-
-			// HERE CALL THE CHANGE OF THE GAMPLAY SCENE
-			CallPlatform();
-
-
-		}
-
 	}
-
-	public void CallPlatform(){
-		//make the change of the scene
-		//Debug.Log("DEFENSE BREACHED");
-		EventManager.TriggerEvent("PassToPlatformScene");
-	}
-
-
 }
 

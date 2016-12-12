@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameFieldScript : MonoBehaviour {
+public class SensitiveAreaScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,12 +14,9 @@ public class GameFieldScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log (other.GetType ());
-	}
 
-	void OnTriggerExit2D(Collider2D other){
-		Debug.Log ("bullet exit");
-		other.gameObject.SetActive (false);
+		if (other.gameObject.tag == "Enemy") {
+			EventManager.TriggerEvent ("GameOverScreen");
+		}
 	}
-
 }

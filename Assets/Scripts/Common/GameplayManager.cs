@@ -18,8 +18,11 @@ public class GameplayManager : MonoBehaviour {
 		// Start listening to the GameOverScreen Event: If the player survives until the last level, the winning scene has to be shown to him 
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
 
-		EventManager.StartListening ("PassToTowerDefenseScene",GoToTowerDefenseScene);
+		//EventManager.StartListening ("PassToTowerDefenseScene",GoToTowerDefenseScene);
 
+		EventManager.StartListening ("Entity_Player_died", GoToTowerDefenseScene);
+		EventManager.StartListening ("Entity_Treasure_died", GoToTowerDefenseScene);
+		EventManager.StartListening ("EndAction_PlayerWins", GoToTowerDefenseScene);
 
 
 

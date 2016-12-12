@@ -15,6 +15,12 @@ public class CastleLife : MonoBehaviour {
 	void Start () {
 		currentLife = initialLife;
 	}
+
+	void OnEnable(){
+		// reset of the castle life.
+		currentLife = initialLife;
+		GetComponent<LifeBarManager> ().UpdateBar (currentLife, initialLife);
+	}
 	
 	public void SetParentTile(GameObject tile){
 		castle_parent_tile = tile;
@@ -31,17 +37,13 @@ public class CastleLife : MonoBehaviour {
 			return false;
 		}
 	}
-
-
+		
 	// When the Castle is destroyed it has to free its corresponding tile
 	public void death (){
 
 		castle_parent_tile.SendMessage ("SetFree");
 
-
-
 		this.gameObject.SetActive (false);
-
 	}
 
 }

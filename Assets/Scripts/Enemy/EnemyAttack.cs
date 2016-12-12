@@ -16,6 +16,10 @@ public class EnemyAttack : MonoBehaviour {
 	void Start () {
 		attackTime = Time.time;
 	}
+
+	void OnEnable(){
+		this.enabled = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,11 +29,8 @@ public class EnemyAttack : MonoBehaviour {
 			if (died) {
 				this.GetComponent<EnemyAttack> ().enabled = false;
 				this.GetComponent<EnemyMovement> ().enabled = true;
-
 			}
 		}
-		
-	
 	}
 
 	public void setTargetAttack(CastleLife target){

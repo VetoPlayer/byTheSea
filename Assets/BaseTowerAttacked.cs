@@ -17,9 +17,23 @@ public class BaseTowerAttacked : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.CompareTag ("Enemy")) {
+
+			EventManager.StartListening ("Entity_Treasure_died", disableTower);
+			EventManager.StartListening ("Entity_Player_died", disableTower);
+			EventManager.StartListening ("EndAction_PlayerWins", stopListeningEndEvents);
+
 			EventManager.TriggerEvent ("PassToPlatformScene");
-			Debug.Log ("Entrato");
 		}
+	}
+
+	private void stopListeningEndEvents(){
+		EventManager.StopListening("Entity_Treasure_died", disableTower);
+		EventManager.StopListening("Entity_Player_died", disableTower);
+	}
+
+	private void disableTower(){
+		EventManager.StopListening("EndAction_PlayerWins", stopListeningEndEvents);
+		this.gameObject.SetActive (false);
 	}
 
 }

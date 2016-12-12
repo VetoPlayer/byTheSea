@@ -61,9 +61,9 @@ public class CastleButton : MonoBehaviour {
 		int water = this.castleRecipe.getWater ();
 		ResourcesHandler.getInstance ().use (water, sand);
 		//GameObject go = BucketsHandler.getInstance ().getBucket (this.m_bucket.name);
-		GameObject go = ObjectPoolingManager.Instance.GetObject(m_bucket.name);
-		go.transform.position = m_spawnPosition.position;
-		go.transform.rotation = Quaternion.identity;
+		//GameObject go = ObjectPoolingManager.Instance.GetObject(m_bucket.name);
+		//go.transform.position = m_spawnPosition.position;
+		//go.transform.rotation = Quaternion.identity;
 
 		// It directly triggers the event in order to make the Crafter begin "crafting" the castle
 		EventManager.TriggerEvent ("Craft_" + m_type.ToString());

@@ -17,6 +17,11 @@ public class EnemyLife : MonoBehaviour {
 	void Start () {
 		currentLife = initialLife;
 	}
+
+	void OnEnable(){
+		currentLife = initialLife;
+		GetComponent<LifeBarManager> ().UpdateBar (currentLife, initialLife);
+	}
 	
 	// Update is called once per frame
 	void Update () {

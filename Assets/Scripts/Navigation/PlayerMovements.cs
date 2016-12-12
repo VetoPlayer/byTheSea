@@ -40,10 +40,10 @@ public class PlayerMovements : MonoBehaviour {
 	}
 
 	private void handleMovement(){
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.RightArrow)) {
 			this.direction = Vector3.right;
 		}
-		else if (Input.GetKey (KeyCode.A)) {
+		else if (Input.GetKey (KeyCode.LeftArrow)) {
 			this.direction = Vector3.left;
 		} else {
 			this.direction = Vector3.zero;

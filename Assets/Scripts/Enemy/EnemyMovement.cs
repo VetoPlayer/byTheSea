@@ -17,6 +17,11 @@ public class EnemyMovement : MonoBehaviour {
 		transform.position = transform.position + dir * speed * Time.deltaTime;
 	}
 
+	void OnEnable(){
+		this.enabled = true;
+		this.GetComponent<EnemyAttack> ().enabled = false;
+	}
+
 	void OnTriggerEnter2D(Collider2D other){
 
 		if (other.tag == "Castle") {

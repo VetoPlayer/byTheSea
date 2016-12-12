@@ -37,7 +37,7 @@ public class PlayerPlatformAttack : MonoBehaviour {
 	}
 
 	private void attackRoutine(){
-		if (Input.GetKeyDown (KeyCode.K)) {
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
 			RaycastHit2D hit = Physics2D.Raycast (
 				                   this.tr.position,
 								   this.attackDirection,

@@ -18,8 +18,8 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		this.enabled = true;
 		this.GetComponent<EnemyAttack> ().enabled = false;
+		this.enabled = true;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

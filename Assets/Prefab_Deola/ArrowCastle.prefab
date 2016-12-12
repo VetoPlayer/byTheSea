@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4052517b7254147ee9b303262fcf46c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRange: 1
+  timeRange: 3
   bullet: {fileID: 1000012958526304, guid: 69142c8dbf2914a6da2b107bc9ca4a5b, type: 2}
   fireSpot: {fileID: 1000012296874330}
 --- !u!114 &114000012354306626
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734225ac855dc469f8f4ff59908e77a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialLife: 400
+  initialLife: 300
   armor: 10
 --- !u!212 &212000010395402362
 SpriteRenderer:

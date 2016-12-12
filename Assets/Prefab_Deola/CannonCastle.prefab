@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4052517b7254147ee9b303262fcf46c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRange: 1
+  timeRange: 2
   bullet: {fileID: 1000010780359386, guid: 2010efea098ce4f2f870d0fd2e82ead7, type: 2}
   fireSpot: {fileID: 1000011597392430}
 --- !u!212 &212000010237401390

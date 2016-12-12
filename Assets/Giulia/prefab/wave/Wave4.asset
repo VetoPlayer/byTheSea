@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b790e187571e446439393292f4143221, type: 2}
   - {fileID: 11400000, guid: 77250ad9addfa1541b1a196444b78da7, type: 2}
   wave_time: 35
-  n_water_drops: 6
+  n_water_drops: 3

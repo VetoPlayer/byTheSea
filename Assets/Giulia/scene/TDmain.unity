@@ -3678,6 +3678,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000013670905226, guid: a9a066420db7e154d8dc45f7ab9af17d,
+        type: 2}
+      propertyPath: m_waves.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 224000011641355072, guid: a9a066420db7e154d8dc45f7ab9af17d,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -3786,7 +3791,7 @@ Prefab:
     - target: {fileID: 114000013670905226, guid: a9a066420db7e154d8dc45f7ab9af17d,
         type: 2}
       propertyPath: m_waiting_time
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4000013170781870, guid: a9a066420db7e154d8dc45f7ab9af17d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3808,6 +3813,24 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.281
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013670905226, guid: a9a066420db7e154d8dc45f7ab9af17d,
+        type: 2}
+      propertyPath: m_waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d7cff11c4ee1584897c587fa3390e60,
+        type: 2}
+    - target: {fileID: 114000013670905226, guid: a9a066420db7e154d8dc45f7ab9af17d,
+        type: 2}
+      propertyPath: m_waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4fb70b418a14e984d806d56abd299ae9,
+        type: 2}
+    - target: {fileID: 114000013670905226, guid: a9a066420db7e154d8dc45f7ab9af17d,
+        type: 2}
+      propertyPath: m_waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 385914bf4775acf44bd1a6e3839d6206,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9a066420db7e154d8dc45f7ab9af17d, type: 2}
   m_IsPrefabParent: 0
@@ -6038,12 +6061,12 @@ Prefab:
     - target: {fileID: 224000014219037924, guid: 715928e9cae8914458df5c41ccbf10a7,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 306
+      value: 1158
       objectReference: {fileID: 0}
     - target: {fileID: 224000014219037924, guid: 715928e9cae8914458df5c41ccbf10a7,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -355
+      value: 1999
       objectReference: {fileID: 0}
     - target: {fileID: 1000013671555512, guid: 715928e9cae8914458df5c41ccbf10a7, type: 2}
       propertyPath: m_IsActive
@@ -6378,6 +6401,26 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010032382516, guid: 715928e9cae8914458df5c41ccbf10a7,
+        type: 2}
+      propertyPath: m_time_archer
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010032382516, guid: 715928e9cae8914458df5c41ccbf10a7,
+        type: 2}
+      propertyPath: m_time_cannon
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010089651096, guid: 715928e9cae8914458df5c41ccbf10a7,
+        type: 2}
+      propertyPath: m_initial_water
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010089651096, guid: 715928e9cae8914458df5c41ccbf10a7,
+        type: 2}
+      propertyPath: m_initial_sand
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 715928e9cae8914458df5c41ccbf10a7, type: 2}

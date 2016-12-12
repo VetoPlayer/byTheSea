@@ -29,6 +29,7 @@ GameObject:
   - 95: {fileID: 95000013483613136}
   - 114: {fileID: 114000012684965608}
   - 114: {fileID: 114000011219011364}
+  - 114: {fileID: 114000012109699380}
   m_Layer: 8
   m_Name: HermitCrab
   m_TagString: Enemy
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4e5e8c4eaaf4f3ca6996a1155a45d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   speedUpTimes: 3
 --- !u!114 &114000011106719216
 MonoBehaviour:
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d94a69f17bc4e2b964c3814651164e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: 0
+  shield: 2
 --- !u!114 &114000011219011364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,7 +165,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sand: {fileID: 1000011737158346, guid: 03f4c2f622e5a49369351aa3f43b2630, type: 2}
-  m_spawn_probability: 0.5
+  m_spawn_probability: 0.33
+--- !u!114 &114000012109699380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58260ef9a6c5f4d7e9ec4fcc7abf2978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012507936536
 MonoBehaviour:
   m_ObjectHideFlags: 1

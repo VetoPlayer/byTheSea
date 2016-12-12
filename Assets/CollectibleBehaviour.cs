@@ -38,7 +38,7 @@ public class CollectibleBehaviour : MonoBehaviour {
 
 		//Send to the corresponding parent tile the message to set it free
 		if (m_resource == ResourcesEnum.Water) {
-			daddy.SendMessage ("setFree");
+			daddy.SendMessage ("SetFree");
 		}
 
 

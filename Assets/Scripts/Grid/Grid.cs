@@ -20,7 +20,9 @@ public class Grid : MonoBehaviour
 	//Instantiate all the water prefabs
 	public GameObject m_water;
 
-
+	[Header("Time to spawn water after the beginning of the Wave")]
+	[Range(0f,30f)]
+	public float waiting_time_to_spawn_water=2f;
                               
 
 	// Light Part of the grid
@@ -52,13 +54,16 @@ public class Grid : MonoBehaviour
 		EventManager.TriggerEvent ("FinishedTileIDAssignement");
 	}
 		
-
+	public void spawnRandomWater(int water_units){
+		StartCoroutine (spawnWater(water_units));
+	}
 
 
 
 
 	// Water is spawned only on the light part!
-	public void spawnRandomWater(int water_units){
+	IEnumerator spawnWater(int water_units){
+		yield return new WaitForSeconds (waiting_time_to_spawn_water);
 		for(int i=0; i < water_units; i++){
 			int randomIndex = Random.Range (0,m_light_grid.Count);
 			MessageClass args = new MessageClass ();

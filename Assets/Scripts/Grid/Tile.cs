@@ -5,6 +5,7 @@ public class Tile : MonoBehaviour {
 
 
 	private Transform tr;
+
 	[Header("Variable to set false only if a base tower is over it")]
 	public bool m_contains_base_tower=false;
 
@@ -319,7 +320,7 @@ public class Tile : MonoBehaviour {
 		castle_to_build = BuildableEnum.CannonTower;
 	}
 
-	public void setFree(){
+	public void SetFree(){
 		free=true;
 		castle_to_build = BuildableEnum.NoBuilding;
 		tile_building = BuildableEnum.NoBuilding;

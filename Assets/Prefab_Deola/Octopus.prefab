@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sand: {fileID: 1000011737158346, guid: 03f4c2f622e5a49369351aa3f43b2630, type: 2}
-  m_spawn_probability: 1
+  m_spawn_probability: 0.78
 --- !u!114 &114000013239228070
 MonoBehaviour:
   m_ObjectHideFlags: 1

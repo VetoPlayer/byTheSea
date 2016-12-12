@@ -27,7 +27,7 @@ public class ReleaseSandOnDeath : MonoBehaviour {
 		int p = Random.Range(0,1);
 		if (p < m_spawn_probability) {
 			GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand.name);
-			go.transform.position = tr.transform.position;
+			go.transform.position = new Vector3(tr.position.x, tr.position.y, 99);
 			go.transform.rotation = Quaternion.identity;
 
 		}

@@ -20,9 +20,9 @@ public class Timer : MonoBehaviour {
 
 	// The Timer starts waiting for the right amount of time and then triggers the event "NewWave"
 	IEnumerator StartTimingCoroutine(float waiting_time){
-		if (!anim (waiting_time)) {
+
 			nextTime = Time.time + waiting_time;
-		}
+
 
 
 		yield return new WaitForSeconds(waiting_time);

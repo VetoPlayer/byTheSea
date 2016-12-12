@@ -115,8 +115,10 @@ void Spawn(){
 	
 			for (int i = 0; i < subwav.Length; i++) {
 				wait_time = wait_time + subwav [i].m_spawn_time;
-
-				StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies));
+				if(i== (subwav.Length -1))
+					StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, true));
+				else
+					StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, false));
 			}
 
 			//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
@@ -131,14 +133,21 @@ void Spawn(){
 
 
 	//Couroutine that, after a given amount of waiting time, spawns the enemies
-	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies ){
-
-
-		yield return new WaitForSeconds (waiting_time);
+	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies, bool last ){
 
 
 		Animator animator = GetComponent<Animator> () as Animator;
+		animator.speed = 1.817f/ waiting_time;
 		animator.SetTrigger ("Wave");
+
+		yield return new WaitForSeconds (waiting_time);
+
+		if (last) {
+			timer.GetComponent<Timer> ().forceAnim ();
+		}
+
+
+
 		for (int i = 0; i < enemies.Length; i++) {
 			string enemy_name = enemies[i].m_type.ToString ();
 			GameObject go = ObjectPoolingManager.Instance.GetObject (enemy_name);

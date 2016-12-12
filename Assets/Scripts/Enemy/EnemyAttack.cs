@@ -18,8 +18,8 @@ public class EnemyAttack : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		this.GetComponent<EnemyMovement> ().enabled = true;
 		this.enabled = false;
+		this.GetComponent<EnemyMovement> ().enabled = true;
 	}
 	
 	// Update is called once per frame

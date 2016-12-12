@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 417.7, y: 393.8, z: 100}
-  m_LocalScale: {x: 0.4416719, y: 0.44341895, z: 0}
+  m_LocalPosition: {x: 528.8, y: 368.4, z: 100}
+  m_LocalScale: {x: 0.28516597, y: 0.29428563, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c0a0303638e7744a98fa5529b5822d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_contains_base_tower: 1
+  m_contains_base_tower: 0
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
   m_preview_dummy_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
@@ -80,8 +80,6 @@ MonoBehaviour:
     type: 2}
   m_base_castle_prefab: {fileID: 1000013082592870, guid: b45dfdefa2e0a2646a422e988af849ee,
     type: 2}
-  tile_id: 0
-  tile_building: 0
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1

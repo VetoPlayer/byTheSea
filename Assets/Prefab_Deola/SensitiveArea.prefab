@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010132454738}
   - 61: {fileID: 61000012300508876}
-  - 114: {fileID: 114000012099395386}
   m_Layer: 0
   m_Name: SensitiveArea
   m_TagString: SensitiveArea
@@ -35,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011667655934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 411.1, y: 336.2, z: 0}
+  m_LocalPosition: {x: -14.17, y: 1.11, z: 0}
   m_LocalScale: {x: 4.3734674, y: 20, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -52,17 +51,6 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.3466476}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.6932945}
---- !u!114 &114000012099395386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011667655934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba2834788a5b4e52afb9cbf854e71de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 1, y: 1}

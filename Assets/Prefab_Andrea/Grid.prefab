@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowed_area: 4
   m_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839, type: 2}
+  waiting_time_to_spawn_water: 2
   m_light_grid:
   - {fileID: 0}
   - {fileID: 0}
@@ -85,17 +86,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_shadow_grid:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

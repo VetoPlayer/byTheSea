@@ -45,6 +45,7 @@ GameObject:
   - 95: {fileID: 95000012244061036}
   - 114: {fileID: 114000012631863150}
   - 114: {fileID: 114000010590423336}
+  - 114: {fileID: 114000014201964266}
   m_Layer: 8
   m_Name: Crab
   m_TagString: Enemy
@@ -203,6 +204,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1000010690717078}
+--- !u!114 &114000014201964266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58260ef9a6c5f4d7e9ec4fcc7abf2978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011721270472
 SpriteRenderer:
   m_ObjectHideFlags: 1

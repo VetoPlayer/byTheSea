@@ -3,10 +3,6 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour {
 
-	[Header("Syncronized Timer")]
-	public GameObject timer;
-	private Animator animatorTimer;
-
 	
 	[Header("Waves Scriptable Objects")]
 	public Wave[] m_waves;
@@ -14,6 +10,10 @@ public class Spawner : MonoBehaviour {
 	// Remark: since the spawner reads directly form the Scriptableobject what kind of enemy to spawn, it doesn't require any prefab
 
 	private int current_level=0;
+	private float number_enemy=1;
+
+	public int starting_enemy=1;
+	public float percentage_increment=0.3f;
 
 	//Positions at which the Enemies will be spawned. 
 	[Header("Spawn Positions")]
@@ -39,12 +39,9 @@ public class Spawner : MonoBehaviour {
 	[Header("Crab Prefab")]
 	public GameObject m_crab;
 
-	[Header("Waiting Time")]
-	[Range(0f, 20f)]
-	public int m_waiting_time;
 	// Use this for initialization
 	void Start () {
-		animatorTimer = timer.GetComponent<Animator> ();
+		number_enemy = starting_enemy;
 		//HERMITCRABS
 		ObjectPoolingManager.Instance.CreatePool (m_hermit_crab,70,70);
 		//OCTOPUS
@@ -56,21 +53,12 @@ public class Spawner : MonoBehaviour {
 		EventManager.StartListening ("NewWave",Spawn);
 		// For the very first time, it triggers itself
 
-		Load();
-
-		StartCoroutine (WaitForTheSpawning());
+		Load ();
 
 		EventManager.StartListening ("PassToPlatformScene", Save);
 	
 	}
 
-	IEnumerator WaitForTheSpawning(){
-		animatorTimer.speed = Timer.timeAnimationBase / m_waiting_time;
-		animatorTimer.SetTrigger ("Start");
-		yield return new WaitForSeconds (m_waiting_time);
-		//Indirect call to the Spawn() method and other things in the game
-		EventManager.TriggerEvent ("NewWave");
-	}
 
 
 
@@ -99,82 +87,47 @@ public class Spawner : MonoBehaviour {
 
 
 void Spawn(){
-		if (current_level < m_waves.Length) {
 
+		m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
 
-			//At the beginning of each new wave a certain number of water are randomically dropped over the grid
-			m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
+		current_level = current_level + 1;
 
-			//Call the timer to keep track of the time for the next wave 
-			m_timer.SendMessage ("StartTiming", m_waves [current_level].wave_time);
-
-
-			//Takes the subwaves from the current wave
-			Subwave[] subwav = m_waves [current_level].m_subwaves;
-			float wait_time = 0f;
-	
-			for (int i = 0; i < subwav.Length; i++) {
-				wait_time = wait_time + subwav [i].m_spawn_time;
-				if(i== (subwav.Length -1))
-					StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, true));
-				else
-					StartCoroutine (SpawnAtSubwave (wait_time, subwav [i].m_enemies, false));
-			}
-
-			//Current level gets incremented at the end of the function in order to align the level 1 to the array element at position 0
-			current_level++;
-		} else {
-			//Else repeat in a forever loop the very last 3 Levels!
-//			current_level = current_level - 2;
-//			Spawn ();
-			EventManager.StopListening("NewWave",Spawn);
-		}
-	}
-
-
-	//Couroutine that, after a given amount of waiting time, spawns the enemies
-	IEnumerator SpawnAtSubwave(float waiting_time, EnemySpawn[] enemies, bool last ){
-
-
-		Animator animator = GetComponent<Animator> () as Animator;
-		animator.speed = 1.817f/ waiting_time;
-		animator.SetTrigger ("Wave");
-
-		yield return new WaitForSeconds (waiting_time);
-
-		if (last) {
-			timer.GetComponent<Timer> ().forceAnim ();
-		}
-
-
-
-		for (int i = 0; i < enemies.Length; i++) {
-			string enemy_name = enemies[i].m_type.ToString ();
-			GameObject go = ObjectPoolingManager.Instance.GetObject (enemy_name);
-			//The enemy is spawns at the specified position, usinge the three (but possibily more) children of Spawner GameObject:
-			if(enemies[i].m_spawn_position.Equals(TilePosition.FirstLane))
-				go.transform.position = m_first_lane.transform.position;
-			else
-				if(enemies[i].m_spawn_position.Equals(TilePosition.SecondLane))
-					go.transform.position = m_second_lane.transform.position;
-				else
-					if(enemies[i].m_spawn_position.Equals(TilePosition.ThirdLane))
-						go.transform.position= m_third_lane.transform.position;
-					else
-						if(enemies[i].m_spawn_position.Equals(TilePosition.FourthLane))
-							go.transform.position= m_fourth_lane.transform.position;
-						else
-							if(enemies[i].m_spawn_position.Equals(TilePosition.FifthLane))
-								go.transform.position= m_fifth_lane.transform.position;
-			//No matter what, the rotation is always the Quaternion Identity
-			go.transform.rotation = Quaternion.identity;
-		}
+		for (int i = 0; i < number_enemy; i++) {
+			int type = Random.Range (0, 2); 
+			if(type==0)
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_hermit_crab.name) ));
+			if(type==1)
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_crab.name) ));
+			if(type==2)
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_octopus.name) ));
 			
+		}
 
-
+		number_enemy = number_enemy+ (number_enemy * percentage_increment);
 
 	}
 
+	IEnumerator singleSpawn(float wait, GameObject enemy){
+		yield return new WaitForSeconds (wait);
+		int pos = Random.Range (1, 5); 
+
+		if(pos==1)
+			enemy.transform.position = m_first_lane.transform.position;
+		else
+			if(pos==2)
+				enemy.transform.position = m_second_lane.transform.position;
+			else
+				if(pos==3)
+					enemy.transform.position= m_third_lane.transform.position;
+				else
+					if(pos==4)
+						enemy.transform.position= m_fourth_lane.transform.position;
+					else
+						if(pos==5)
+							enemy.transform.position= m_fifth_lane.transform.position;
+
+
+	}
 
 
 	// Update is called once per frame

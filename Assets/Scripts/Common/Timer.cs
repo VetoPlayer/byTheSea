@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Timer : MonoBehaviour {
 
+
+	public float managingTime=5f;
+	public static float spawnTime=5f;
+
 	Animator animator;
 
 	static public float timeAnimationBase = 0.317f;
@@ -11,23 +15,38 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		animator = GetComponent<Animator> () as Animator;
+
+
 		
 	}
+	void OnEnable(){
+		StartCoroutine (StartTimingCoroutine(managingTime));	
+	}
+	void Start(){
+			
 
-	void StartTiming(float waiting_time){
-		StartCoroutine (StartTimingCoroutine(waiting_time));
 	}
 
 	// The Timer starts waiting for the right amount of time and then triggers the event "NewWave"
 	IEnumerator StartTimingCoroutine(float waiting_time){
 
-			nextTime = Time.time + waiting_time;
-
-
-
+		animator.speed = Timer.timeAnimationBase / waiting_time;
+		animator.SetTrigger ("Reverse");
+		
 		yield return new WaitForSeconds(waiting_time);
 
 		EventManager.TriggerEvent ("NewWave");
+
+		animator.speed =  (Timer.timeAnimationBase / spawnTime);
+		animator.SetTrigger ("Start");
+
+
+		yield return new WaitForSeconds(spawnTime);
+
+		gameObject.GetComponent<TimerChecker> ().enabled = true;
+		this.enabled = false;
+
+
 	}
 
 

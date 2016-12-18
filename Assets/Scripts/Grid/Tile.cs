@@ -40,6 +40,9 @@ public class Tile : MonoBehaviour {
 	[Header("Base Castle")]
 	public GameObject m_base_castle_prefab;
 
+	[Header("Sand Hole")]
+	public GameObject m_sand_trap_prefab;
+
 	private bool creative_mode = false;
 
 	private BuildableEnum castle_to_build =  BuildableEnum.NoBuilding;
@@ -101,11 +104,14 @@ public class Tile : MonoBehaviour {
 		// Cannon Castle
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
 
+		// Sand Trap
+		ObjectPoolingManager.Instance.CreatePool (m_sand_trap_prefab, 50, 50);
 	
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
 		EventManager.StartListening ("ArcherCastle", setArcherCastle);
 		EventManager.StartListening ("CannonCastle", setCannonCastle);
+		EventManager.StartListening ("SandHole",setSandTrap);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 		EventManager.StartListening ("MouseReleased",BuildCastle);
@@ -113,7 +119,6 @@ public class Tile : MonoBehaviour {
 
 		EventManager.StartListening ("PassToPlatformScene",Save);
 		EventManager.StartListening ("FinishedTileIDAssignement", setTileReady);
-
 
 
 
@@ -188,14 +193,6 @@ public class Tile : MonoBehaviour {
 
 
 
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
-
 
 	public void setLightTile(){
 		is_shadow_tile = false;
@@ -211,23 +208,30 @@ public class Tile : MonoBehaviour {
 	void OnMouseOver(){
 		pointed_by_the_mouse = true;
 		//Debug.Log ("displaying" + displaying_in_prevew + "isshadowtile " + is_shadow_tile + "free: "+ free + "creative mode" + creative_mode + "castle to build= "+ castle_to_build);
-		if (displaying_in_prevew == false && is_shadow_tile== true && free == true && creative_mode == true && castle_to_build != BuildableEnum.NoBuilding) {
-
-			if (castle_to_build == BuildableEnum.ArcherTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_archer_castle_prefab.name);
+		if (displaying_in_prevew == false && free == true && creative_mode == true ) {
+			if (is_shadow_tile == true && castle_to_build != BuildableEnum.NoBuilding) {
+				if (castle_to_build == BuildableEnum.ArcherTower) {
+					GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_archer_castle_prefab.name);
+					go.transform.position = tr.transform.position;
+					go.transform.rotation = Quaternion.identity;
+					tower_preview = go;
+				}
+				if (castle_to_build == BuildableEnum.CannonTower) {
+					GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_cannon_castle_prefab.name);
+					go.transform.position = tr.transform.position;
+					go.transform.rotation = Quaternion.identity;
+					tower_preview = go;
+				}
+				//So you show it only one time
+				displaying_in_prevew = true;
+				//else, if it's a light tile, you want to show the trap preview. No Tower Has to be shown as preview
+			} else if (!is_shadow_tile && castle_to_build == BuildableEnum.NoBuilding) { 
+				Debug.Log("Showing Trap Preview");
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_trap_prefab.name);
 				go.transform.position = tr.transform.position;
 				go.transform.rotation = Quaternion.identity;
 				tower_preview = go;
 			}
-			if (castle_to_build == BuildableEnum.CannonTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_cannon_castle_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
-				tower_preview = go;
-			}
-			//So you show it only one time
-			displaying_in_prevew = true;
-
 
 		}
 			
@@ -319,6 +323,13 @@ public class Tile : MonoBehaviour {
 		creative_mode = true;
 		castle_to_build = BuildableEnum.CannonTower;
 	}
+
+	private void setSandTrap(){
+		creative_mode = true;
+		castle_to_build = BuildableEnum.NoBuilding;
+	}
+
+
 
 	public void SetFree(){
 		free=true;

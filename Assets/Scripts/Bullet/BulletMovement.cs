@@ -10,7 +10,6 @@ public class BulletMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Animator> ().SetTrigger ("Fire");
 	}
 	
 	// Update is called once per frame

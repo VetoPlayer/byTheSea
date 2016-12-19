@@ -45,12 +45,25 @@ public class EnemyLife : MonoBehaviour {
 	}
 
 	public void death (){
+		GetComponent<EnemyMovement> ().enabled = false;
+		GetComponent<EnemyAttack> ().enabled = false;
+		StartCoroutine (animation ());
 
+
+
+	}
+
+	IEnumerator animation(){
+		Animator animator = GetComponent<Animator> () as Animator;
+		animator.SetTrigger ("Death");
+		yield return new WaitForSeconds (0.433f);
+
+		//CHANGE THIS, OR NOT
 		//Call for realeasing the sand
 		GetComponent <ReleaseSandOnDeath>().realeaseSand();
+
 		//Deactivates Itself
 		this.gameObject.SetActive (false);
-
 	}
 
 

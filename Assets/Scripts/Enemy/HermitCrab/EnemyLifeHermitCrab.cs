@@ -42,9 +42,18 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 	}
 
 	public void death (){
+		GetComponent<EnemyMovement> ().enabled = false;
+		GetComponent<EnemyAttack> ().enabled = false;
+		StartCoroutine (animation ());
 
+
+
+	}
+
+	IEnumerator animation(){
 		Animator animator = GetComponent<Animator> () as Animator;
 		animator.SetTrigger ("Death");
+		yield return new WaitForSeconds (0.433f);
 
 		//CHANGE THIS, OR NOT
 		//Call for realeasing the sand
@@ -52,8 +61,6 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 		//Deactivates Itself
 		this.gameObject.SetActive (false);
-
-
 	}
 		
 	private void lifeAnim(int curr, int prev){

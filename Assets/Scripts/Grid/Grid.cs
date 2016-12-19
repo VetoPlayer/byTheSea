@@ -64,12 +64,22 @@ public class Grid : MonoBehaviour
 	// Water is spawned only on the light part!
 	IEnumerator spawnWater(int water_units){
 		yield return new WaitForSeconds (waiting_time_to_spawn_water);
-		for(int i=0; i < water_units; i++){
+
+		//i++ does't have to be implemented
+		for(int i=0; i < water_units;){
 			int randomIndex = Random.Range (0,m_light_grid.Count);
+			//Checks if it is free
 			MessageClass args = new MessageClass ();
 			m_light_grid [randomIndex].SendMessage ("IsFree", args);
-			if (args.isfree) {
+			//Checks if it is displaying something in preview
+			MessageClass in_preview = new MessageClass ();
+			m_light_grid [randomIndex].SendMessage ("IsDisplayingInPreview", in_preview);
+
+			//If it's free and it's not displaying anything in preview
+			if (args.isfree && !in_preview.isfree) {
 				m_light_grid [randomIndex].SendMessage ("SetWater");
+				i++;
+			
 			}
 		}
 	}

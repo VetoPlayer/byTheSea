@@ -80,6 +80,8 @@ MonoBehaviour:
     type: 2}
   m_base_castle_prefab: {fileID: 1000013082592870, guid: b45dfdefa2e0a2646a422e988af849ee,
     type: 2}
+  m_sand_hole_dummy_prefab: {fileID: 1000010507352980, guid: e37b1528251df2545b158236597a5edb,
+    type: 2}
   m_sand_trap_prefab: {fileID: 1000013105418854, guid: 057bb4b910d0de840808f9ea673fa37e,
     type: 2}
   tile_id: 0

@@ -24,10 +24,10 @@ public class Tile : MonoBehaviour {
 	public GameObject m_my_tile_water;
 
 	//DUMMY TOWERS PREVIEW: ACTUALLY THEY ARE SIMPLY A SPRITE AND WON'T SHOOT TO THE INCOMING ENEMIES
-	[Header("Archer Castle")]
+	[Header("Archer Castle Dummy")]
 	public GameObject m_preview_dummy_archer_castle_prefab;
 
-	[Header("Cannon Castle")]
+	[Header("Cannon Castle Dummy")]
 	public GameObject m_preview_dummy_cannon_castle_prefab;
 
 	//REAL TOWERS THAT HAVE TO BE BUILT
@@ -39,6 +39,10 @@ public class Tile : MonoBehaviour {
 
 	[Header("Base Castle")]
 	public GameObject m_base_castle_prefab;
+
+	[Header("Sand Hole Dummy")]
+	public GameObject m_sand_hole_dummy_prefab;
+
 
 	[Header("Sand Hole")]
 	public GameObject m_sand_trap_prefab;
@@ -75,9 +79,11 @@ public class Tile : MonoBehaviour {
 
 
 	void Awake(){
+		//You get the transform of this component in the awake to avoid errors
 		tr = GetComponent<Transform> (); 
-		// Base Castle
 
+
+		//Base Castle
 		ObjectPoolingManager.Instance.CreatePool (m_base_castle_prefab, 10, 10);
 	}
 
@@ -106,16 +112,21 @@ public class Tile : MonoBehaviour {
 
 		// Sand Trap
 		ObjectPoolingManager.Instance.CreatePool (m_sand_trap_prefab, 50, 50);
+
+		// Sand Trap preview
+
+		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_dummy_prefab,20,20);
 	
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
 		EventManager.StartListening ("ArcherCastle", setArcherCastle);
 		EventManager.StartListening ("CannonCastle", setCannonCastle);
-		EventManager.StartListening ("SandHole",setSandTrap);
+		EventManager.StartListening ("SandHole_Drag",setSandTrap);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
+		EventManager.StartListening ("SandHole_Release",BuildSandHole);
 
 		EventManager.StartListening ("PassToPlatformScene",Save);
 		EventManager.StartListening ("FinishedTileIDAssignement", setTileReady);
@@ -226,11 +237,13 @@ public class Tile : MonoBehaviour {
 				displaying_in_prevew = true;
 				//else, if it's a light tile, you want to show the trap preview. No Tower Has to be shown as preview
 			} else if (!is_shadow_tile && castle_to_build == BuildableEnum.NoBuilding) { 
-				Debug.Log("Showing Trap Preview");
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_trap_prefab.name);
+				//Debug.Log("Showing Trap Preview");
+				GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_hole_dummy_prefab.name);
 				go.transform.position = tr.transform.position;
 				go.transform.rotation = Quaternion.identity;
 				tower_preview = go;
+				//So you show it only one time
+				displaying_in_prevew = true;
 			}
 
 		}
@@ -275,6 +288,22 @@ public class Tile : MonoBehaviour {
 	}
 
 
+	//Builds up the Sand Hole trap over the Tile
+	private void BuildSandHole(){
+		if (pointed_by_the_mouse == true) {
+			GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_trap_prefab.name);
+			go.transform.position = tr.transform.position;
+			go.transform.rotation = Quaternion.identity;
+			go.SendMessage ("SetParentTile", this.gameObject);
+			free = false;
+
+			EventManager.TriggerEvent ("StopBuilding");
+		}
+
+
+	}
+
+
 
 
 	//Puts every tile off the creative mode
@@ -306,9 +335,16 @@ public class Tile : MonoBehaviour {
 	
 	}
 
+	//Method called by the Grid to check wheter the tile is free or not
 	public void IsFree(MessageClass args){
 		args.isfree = free;
 		return;
+	}
+
+	//Method called by the Grid to check wheter the tile is displaying in preview something or not
+
+	public void IsDisplayingInPreview(MessageClass args){
+		args.isfree = displaying_in_prevew;
 	}
 		
 
@@ -335,6 +371,32 @@ public class Tile : MonoBehaviour {
 		free=true;
 		castle_to_build = BuildableEnum.NoBuilding;
 		tile_building = BuildableEnum.NoBuilding;
+	}
+
+
+
+
+
+
+
+
+	// Collider Part: You don't want to make the player able to build up things if an enemy is nearby
+	// Whenever you have a collision between a tile and an enemy, the free variable is setted to false, making the player unable to 
+	// build over an occupied tile
+
+	void OnTriggerEnter2D(Collider2D other){
+		//Debug.Log ("Hit");
+		if (other.gameObject.tag == "Enemy") {
+			//Debug.Log ("Hit, and it's an enemy");
+			free=false;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other){
+		//Debug.Log ("Exited");
+		if (other.gameObject.tag == "Enemy") {
+			free = true;
+		}
 	}
 		
 }

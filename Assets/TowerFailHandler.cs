@@ -18,7 +18,9 @@ public class TowerFailHandler : MonoBehaviour {
 		EventManager.StartListening ("CannonCastle", setCannonCastle);
 		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
-		EventManager.StartListening("MouseReleased", CheckSuccessfulConstruction);
+		EventManager.StartListening("MouseReleased", CheckSuccessfulCastleConstruction);
+
+		EventManager.StartListening ("SandHole_Release", CheckSuccessfulSandHoleConstruction);
 
 		EventManager.StartListening ("SettedWithSuccess", SetSuccess);
 
@@ -31,10 +33,14 @@ public class TowerFailHandler : MonoBehaviour {
 
 	}
 	
-	void CheckSuccessfulConstruction(){
+	void CheckSuccessfulCastleConstruction(){
 		StartCoroutine (CheckSuccess());
 	}
 
+
+	void CheckSuccessfulSandHoleConstruction(){
+		//TODO. operatio_success has to be updated not only for the right castles, but also for the trap
+	}
 
 
 	IEnumerator CheckSuccess(){

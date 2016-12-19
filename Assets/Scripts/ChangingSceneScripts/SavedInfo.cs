@@ -35,7 +35,7 @@ public class SavedInfo : MonoBehaviour {
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-		Debug.Log ("Still alive");
+		//Debug.Log ("Still alive");
 	}
 
 	//Tells the SavedInfo class that when it's no more the first scene

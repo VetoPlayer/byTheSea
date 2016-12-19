@@ -5,14 +5,16 @@ public class CastleLife : MonoBehaviour {
 
 	public float initialLife=100;
 	public int armor = 10;
-
+	SpriteRenderer rend;
 	float currentLife;
+	public GameObject castle;
 
 	private GameObject castle_parent_tile;
 
 
 	// Use this for initialization
 	void Start () {
+		rend = castle.GetComponent<SpriteRenderer>();
 		currentLife = initialLife;
 	}
 
@@ -26,7 +28,15 @@ public class CastleLife : MonoBehaviour {
 		castle_parent_tile = tile;
 	}
 
+	IEnumerator hitColorChanging(){
+		rend.color = Color.red;
+
+		yield return new WaitForSeconds (0.4f);
+		rend.color = Color.white;
+	}
+
 	public bool decreaseLife(int attack){
+		StartCoroutine (hitColorChanging ());
 		currentLife = currentLife - (attack - armor);
 		GetComponent<LifeBarManager> ().UpdateBar (currentLife, initialLife);
 		if (currentLife <= 0) {

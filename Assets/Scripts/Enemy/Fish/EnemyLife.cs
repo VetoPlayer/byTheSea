@@ -8,13 +8,14 @@ public class EnemyLife : MonoBehaviour {
 
 
 	public int initialLife = 100;
-
+	SpriteRenderer rend;
 	int currentLife=100;
 	public int armor = 10;
 
 
 	// Use this for initialization
 	void Start () {
+		rend = GetComponent<SpriteRenderer> ();
 		currentLife = initialLife;
 	}
 
@@ -92,10 +93,19 @@ public class EnemyLife : MonoBehaviour {
 	}
 
 
+	IEnumerator hitColorChanging(){
+		rend.color = Color.red;
+
+		yield return new WaitForSeconds (0.1f);
+		rend.color = Color.white;
+	}
+
+
 	public bool hit(){
-		if (Random.value > escapeRate)
+		if (Random.value > escapeRate) {
+			StartCoroutine (hitColorChanging ());
 			return true;
-		else
+		}else
 			return false;
 	}
 

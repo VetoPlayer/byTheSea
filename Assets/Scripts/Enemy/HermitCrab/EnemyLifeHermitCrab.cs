@@ -5,7 +5,7 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 	public float escapeRate=0.3f;
 	public int initialLife = 100;
-
+	SpriteRenderer rend;
 	int prevLife;
 	int currentLife=100;
 	public int armor = 0;
@@ -13,6 +13,7 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		rend = GetComponent<SpriteRenderer> ();
 		currentLife = initialLife;
 	}
 
@@ -97,10 +98,20 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 	}
 
+	IEnumerator hitColorChanging(){
+		rend.color = Color.red;
+
+		yield return new WaitForSeconds (0.1f);
+		rend.color = Color.white;
+	}
+
+
 
 	public bool hit(){
-		if (Random.value > escapeRate)
+		if (Random.value > escapeRate) {
+			StartCoroutine (hitColorChanging ());
 			return true;
+		}
 		else {
 			Animator animator = GetComponent<Animator>() as Animator;
 			animator.SetTrigger("Hide");

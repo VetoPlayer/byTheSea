@@ -87,7 +87,7 @@ public class EnemyLifeHermitCrab : MonoBehaviour {
 
 		if (hit ()) {
 			decreaseLife (attack);
-			bullet.SetActive (false);
+			bullet.GetComponent<BulletMovement> ().hitResponse ();
 
 		} else {
 

@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour {
 
 	public int starting_enemy=1;
 	public float percentage_increment=0.3f;
+	public int n_water_drops=5;
 
 	//Positions at which the Enemies will be spawned. 
 	[Header("Spawn Positions")]
@@ -88,18 +89,18 @@ public class Spawner : MonoBehaviour {
 
 void Spawn(){
 
-		m_grid.SendMessage ("spawnRandomWater", m_waves [current_level].n_water_drops);
+		m_grid.SendMessage ("spawnRandomWater", n_water_drops);
 
 		current_level = current_level + 1;
 
 		for (int i = 0; i < number_enemy; i++) {
 			int type = Random.Range (0, 2); 
 			if(type==0)
-				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_hermit_crab.name) ));
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), m_hermit_crab.name ));
 			if(type==1)
-				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_crab.name) ));
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), m_crab.name ));
 			if(type==2)
-				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), ObjectPoolingManager.Instance.GetObject(m_octopus.name) ));
+				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), m_octopus.name));
 			
 		}
 
@@ -107,10 +108,10 @@ void Spawn(){
 
 	}
 
-	IEnumerator singleSpawn(float wait, GameObject enemy){
+	IEnumerator singleSpawn(float wait, float enemy_name){
 		yield return new WaitForSeconds (wait);
 		int pos = Random.Range (1, 5); 
-
+		GameObject enemy=ObjectPoolingManager.Instance.GetObject (enemy_name);
 		if(pos==1)
 			enemy.transform.position = m_first_lane.transform.position;
 		else

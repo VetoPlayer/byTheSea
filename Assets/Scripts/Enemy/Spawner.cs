@@ -108,7 +108,7 @@ void Spawn(){
 
 	}
 
-	IEnumerator singleSpawn(float wait, float enemy_name){
+	IEnumerator singleSpawn(float wait, string enemy_name){
 		yield return new WaitForSeconds (wait);
 		int pos = Random.Range (1, 5); 
 		GameObject enemy=ObjectPoolingManager.Instance.GetObject (enemy_name);

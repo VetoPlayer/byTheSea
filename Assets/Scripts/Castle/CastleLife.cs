@@ -16,6 +16,8 @@ public class CastleLife : MonoBehaviour {
 	void Start () {
 		rend = castle.GetComponent<SpriteRenderer>();
 		currentLife = initialLife;
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
+
 	}
 
 	void OnEnable(){

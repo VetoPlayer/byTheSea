@@ -12,6 +12,7 @@ public class EnemyStatesChanger : MonoBehaviour {
 	void OnEnable(){
 		this.gameObject.GetComponent<EnemyAttack> ().enabled = false;
 		this.gameObject.GetComponent<EnemyMovement> ().enabled = true;
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 	
 	// Update is called once per frame

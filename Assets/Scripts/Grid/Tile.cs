@@ -3,20 +3,15 @@ using System.Collections;
 
 public class Tile : MonoBehaviour {
 
-
+	// Tile Position
 	private Transform tr;
 
-	[Header("Variable to set false only if a base tower is over it")]
-	public bool m_contains_base_tower=false;
-
-
+	// free if it has no constructions or traps over it
 	private bool free=true;
 
+	private bool collided_with_dummy=false;
 
-	private bool displaying_in_prevew=false;
-
-
-	private bool pointed_by_the_mouse=false;
+	private BuildableEnum instance_to_build = BuildableEnum.NoBuilding;
 
 
 
@@ -24,11 +19,11 @@ public class Tile : MonoBehaviour {
 	public GameObject m_my_tile_water;
 
 	//DUMMY TOWERS PREVIEW: ACTUALLY THEY ARE SIMPLY A SPRITE AND WON'T SHOOT TO THE INCOMING ENEMIES
-	[Header("Archer Castle Dummy")]
-	public GameObject m_preview_dummy_archer_castle_prefab;
+	[Header("Archer Castle Preview")]
+	public GameObject m_preview_archer_castle_prefab;
 
-	[Header("Cannon Castle Dummy")]
-	public GameObject m_preview_dummy_cannon_castle_prefab;
+	[Header("Cannon Castle Preview")]
+	public GameObject m_preview_cannon_castle_prefab;
 
 	//REAL TOWERS THAT HAVE TO BE BUILT
 	[Header("Archer Castle")]
@@ -37,40 +32,29 @@ public class Tile : MonoBehaviour {
 	[Header("Cannon Castle")]
 	public GameObject m_cannon_castle_prefab;
 
-	[Header("Base Castle")]
-	public GameObject m_base_castle_prefab;
-
 	[Header("Sand Hole Dummy")]
-	public GameObject m_sand_hole_dummy_prefab;
-
+	public GameObject m_sand_hole_preview_prefab;
 
 	[Header("Sand Hole")]
 	public GameObject m_sand_trap_prefab;
 
-	private bool creative_mode = false;
-
-	private BuildableEnum castle_to_build =  BuildableEnum.NoBuilding;
-
-	// Tower instance that is being previewed
-	private GameObject tower_preview;
-
-	//Tower instance that has been built so far
-	private GameObject tower_built;
+	//Insance being displayed in preview:
+	private GameObject instance_in_preview;
 
 	// boolean to express wheter a tile is shadow (and so you cna build on top of it) or not
 	private bool is_shadow_tile= true; 
 
 
 	//TILE IDENTIFIER USED FOR CHANGING SCENES
+	//TODO: the tiles need to be persistent between different scenes
+
 	public int tile_id;
 
-	//Building To be saved
-	public BuildableEnum tile_building = BuildableEnum.NoBuilding;
 
 	//TILE READY: HAS ITS IDENTIFIER ASSIGNED FOR SURE
-
+	//TODO: the tiles need to be persistent between different scenes
 	private bool tile_ready= false;
-
+	//TODO: the tiles need to be persistent between different scenes
 	public void SetID(int id){
 		tile_id = id;
 	}
@@ -81,10 +65,6 @@ public class Tile : MonoBehaviour {
 	void Awake(){
 		//You get the transform of this component in the awake to avoid errors
 		tr = GetComponent<Transform> (); 
-
-
-		//Base Castle
-		ObjectPoolingManager.Instance.CreatePool (m_base_castle_prefab, 10, 10);
 	}
 
 
@@ -92,17 +72,15 @@ public class Tile : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		//The tile takes track of its own position such that it'll spawn buildings over itself
-
-
+		//POOLS THINGS!!
 		//WATER
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50, 50);
 
 		// ArcherCastle preview
-		ObjectPoolingManager.Instance.CreatePool (m_preview_dummy_archer_castle_prefab, 5, 5);
+		ObjectPoolingManager.Instance.CreatePool (m_preview_archer_castle_prefab, 5, 5);
 
 		// Cannon Castle preview
-		ObjectPoolingManager.Instance.CreatePool (m_preview_dummy_cannon_castle_prefab, 5, 5);
+		ObjectPoolingManager.Instance.CreatePool (m_preview_cannon_castle_prefab, 5, 5);
 
 		// ArcherCastle
 		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 50, 50);
@@ -114,96 +92,37 @@ public class Tile : MonoBehaviour {
 		ObjectPoolingManager.Instance.CreatePool (m_sand_trap_prefab, 50, 50);
 
 		// Sand Trap preview
-
-		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_dummy_prefab,20,20);
+		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_preview_prefab,20,20);
 	
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
-		EventManager.StartListening ("ArcherCastle", setArcherCastle);
-		EventManager.StartListening ("CannonCastle", setCannonCastle);
-		EventManager.StartListening ("SandHole_Drag",setSandTrap);
-		EventManager.StartListening ("StopBuilding", setStopBuilding);
 
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
-		EventManager.StartListening ("SandHole_Release",BuildSandHole);
-
-		EventManager.StartListening ("PassToPlatformScene",Save);
+		//EventManager.StartListening ("PassToPlatformScene",Save);
+		//TODO: the tiles need to be persistent between different scenes
 		EventManager.StartListening ("FinishedTileIDAssignement", setTileReady);
 
 
 
-		if (m_contains_base_tower == true && SavedInfo.instance.isFirstScene()) {
-			GameObject go = ObjectPoolingManager.Instance.GetObject (m_base_castle_prefab.name);
-			go.transform.position = tr.transform.position;
-			go.transform.rotation = Quaternion.identity;
-			free = false;
-		}
 	}
 
 
-	private void Load(){
-		if (!SavedInfo.instance.isFirstScene ()) {
-			if (!tile_ready) {
-				StartCoroutine (WaitTileToBeReady ());
-			} else {
-				BuildableEnum building = SavedInfo.instance.LoadTileInformation (tile_id);
-				BuildLoadedCastle (building);
-
-			}
-
-
-		}
-	}
-
-
+	//TODO: the tiles need to be persistent between different scenes
 	IEnumerator WaitTileToBeReady(){
 		yield return new WaitForSeconds (0.5f);
 		while (!tile_ready) {
 			yield return new WaitForSeconds (0.5f);
 		}
-		Load ();
+		//Load ();
 
 	}
 
-
-	private void BuildLoadedCastle(BuildableEnum thing_to_build){
-		//TODO check: it has to initialize everything in the right way.
-		//You don't need to check wheter it's a light or dark tile because it's from an already existed, controlled scene
-		if (thing_to_build != BuildableEnum.NoBuilding) {
-			free = false;
-			if (thing_to_build == BuildableEnum.ArcherTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
-
-			}
-			if (thing_to_build == BuildableEnum.CannonTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
-
-			}
-
-		}
-
-
-	}
-
-
+	//TODO: make the castles don't destroy on load
+	//TODO: the tiles need to be persistent between different scenes
 	public void setTileReady(){
 		tile_ready = true;
 	}
-
-
-	void Save(){
-		//Debug.Log ("Tile Saved");
-		SavedInfo.instance.SaveTile (tile_id, tile_building);
-
-	}
-
-
-
 
 	public void setLightTile(){
 		is_shadow_tile = false;
@@ -213,120 +132,38 @@ public class Tile : MonoBehaviour {
 		args.isfree = is_shadow_tile;
 		return;
 	}
+		
 
 
-	// Here The Single Tile has to spawn an image over itself (to be setted s its son)
-	void OnMouseOver(){
-		pointed_by_the_mouse = true;
-		//Debug.Log ("displaying" + displaying_in_prevew + "isshadowtile " + is_shadow_tile + "free: "+ free + "creative mode" + creative_mode + "castle to build= "+ castle_to_build);
-		if (displaying_in_prevew == false && free == true && creative_mode == true ) {
-			if (is_shadow_tile == true && castle_to_build != BuildableEnum.NoBuilding) {
-				if (castle_to_build == BuildableEnum.ArcherTower) {
-					GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_archer_castle_prefab.name);
-					go.transform.position = tr.transform.position;
-					go.transform.rotation = Quaternion.identity;
-					tower_preview = go;
-				}
-				if (castle_to_build == BuildableEnum.CannonTower) {
-					GameObject go = ObjectPoolingManager.Instance.GetObject (m_preview_dummy_cannon_castle_prefab.name);
-					go.transform.position = tr.transform.position;
-					go.transform.rotation = Quaternion.identity;
-					tower_preview = go;
-				}
-				//So you show it only one time
-				displaying_in_prevew = true;
-				//else, if it's a light tile, you want to show the trap preview. No Tower Has to be shown as preview
-			} else if (!is_shadow_tile && castle_to_build == BuildableEnum.NoBuilding) { 
-				//Debug.Log("Showing Trap Preview");
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_hole_dummy_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
-				tower_preview = go;
-				//So you show it only one time
-				displaying_in_prevew = true;
-			}
-
-		}
-			
-	}
-
-	// Here The Single Tile has to make the image over itself disappear
-	void OnMouseExit(){
-		pointed_by_the_mouse = false;
-		if (displaying_in_prevew == true && free == true) {
-			tower_preview.SetActive (false);
-			displaying_in_prevew = false;
-		}
-			
-	}
-
-
-	//Build up the castle in the tile
+	//Build up the castle in the tile //TODO castle_built
 	public void BuildCastle(){
-		EventManager.TriggerEvent ("DestroyPreview");
-		if (pointed_by_the_mouse == true) {
+		if (collided_with_dummy == true) {
 			//Debug.Log ("BuildCastle has been called");
 			EventManager.TriggerEvent ("SettedWithSuccess");
-			if (castle_to_build == BuildableEnum.ArcherTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
+			if (instance_to_build == BuildableEnum.ArcherTower) {
+				GameObject go = MaterializeGameObject(m_archer_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
-				tower_preview = go;
 			}
-			if (castle_to_build == BuildableEnum.CannonTower) {
-				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
-				go.transform.position = tr.transform.position;
-				go.transform.rotation = Quaternion.identity;
+			if (instance_to_build == BuildableEnum.CannonTower) {
+				GameObject go = MaterializeGameObject (m_cannon_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
-				tower_preview = go;
+			}
+			if (instance_to_build == BuildableEnum.SandHole) {
+				GameObject go = MaterializeGameObject (m_sand_trap_prefab.name);
+				go.SendMessage ("SetParentTile", this.gameObject);
 			}
 			free = false;
-			EventManager.TriggerEvent ("StopBuilding");
-
 		}
 	}
-
-
-	//Builds up the Sand Hole trap over the Tile
-	private void BuildSandHole(){
-		if (pointed_by_the_mouse == true) {
-			GameObject go = ObjectPoolingManager.Instance.GetObject (m_sand_trap_prefab.name);
-			go.transform.position = tr.transform.position;
-			go.transform.rotation = Quaternion.identity;
-			go.SendMessage ("SetParentTile", this.gameObject);
-			free = false;
-
-			EventManager.TriggerEvent ("StopBuilding");
-		}
-
-
-	}
-
-
-
-
-	//Puts every tile off the creative mode
-	public void setStopBuilding(){
-		castle_to_build = BuildableEnum.NoBuilding;
-		creative_mode = false;
-		displaying_in_prevew = false;
-
-	}
-
-
-
-		
 		
 
 	// This methodsets water over the selected tile.
 	public void SetWater(){
 	
 		free = false;
-		//Instantiate the water and set it as its child
-		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50,50);
+		//Instantiate the water as its own child
 		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
-		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99);
+		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99); ///!!!TODO modify it,z z=99 is bad in the z=0 scene
 		go.transform.rotation = Quaternion.identity;
 		//Pass to go the parent reference by calling him with some kind of message
 		go.SendMessage("setDaddy", this.gameObject);
@@ -343,37 +180,23 @@ public class Tile : MonoBehaviour {
 
 	//Method called by the Grid to check wheter the tile is displaying in preview something or not
 
-	public void IsDisplayingInPreview(MessageClass args){
-		args.isfree = displaying_in_prevew;
-	}
-		
-
-
-	private void setArcherCastle(){
-		creative_mode = true;
-		castle_to_build = BuildableEnum.ArcherTower;	
-	}
-
-
-	private void setCannonCastle(){
-		creative_mode = true;
-		castle_to_build = BuildableEnum.CannonTower;
-	}
-
-	private void setSandTrap(){
-		creative_mode = true;
-		castle_to_build = BuildableEnum.NoBuilding;
-	}
-
+//	public void IsDisplayingInPreview(MessageClass args){
+//		args.isfree = displaying_in_prevew;
+//	}
+//		
 
 
 	public void SetFree(){
 		free=true;
-		castle_to_build = BuildableEnum.NoBuilding;
-		tile_building = BuildableEnum.NoBuilding;
 	}
 
-
+	private GameObject MaterializeGameObject(string object_name){
+		GameObject go = ObjectPoolingManager.Instance.GetObject (object_name);
+		go.transform.position = tr.transform.position;
+		go.transform.rotation = Quaternion.identity;
+		return go;
+	
+	}
 
 
 
@@ -386,17 +209,99 @@ public class Tile : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		//Debug.Log ("Hit");
+		// If an enemy is over a tile it is no more free, such that the player cannot build things over the head of enemies
 		if (other.gameObject.tag == "Enemy") {
 			//Debug.Log ("Hit, and it's an enemy");
-			free=false;
+			free = false;
+		} else {
+			collided_with_dummy = true;
+			if (free == true) {
+				if (is_shadow_tile == true) {
+					if (other.gameObject.tag == "ArcherCastleDummy") {
+						instance_to_build = BuildableEnum.ArcherTower;
+						GameObject go = MaterializeGameObject (m_preview_archer_castle_prefab.name);
+						instance_in_preview = go;
+					}
+					if (other.gameObject.tag == "CannonCastleDummy") {
+						instance_to_build = BuildableEnum.CannonTower;
+						GameObject go = MaterializeGameObject (m_preview_cannon_castle_prefab.name);
+						instance_in_preview = go;
+					}
+				} //If it's a light tile, you want to show the trap preview.
+			else if (is_shadow_tile == false) {
+					if (other.gameObject.tag == "SandHoleDummy") {
+						instance_to_build = BuildableEnum.SandHole;
+						GameObject go = MaterializeGameObject (m_sand_hole_preview_prefab.name);
+						instance_in_preview = go;
+					}
+
+				}
+
+			}
 		}
+
 	}
 
 	void OnTriggerExit2D(Collider2D other){
+		//DestroyThePreview.
+
+		if(other.gameObject.tag == "ArcherCastleDummy" || other.gameObject.tag == "CannonCastleDummy"){
+			instance_in_preview.SetActive (false);
+			instance_to_build = BuildableEnum.NoBuilding;
+			collided_with_dummy = false;
+		}
 		//Debug.Log ("Exited");
 		if (other.gameObject.tag == "Enemy") {
 			free = true;
 		}
 	}
-		
 }
+
+
+
+
+//TODO: the tiles need to be persistent between different scenes
+//	void Save(){
+//		//Debug.Log ("Tile Saved");
+//		SavedInfo.instance.SaveTile (tile_id, tile_building);
+//
+//	}
+
+//	private void BuildLoadedCastle(BuildableEnum thing_to_build){
+//		//TODO check: it has to initialize everything in the right way.
+//		//You don't need to check wheter it's a light or dark tile because it's from an already existed, controlled scene
+//		if (thing_to_build != BuildableEnum.NoBuilding) {
+//			free = false;
+//			if (thing_to_build == BuildableEnum.ArcherTower) {
+//				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
+//				go.transform.position = tr.transform.position;
+//				go.transform.rotation = Quaternion.identity;
+//
+//			}
+//			if (thing_to_build == BuildableEnum.CannonTower) {
+//				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
+//				go.transform.position = tr.transform.position;
+//				go.transform.rotation = Quaternion.identity;
+//
+//			}
+//
+//		}
+//
+//
+//	}
+
+
+//TODO: the tiles need to be persistent between different scenes
+//	private void Load(){
+//		if (!SavedInfo.instance.isFirstScene ()) {
+//			if (!tile_ready) {
+//				StartCoroutine (WaitTileToBeReady ());
+//			} else {
+//				BuildableEnum building = SavedInfo.instance.LoadTileInformation (tile_id);
+//				BuildLoadedCastle (building);
+//
+//			}
+//
+//
+//		}
+//	}

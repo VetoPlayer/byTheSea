@@ -22,6 +22,8 @@ TagManager:
   - stop_point
   - platform_stopper
   - castlebutton
+  - ArcherCastleDummy
+  - CannonCastleDummy
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012383090534}
   - 212: {fileID: 212000012223078366}
   - 61: {fileID: 61000011496964154}
-  - 114: {fileID: 114000013626845350}
+  - 114: {fileID: 114000010313334094}
   m_Layer: 12
   m_Name: Tile
   m_TagString: tile
@@ -36,8 +36,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012130322500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 528.8, y: 368.4, z: 100}
-  m_LocalScale: {x: 0.28516597, y: 0.29428563, z: 0}
+  m_LocalPosition: {x: 4.39, y: -2.04, z: 0}
+  m_LocalScale: {x: 2.659864, y: 2.630294, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,10 +53,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.104214855, y: -0.13741335}
+  m_Offset: {x: 0.005503893, y: -0.027694702}
   serializedVersion: 2
-  m_Size: {x: 30.803427, y: 30.957098}
---- !u!114 &114000013626845350
+  m_Size: {x: 1.2194374, y: 1.2194374}
+--- !u!114 &114000010313334094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,28 +64,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012130322500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c0a0303638e7744a98fa5529b5822d, type: 3}
+  m_Script: {fileID: 11500000, guid: e21103c73446d6c40aa49f023cefeab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_contains_base_tower: 0
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
-  m_preview_dummy_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
+  m_preview_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
     type: 2}
-  m_preview_dummy_cannon_castle_prefab: {fileID: 1000011745986116, guid: 3575b1d15748a164691d730adbef14b0,
+  m_preview_cannon_castle_prefab: {fileID: 1000011745986116, guid: 3575b1d15748a164691d730adbef14b0,
     type: 2}
   m_archer_castle_prefab: {fileID: 1000010489009116, guid: 08b34b7f515cf4b99b2627c217836bc6,
     type: 2}
   m_cannon_castle_prefab: {fileID: 1000013781776324, guid: df8428b34e5e1412c8484aec734008f1,
     type: 2}
-  m_base_castle_prefab: {fileID: 1000013082592870, guid: b45dfdefa2e0a2646a422e988af849ee,
-    type: 2}
-  m_sand_hole_dummy_prefab: {fileID: 1000010507352980, guid: e37b1528251df2545b158236597a5edb,
+  m_sand_hole_preview_prefab: {fileID: 1000010507352980, guid: e37b1528251df2545b158236597a5edb,
     type: 2}
   m_sand_trap_prefab: {fileID: 1000013105418854, guid: 057bb4b910d0de840808f9ea673fa37e,
     type: 2}
   tile_id: 0
-  tile_building: 0
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,9 +109,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -802023391
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 338c50ba8569f469680bd802619f569f, type: 3}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4fee8bf951b57429a8de10064307ba60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

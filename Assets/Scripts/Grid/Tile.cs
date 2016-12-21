@@ -137,22 +137,28 @@ public class Tile : MonoBehaviour {
 
 	//Build up the castle in the tile //TODO castle_built
 	public void BuildCastle(){
-		if (collided_with_dummy == true) {
+		
+		if (collided_with_dummy == true && free==true) {
+			collided_with_dummy = false;
 			//Debug.Log ("BuildCastle has been called");
 			EventManager.TriggerEvent ("SettedWithSuccess");
 			if (instance_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = MaterializeGameObject(m_archer_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
+				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.ArcherTower.ToString());
 			}
 			if (instance_to_build == BuildableEnum.CannonTower) {
 				GameObject go = MaterializeGameObject (m_cannon_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
+				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CannonTower.ToString());
 			}
 			if (instance_to_build == BuildableEnum.SandHole) {
 				GameObject go = MaterializeGameObject (m_sand_trap_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
+				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.SandHole.ToString());
 			}
 			free = false;
+
 		}
 	}
 		

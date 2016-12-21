@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ButtonCooldown : MonoBehaviour {
 
+	public BuildableEnum m_CastleToBuild;
+
 	public Button m_button;
 
 	[Range(0f,5f)]
@@ -16,7 +18,7 @@ public class ButtonCooldown : MonoBehaviour {
 	void Start () {
 		m_cooldownMask.fillAmount = 0f;
 		m_button.interactable = true;
-		EventManager.StartListening ("DummyPositioned", startCooldown);
+		EventManager.StartListening ("DummyPositioned_"+m_CastleToBuild.ToString(), startCooldown);
 	}
 	
 	// Update is called once per frame

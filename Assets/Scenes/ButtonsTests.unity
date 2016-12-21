@@ -206,8 +206,13 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: efbe3379c4902ca4abee5e636cafc32f,
+      objectReference: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596,
         type: 3}
+    - target: {fileID: 114000012647126974, guid: 98f138280c4108c4f826506eada33ffa,
+        type: 2}
+      propertyPath: m_CastleToBuild
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 98f138280c4108c4f826506eada33ffa, type: 2}
   m_IsPrefabParent: 0
@@ -831,8 +836,18 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 46081601061fd1c49b81afcefe30928e,
+      objectReference: {fileID: 21300000, guid: 68eec3e68a83d2f49be8a812d3b7a7de,
         type: 3}
+    - target: {fileID: 114000010547094528, guid: 53764db72affd3345878ef8112e17979,
+        type: 2}
+      propertyPath: m_cooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010547094528, guid: 53764db72affd3345878ef8112e17979,
+        type: 2}
+      propertyPath: m_CastleToBuild
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53764db72affd3345878ef8112e17979, type: 2}
   m_IsPrefabParent: 0

@@ -50,7 +50,12 @@ public class Crafter : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 
 		GameObject go = ObjectPoolingManager.Instance.GetObject (castleType);
-		go.transform.position = m_castleSpawn.position;
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		Vector3 oldPosition = go.transform.position;
+		oldPosition.x = mousePosition.x;
+		oldPosition.y = mousePosition.y;
+		oldPosition.z = m_castleSpawn.position.z;
+		go.transform.position = oldPosition;//m_castleSpawn.position;
 		go.transform.rotation = Quaternion.identity;
 
 

@@ -15,24 +15,29 @@ public class CollectibleBehaviour : MonoBehaviour {
 
 	private GameObject daddy;
 
+	private bool selected;
 
 
 
 	// Use this for initialization
 	void Start () {
-	
+		selected = false;
 	}
 
 	//SORTING LAYER??
 	// Update is called once per frame
 	void Update () {
+	}
+	void OnMouseEnter(){
+		selected = true;
+	}
 
-			
-		}
+	void OnMouseExit(){
+		selected = false;
+	}
 
-
-	void OnMouseDown () {
-
+	 void  OnMouseDown() {
+		Debug.Log ("CLICKED");
 		// Make the resource manager collect the corresponding ResourceEnum type
 		this.m_resource.fireSpawnEvent ();
 
@@ -45,6 +50,7 @@ public class CollectibleBehaviour : MonoBehaviour {
 		// Deactivates itself
 		this.gameObject.SetActive (false);
 	}
+
 
 	public void setDaddy(GameObject dad){
 		daddy = dad;

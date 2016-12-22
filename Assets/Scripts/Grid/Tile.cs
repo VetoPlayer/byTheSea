@@ -45,20 +45,10 @@ public class Tile : MonoBehaviour {
 	private bool is_shadow_tile= true; 
 
 
-	//TILE IDENTIFIER USED FOR CHANGING SCENES
-	//TODO: the tiles need to be persistent between different scenes
-
-	public int tile_id;
-
 
 	//TILE READY: HAS ITS IDENTIFIER ASSIGNED FOR SURE
 	//TODO: the tiles need to be persistent between different scenes
 	private bool tile_ready= false;
-	//TODO: the tiles need to be persistent between different scenes
-	public void SetID(int id){
-		tile_id = id;
-	}
-
 
 
 
@@ -93,35 +83,15 @@ public class Tile : MonoBehaviour {
 
 		// Sand Trap preview
 		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_preview_prefab,20,20);
-	
+
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
 
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
-		//EventManager.StartListening ("PassToPlatformScene",Save);
-		//TODO: the tiles need to be persistent between different scenes
-		EventManager.StartListening ("FinishedTileIDAssignement", setTileReady);
+		// DontDestroyTheTilesOnLoad!!! The tiles stay persistent between a scene and another
+		DontDestroyOnLoad (this.gameObject);
 
-
-
-	}
-
-
-	//TODO: the tiles need to be persistent between different scenes
-	IEnumerator WaitTileToBeReady(){
-		yield return new WaitForSeconds (0.5f);
-		while (!tile_ready) {
-			yield return new WaitForSeconds (0.5f);
-		}
-		//Load ();
-
-	}
-
-	//TODO: make the castles don't destroy on load
-	//TODO: the tiles need to be persistent between different scenes
-	public void setTileReady(){
-		tile_ready = true;
 	}
 
 	public void setLightTile(){
@@ -132,12 +102,12 @@ public class Tile : MonoBehaviour {
 		args.isfree = is_shadow_tile;
 		return;
 	}
-		
 
 
-	//Build up the castle in the tile //TODO castle_built
+
+	//Build up the castle in the tile
 	public void BuildCastle(){
-		
+
 		if (collided_with_dummy == true && free==true) {
 			collided_with_dummy = false;
 			//Debug.Log ("BuildCastle has been called");
@@ -161,21 +131,20 @@ public class Tile : MonoBehaviour {
 
 		}
 	}
-		
+
 
 	// This methodsets water over the selected tile.
 	public void SetWater(){
-	
+
 		free = false;
+		///!!!Check the water to be collectible, the sand has to be it too.
 		//Instantiate the water as its own child
-		GameObject go = ObjectPoolingManager.Instance.GetObject(m_my_tile_water.name);
-		go.transform.position = new Vector3(tr.position.x, tr.position.y, 99); ///!!!TODO modify it,z z=99 is bad in the z=0 scene
-		go.transform.rotation = Quaternion.identity;
+		GameObject go = MaterializeGameObject(m_my_tile_water.name);
 		//Pass to go the parent reference by calling him with some kind of message
 		go.SendMessage("setDaddy", this.gameObject);
 
-	
-	
+
+
 	}
 
 	//Method called by the Grid to check wheter the tile is free or not
@@ -186,10 +155,10 @@ public class Tile : MonoBehaviour {
 
 	//Method called by the Grid to check wheter the tile is displaying in preview something or not
 
-//	public void IsDisplayingInPreview(MessageClass args){
-//		args.isfree = displaying_in_prevew;
-//	}
-//		
+	public void IsDisplayingInPreview(MessageClass args){
+		args.isfree = collided_with_dummy;
+	}
+
 
 
 	public void SetFree(){
@@ -201,7 +170,7 @@ public class Tile : MonoBehaviour {
 		go.transform.position = tr.transform.position;
 		go.transform.rotation = Quaternion.identity;
 		return go;
-	
+
 	}
 
 
@@ -222,7 +191,7 @@ public class Tile : MonoBehaviour {
 		} else {
 			collided_with_dummy = true;
 			if (free == true) {
-				if (is_shadow_tile == true) {
+				if (is_shadow_tile == true && instance_to_build == BuildableEnum.NoBuilding) {
 					if (other.gameObject.tag == "ArcherCastleDummy") {
 						instance_to_build = BuildableEnum.ArcherTower;
 						GameObject go = MaterializeGameObject (m_preview_archer_castle_prefab.name);
@@ -234,7 +203,7 @@ public class Tile : MonoBehaviour {
 						instance_in_preview = go;
 					}
 				} //If it's a light tile, you want to show the trap preview.
-			else if (is_shadow_tile == false) {
+				else if (is_shadow_tile == false) {
 					if (other.gameObject.tag == "SandHoleDummy") {
 						instance_to_build = BuildableEnum.SandHole;
 						GameObject go = MaterializeGameObject (m_sand_hole_preview_prefab.name);
@@ -251,7 +220,7 @@ public class Tile : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other){
 		//DestroyThePreview.
 
-		if(other.gameObject.tag == "ArcherCastleDummy" || other.gameObject.tag == "CannonCastleDummy"){
+		if(instance_in_preview!= null){
 			instance_in_preview.SetActive (false);
 			instance_to_build = BuildableEnum.NoBuilding;
 			collided_with_dummy = false;
@@ -262,52 +231,3 @@ public class Tile : MonoBehaviour {
 		}
 	}
 }
-
-
-
-
-//TODO: the tiles need to be persistent between different scenes
-//	void Save(){
-//		//Debug.Log ("Tile Saved");
-//		SavedInfo.instance.SaveTile (tile_id, tile_building);
-//
-//	}
-
-//	private void BuildLoadedCastle(BuildableEnum thing_to_build){
-//		//TODO check: it has to initialize everything in the right way.
-//		//You don't need to check wheter it's a light or dark tile because it's from an already existed, controlled scene
-//		if (thing_to_build != BuildableEnum.NoBuilding) {
-//			free = false;
-//			if (thing_to_build == BuildableEnum.ArcherTower) {
-//				GameObject go = ObjectPoolingManager.Instance.GetObject (m_archer_castle_prefab.name);
-//				go.transform.position = tr.transform.position;
-//				go.transform.rotation = Quaternion.identity;
-//
-//			}
-//			if (thing_to_build == BuildableEnum.CannonTower) {
-//				GameObject go = ObjectPoolingManager.Instance.GetObject (m_cannon_castle_prefab.name);
-//				go.transform.position = tr.transform.position;
-//				go.transform.rotation = Quaternion.identity;
-//
-//			}
-//
-//		}
-//
-//
-//	}
-
-
-//TODO: the tiles need to be persistent between different scenes
-//	private void Load(){
-//		if (!SavedInfo.instance.isFirstScene ()) {
-//			if (!tile_ready) {
-//				StartCoroutine (WaitTileToBeReady ());
-//			} else {
-//				BuildableEnum building = SavedInfo.instance.LoadTileInformation (tile_id);
-//				BuildLoadedCastle (building);
-//
-//			}
-//
-//
-//		}
-//	}

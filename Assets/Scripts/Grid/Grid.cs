@@ -6,20 +6,6 @@ using Random = UnityEngine.Random;      //Tells Random to use the Unity Engine r
 public class Grid : MonoBehaviour
 {
 
-
-	[Header("Dimensions of the invisible grid")]
-	[Range(4, 18)]
-	public static int m_columns = 8;                                     
-	[Range(4,10)]
-	public static int m_rows = 4; 
-
-	[Range(4, 9)]
-	// Number of columns of "shadowed" tiles
-	public int shadowed_area = 3;
-
-	//Instantiate all the water prefabs
-	public GameObject m_water;
-
 	[Header("Time to spawn water after the beginning of the Wave")]
 	[Range(0f,30f)]
 	public float waiting_time_to_spawn_water=2f;
@@ -34,11 +20,8 @@ public class Grid : MonoBehaviour
 
 	void Start () {
 
-		ObjectPoolingManager.Instance.CreatePool (m_water,60,60);
-
 		setTilesAsLightOnes ();
 
-		InitializeTiles ();
 	}
 
 	void InitializeTiles (){

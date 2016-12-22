@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000012062744696}
   - 114: {fileID: 114000012647126974}
   - 114: {fileID: 114000010652951970}
+  - 114: {fileID: 114000011648586622}
   m_Layer: 0
   m_Name: ArcherCastleButton
   m_TagString: Untagged
@@ -87,6 +88,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
+--- !u!114 &114000011648586622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010115086532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad35ea6cd9d0f4b1ab1f7455f43c5cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sandRequired: 1
+  m_waterRequired: 1
+  m_button: {fileID: 114000012062744696}
 --- !u!114 &114000012062744696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,9 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f05fcc28bd04a03a72d0da9de52dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_button: {fileID: 0}
+  m_CastleToBuild: 1
+  m_button: {fileID: 114000012062744696}
   m_cooldown: 1
-  m_cooldownMask: {fileID: 0}
+  m_cooldownMask: {fileID: 114000011266994934}
 --- !u!114 &114000013608056654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +214,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010115086532}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -206,10 +222,10 @@ RectTransform:
   - {fileID: 224000013746041704}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.365365, y: 7.000001}
-  m_SizeDelta: {x: 160, y: 75}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -167.07, y: 0.92103386}
+  m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013746041704
 RectTransform:
@@ -224,8 +240,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 224000012991497640}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000667572, y: 0.0000009536772}
-  m_SizeDelta: {x: 160, y: 75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00000333786, y: 0.0000019073486}
+  m_SizeDelta: {x: 0, y: -0.0000038147}
   m_Pivot: {x: 0.5, y: 0.5}

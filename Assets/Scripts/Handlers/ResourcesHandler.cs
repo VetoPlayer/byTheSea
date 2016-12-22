@@ -30,6 +30,16 @@ public class ResourcesHandler : MonoBehaviour {
 	public int m_maxWater;
 
 	/// <summary>
+	/// The starting sand quantity.
+	/// </summary>
+	public int m_startingSand = 5;
+
+	/// <summary>
+	/// The starting water quantity.
+	/// </summary>
+	public int m_startingWater = 5;
+
+	/// <summary>
 	/// The sand quantity counter.
 	/// </summary>
 	private int sandCounter;
@@ -78,8 +88,8 @@ public class ResourcesHandler : MonoBehaviour {
 	/// Resets the integer counters.
 	/// </summary>
 	private void resetCounters(){
-		this.sandCounter = 0;
-		this.waterCounter = 0;
+		this.sandCounter = this.m_startingSand;
+		this.waterCounter = this.m_startingWater;
 	}
 
 	/// <summary>

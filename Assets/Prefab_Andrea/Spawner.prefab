@@ -209,11 +209,11 @@ MonoBehaviour:
   starting_enemy: 1
   percentage_increment: 0.3
   n_water_drops: 5
-  m_first_lane: {fileID: 1000011474416852}
-  m_second_lane: {fileID: 1000011999666318}
-  m_third_lane: {fileID: 1000014132186880}
-  m_fourth_lane: {fileID: 1000013697869150}
-  m_fifth_lane: {fileID: 1000013081191868}
+  m_first_lane: {fileID: 0}
+  m_second_lane: {fileID: 0}
+  m_third_lane: {fileID: 0}
+  m_fourth_lane: {fileID: 0}
+  m_fifth_lane: {fileID: 0}
   m_grid: {fileID: 0}
   m_timer: {fileID: 0}
   m_hermit_crab: {fileID: 1000011720806472, guid: 3629b839f87074eadb4f0e2e26d58680,
@@ -260,7 +260,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010909817892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 18.52942, y: 103.7566, z: 0.7230497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -273,6 +273,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 587.9, y: 364.8}
+  m_AnchoredPosition: {x: 64.2, y: 6.4}
   m_SizeDelta: {x: 0.3, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010859717416}
   - 212: {fileID: 212000012268481640}
-  - 61: {fileID: 61000012612196874}
   - 114: {fileID: 114000011523394198}
+  - 65: {fileID: 65000011558667384}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
@@ -36,26 +36,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011737158346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 465.4, y: 392.3, z: 99}
-  m_LocalScale: {x: 6.433924, y: 6.433924, z: 0.91913205}
+  m_LocalPosition: {x: -3.6067042, y: -2.0814657, z: 0}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 0.91913205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000012612196874
-BoxCollider2D:
+--- !u!65 &65000011558667384
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011737158346}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.0000047432295, y: -0.0038941915}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9968665, y: 0.73906225}
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011523394198
 MonoBehaviour:
   m_ObjectHideFlags: 1

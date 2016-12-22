@@ -94,7 +94,7 @@ void Spawn(){
 		current_level = current_level + 1;
 
 		for (int i = 0; i < number_enemy; i++) {
-			int type = Random.Range (0, 2); 
+			int type = Random.Range (0, 3);
 			if(type==0)
 				StartCoroutine (singleSpawn (Timer.spawnTime * Random.Range(0.0f, 1f), m_hermit_crab.name ));
 			if(type==1)
@@ -110,7 +110,7 @@ void Spawn(){
 
 	IEnumerator singleSpawn(float wait, string enemy_name){
 		yield return new WaitForSeconds (wait);
-		int pos = Random.Range (1, 5); 
+		int pos = Random.Range (1, 6); 
 		GameObject enemy=ObjectPoolingManager.Instance.GetObject (enemy_name);
 		if(pos==1)
 			enemy.transform.position = m_first_lane.transform.position;

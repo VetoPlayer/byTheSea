@@ -8,6 +8,8 @@ using POLIMIGameCollective;
 public class GameplayManager : MonoBehaviour {
 
 
+	public string m_towerDefenseSceneName = "TowerDefense";
+	public string m_platformSceneName = "Platform";
 
 	// Use this for initialization
 	void Start () {
@@ -23,58 +25,26 @@ public class GameplayManager : MonoBehaviour {
 		EventManager.StartListening ("Entity_Player_died", GoToTowerDefenseScene);
 		EventManager.StartListening ("Entity_Treasure_died", GoToTowerDefenseScene);
 		EventManager.StartListening ("EndAction_PlayerWins", GoToTowerDefenseScene);
-
-
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	// Update is called once per frame
-	void Update () {
-// TODO: IF "Esc" Button is pressed, pause the game. Something like the code below
-//		else if (Input.GetKeyDown (KeyCode.Space)) {
-//			MusicManager.Instance.StopAll ();
-//			MusicManager.Instance.PlayMusic ("MenuMusic");
-//			SceneManager.LoadScene ("Menu");
-//		}
-	}
+	void Update () {}
 
 	void GoToTowerDefenseScene(){
-		SceneManager.LoadScene ("TDmain");
+		SceneManager.LoadScene (m_towerDefenseSceneName);
 	}
 
 
 	void GoToPlatformScene(){
 
-
 		SavedInfo.instance.setNotFirstSceneAnymore ();
 		//Debug.Log ("Not First scene anymore");
-		SceneManager.LoadScene ("Platform");
+		SceneManager.LoadScene (m_platformSceneName);
 	}
 
 	void GoToGameOverScene(){
 		SceneManager.LoadScene ("GameOverScene");
 
 	}
-
-
-
-
-
 
 }

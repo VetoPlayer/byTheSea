@@ -29,6 +29,7 @@ public class ButtonCooldown : MonoBehaviour {
 	/// </summary>
 	public void startCooldown(){
 		m_button.interactable = false;
+		this.gameObject.GetComponent<ButtonResources> ().enabled = false;
 		StartCoroutine (animateCooldown ());
 	}
 
@@ -43,6 +44,7 @@ public class ButtonCooldown : MonoBehaviour {
 		}
 			
 		m_button.interactable = true;
+		this.gameObject.GetComponent<ButtonResources> ().enabled = true;
 		m_cooldownMask.fillAmount = 0f;
 	}
 }

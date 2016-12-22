@@ -12,16 +12,21 @@ public class CastleLife : MonoBehaviour {
 	private GameObject castle_parent_tile;
 
 
+	void Awake(){
+		rend = castle.GetComponent<SpriteRenderer>();
+	}
+
 	// Use this for initialization
 	void Start () {
-		rend = castle.GetComponent<SpriteRenderer>();
+		
 		currentLife = initialLife;
-		this.GetComponent<SpriteRenderer> ().color = Color.white;
+		rend.color = Color.white;
 
 	}
 
 	void OnEnable(){
 		// reset of the castle life.
+		rend.color = Color.white;
 		currentLife = initialLife;
 		GetComponent<LifeBarManager> ().UpdateBar (currentLife, initialLife);
 	}

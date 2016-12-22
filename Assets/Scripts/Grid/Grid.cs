@@ -4,12 +4,7 @@ using System.Collections.Generic;       //Allows us to use Lists.
 using Random = UnityEngine.Random;      //Tells Random to use the Unity Engine random number generator.
 
 public class Grid : MonoBehaviour
-{
-
-	[Header("Time to spawn water after the beginning of the Wave")]
-	[Range(0f,30f)]
-	public float waiting_time_to_spawn_water=2f;
-                              
+{                             
 
 	// Light Part of the grid
 	public List<GameObject> m_light_grid = new List<GameObject> ();
@@ -38,17 +33,6 @@ public class Grid : MonoBehaviour
 	}
 		
 	public void spawnRandomWater(int water_units){
-		StartCoroutine (spawnWater(water_units));
-	}
-
-
-
-
-	// Water is spawned only on the light part!
-	IEnumerator spawnWater(int water_units){
-		yield return new WaitForSeconds (waiting_time_to_spawn_water);
-
-		//i++ does't have to be implemented
 		for(int i=0; i < water_units;){
 			int randomIndex = Random.Range (0,m_light_grid.Count);
 			//Checks if it is free
@@ -62,10 +46,11 @@ public class Grid : MonoBehaviour
 			if (args.isfree && !in_preview.isfree) {
 				m_light_grid [randomIndex].SendMessage ("SetWater");
 				i++;
-			
+
 			}
 		}
 	}
+		
 
 	// Sets the tiles as light ones such that they'll won't allow the player to build over them
 	private void setTilesAsLightOnes(){

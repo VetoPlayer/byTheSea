@@ -21,16 +21,16 @@ GameObject:
   - 4: {fileID: 4000010068728122}
   - 212: {fileID: 212000013940769736}
   - 114: {fileID: 114000011443779268}
-  - 61: {fileID: 61000011941646900}
   - 114: {fileID: 114000011120103776}
-  - 50: {fileID: 50000010481187526}
+  - 50: {fileID: 50000014225298290}
+  - 58: {fileID: 58000011446473122}
   m_Layer: 0
   m_Name: ArcherCastleDummy
   m_TagString: ArcherCastleDummy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010068728122
 Transform:
   m_ObjectHideFlags: 1
@@ -44,7 +44,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000010481187526
+--- !u!50 &50000014225298290
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -56,13 +56,13 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61000011941646900
-BoxCollider2D:
+--- !u!58 &58000011446473122
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,9 +72,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0039123152, y: -0.17550655}
+  m_Offset: {x: 0, y: -0}
   serializedVersion: 2
-  m_Size: {x: 0.7896425, y: 1.1250044}
+  m_Radius: 0.01
 --- !u!114 &114000011120103776
 MonoBehaviour:
   m_ObjectHideFlags: 1

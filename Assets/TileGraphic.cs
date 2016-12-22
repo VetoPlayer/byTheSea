@@ -18,7 +18,10 @@ public class TileGraphic : MonoBehaviour {
 
 
 		// resizing collider
-		this.gameObject.GetComponent<BoxCollider2D>().size = size*0.35f;
+		Vector2 colliderSize = this.gameObject.GetComponent<BoxCollider2D>().size;
+		colliderSize.x = size.x*0.35f;
+		colliderSize.y = size.y*0.35f;
+		this.gameObject.GetComponent<BoxCollider2D> ().size = colliderSize;
 	}
 	
 	// Update is called once per frame

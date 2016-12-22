@@ -90,7 +90,7 @@ public class Tile : MonoBehaviour {
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
 		// DontDestroyTheTilesOnLoad!!! The tiles stay persistent between a scene and another
-		DontDestroyOnLoad (this.gameObject);
+		//DontDestroyOnLoad (this.gameObject);
 
 	}
 
@@ -128,7 +128,6 @@ public class Tile : MonoBehaviour {
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.SandHole.ToString());
 			}
 			free = false;
-
 		}
 	}
 
@@ -183,12 +182,17 @@ public class Tile : MonoBehaviour {
 	// build over an occupied tile
 
 	void OnTriggerEnter2D(Collider2D other){
+
+		if (other.gameObject.tag == "Castle") {
+			free = false;
+			other.gameObject.SendMessage ("SetParentTile", this.gameObject);
+		}
 		//Debug.Log ("Hit");
 		// If an enemy is over a tile it is no more free, such that the player cannot build things over the head of enemies
-		if (other.gameObject.tag == "Enemy") {
-			//Debug.Log ("Hit, and it's an enemy");
-			free = false;
-		} else {
+		if (other.gameObject.tag == "ArcherCastleDummy" ||
+			other.gameObject.tag == "CannonCastleDummy" ||
+			other.gameObject.tag == "SandHoleDummy") {
+			
 			collided_with_dummy = true;
 			if (free == true) {
 				if (is_shadow_tile == true && instance_to_build == BuildableEnum.NoBuilding) {
@@ -224,10 +228,6 @@ public class Tile : MonoBehaviour {
 			instance_in_preview.SetActive (false);
 			instance_to_build = BuildableEnum.NoBuilding;
 			collided_with_dummy = false;
-		}
-		//Debug.Log ("Exited");
-		if (other.gameObject.tag == "Enemy") {
-			free = true;
 		}
 	}
 }

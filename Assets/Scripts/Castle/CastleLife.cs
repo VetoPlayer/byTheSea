@@ -36,10 +36,12 @@ public class CastleLife : MonoBehaviour {
 	}
 
 	IEnumerator hitColorChanging(){
-		rend.color = Color.red;
+		if(rend!= null)
+			rend.color = Color.red;
 
 		yield return new WaitForSeconds (0.4f);
-		rend.color = Color.white;
+		if(rend!=null)
+			rend.color = Color.white;
 	}
 
 	public bool decreaseLife(int attack){
@@ -57,7 +59,6 @@ public class CastleLife : MonoBehaviour {
 		
 	// When the Castle is destroyed it has to free its corresponding tile
 	public void death (){
-
 		castle_parent_tile.SendMessage ("SetFree");
 
 		this.gameObject.SetActive (false);

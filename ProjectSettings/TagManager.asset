@@ -24,6 +24,7 @@ TagManager:
   - castlebutton
   - ArcherCastleDummy
   - CannonCastleDummy
+  - SandHoleDummy
   layers:
   - Default
   - TransparentFX

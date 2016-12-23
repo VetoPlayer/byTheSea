@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000012824697864}
   - 212: {fileID: 212000013515623626}
   - 114: {fileID: 114000010043835718}
+  - 68: {fileID: 68000011985874772}
   m_Layer: 0
   m_Name: SandHole
   m_TagString: Untagged
@@ -35,12 +36,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013105418854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 580, y: 417.4, z: 100}
-  m_LocalScale: {x: 1.1668905, y: 1.0417252, z: 1}
+  m_LocalPosition: {x: 23.21664, y: -4.850445, z: 100}
+  m_LocalScale: {x: 0.3650791, y: 0.3445653, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!68 &68000011985874772
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013105418854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -1.8502656, y: -0.6463856}
+  - {x: -1.8101311, y: 1.0441626}
 --- !u!114 &114000010043835718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54074958a84339c4f9fdc32c13b2839b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_trapTime: 3
 --- !u!212 &212000013515623626
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,7 +98,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2069410497
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d8f03f1dd4d39b479cc65004264dc7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df80e16ab44664754a5941f7ec4fa96f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

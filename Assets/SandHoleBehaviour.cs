@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SandHoleBehaviour : MonoBehaviour {
 
+	[Header("Trap parameters")]
+	public float m_trapTime = 0f;
 	// Tile that has generated it. This class needs it because when the sand hole disappears it has to tell to its parent tile.
 	private GameObject parent_tile;
 	// Use this for initialization
@@ -25,5 +27,22 @@ public class SandHoleBehaviour : MonoBehaviour {
 	private void death(){
 		parent_tile.SendMessage ("SetFree");
 
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+
+		if (other.gameObject.tag == "Enemy") {
+			StartCoroutine(stopEnemy(other.gameObject));
+		}
+	}
+
+	IEnumerator stopEnemy(GameObject enemy){
+
+		enemy.GetComponent<EnemyMovement> ().enabled = false;
+
+		yield return new WaitForSeconds (m_trapTime);
+
+		enemy.GetComponent<EnemyMovement> ().enabled = true;
+		this.gameObject.SetActive (false);
 	}
 }

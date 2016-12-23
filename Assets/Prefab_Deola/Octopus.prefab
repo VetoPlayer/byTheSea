@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 114000012762330112}
   - 114: {fileID: 114000012401944982}
   - 114: {fileID: 114000010816726998}
+  - 114: {fileID: 114000010931839584}
   m_Layer: 8
   m_Name: Octopus
   m_TagString: Enemy
@@ -181,6 +182,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 575ddebffc2f5e549bc3ab0bffeab295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000010931839584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000011106719216

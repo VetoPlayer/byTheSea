@@ -17,14 +17,15 @@ public class GameplayManager : MonoBehaviour {
 		//MusicManager.Instance.PlayMusic ("GameplayMusic");
 		// Start listening in order to change scene when needed
 		EventManager.StartListening ("PassToPlatformScene", GoToPlatformScene);
-		// Start listening to the GameOverScreen Event: If the player survives until the last level, the winning scene has to be shown to him 
+		// Start listening to the GameOverScreen Event
 		EventManager.StartListening("GameOverScreen", GoToGameOverScene);
-
+		EventManager.StartListening ("MenuScreen",GoToMenu);
 		//EventManager.StartListening ("PassToTowerDefenseScene",GoToTowerDefenseScene);
 
 		EventManager.StartListening ("Entity_Player_died", GoToTowerDefenseScene);
 		EventManager.StartListening ("Entity_Treasure_died", GoToTowerDefenseScene);
 		EventManager.StartListening ("EndAction_PlayerWins", GoToTowerDefenseScene);
+
 	}
 
 	// Update is called once per frame
@@ -45,6 +46,10 @@ public class GameplayManager : MonoBehaviour {
 	void GoToGameOverScene(){
 		SceneManager.LoadScene ("GameOverScene");
 
+	}
+
+	void GoToMenu(){
+		SceneManager.LoadScene ("Menu");
 	}
 
 }

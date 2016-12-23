@@ -33,7 +33,7 @@ public class Lifebar : MonoBehaviour {
 	void Update () {
 		
 	}
-
+	//ERRORE
 	void OnDisable(){
 		this.tr.localScale = new Vector3(this.originalxScale,this.originalyScale,this.originalzScale);
 	}

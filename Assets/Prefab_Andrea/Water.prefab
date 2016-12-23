@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000011302701022}
   - 114: {fileID: 114000010288545796}
   - 65: {fileID: 65000013580275170}
+  - 114: {fileID: 114000010496631262}
   m_Layer: 12
   m_Name: Water
   m_TagString: Untagged
@@ -66,6 +67,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_resource: 0
+--- !u!114 &114000010496631262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011992469418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011302701022
 SpriteRenderer:
   m_ObjectHideFlags: 1

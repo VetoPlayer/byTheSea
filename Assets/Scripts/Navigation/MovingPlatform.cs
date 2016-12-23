@@ -47,7 +47,6 @@ public class MovingPlatform : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 
 		if (other.gameObject.tag == "platform_stopper") {
-			print ("asd");
 			this.movingDirection = this.movingDirection * -1;
 			this.hit = true;
 			this.lastTimeStopped = Time.time;

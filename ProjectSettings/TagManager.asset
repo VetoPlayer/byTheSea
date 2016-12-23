@@ -15,7 +15,7 @@ TagManager:
   - jump_point
   - double_jump_point
   - platform
-  - climb_point
+  - climb_point_up
   - stop_climb_point
   - treasure
   - treasure_shield
@@ -25,6 +25,8 @@ TagManager:
   - ArcherCastleDummy
   - CannonCastleDummy
   - SandHoleDummy
+  - climb_point_down
+  - climb_point
   layers:
   - Default
   - TransparentFX
@@ -40,9 +42,9 @@ TagManager:
   - Grid
   - tile
   - castlebutton
-  - 
-  - 
-  - 
+  - Player
+  - platform_stopper
+  - platform_moving
   - 
   - 
   - 

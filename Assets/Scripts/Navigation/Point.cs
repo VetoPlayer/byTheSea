@@ -9,14 +9,23 @@ public class Point : MonoBehaviour {
 
 	public bool m_disableOnEnter;
 
+	public bool m_enableOtherOnEnter;
+
+	public GameObject m_pointToEnable;
+
+	private List<int> hasVisited;
+
 
 	// Use this for initialization
-	void Start () {}
+	void Start () {
+		this.hasVisited = new List<int> ();
+	}
 	
 	// Update is called once per frame
 	void Update () {}
 
 	public Vector3 getNextPoint(){
+		
 		if (this.m_nextPoints.Count != 0) {
 			int element = Random.Range (0, this.m_nextPoints.Count - 1);
 			return m_nextPoints [element].position;
@@ -27,8 +36,16 @@ public class Point : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		if (this.m_disableOnEnter && other.gameObject.tag == "Enemy") {
-			StartCoroutine (deactivate (1f));
+		//if (this.m_disableOnEnter && other.gameObject.tag == "Enemy" && !this.hasVisited.Contains(this.gameObject.GetHashCode())) {
+		if(this.m_disableOnEnter && other.gameObject.tag == "moving_point"){
+			StartCoroutine (deactivate (0.05f));
+			this.hasVisited.Add (this.gameObject.GetHashCode ());
+		}
+
+		if (this.m_enableOtherOnEnter && other.gameObject.tag == "Enemy") {
+			if (!m_pointToEnable.gameObject.activeSelf) {
+				StartCoroutine(reactivatePoint(0.01f));
+			}
 		}
 	}
 
@@ -37,5 +54,11 @@ public class Point : MonoBehaviour {
 		yield return new WaitForSeconds (time);
 
 		this.gameObject.SetActive (false);
+	}
+
+	IEnumerator reactivatePoint(float time){
+		yield return new WaitForSeconds (time);
+
+		this.m_pointToEnable.SetActive (true);
 	}
 }

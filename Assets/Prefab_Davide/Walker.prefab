@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013502675250}
   - 212: {fileID: 212000012018925204}
   - 114: {fileID: 114000011582379092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lifebar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,13 +43,14 @@ GameObject:
   - 114: {fileID: 114000014233297176}
   - 114: {fileID: 114000011687270702}
   - 58: {fileID: 58000010616919412}
-  m_Layer: 0
+  - 68: {fileID: 68000013040436356}
+  m_Layer: 8
   m_Name: Walker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000011990923672
 Transform:
   m_ObjectHideFlags: 1
@@ -57,8 +58,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014221738542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.1, y: -12.1, z: 0}
-  m_LocalScale: {x: 0.4512168, y: 0.4512168, z: 0.4512168}
+  m_LocalPosition: {x: -22.70272, y: 2.5905364, z: 0}
+  m_LocalScale: {x: 0.11947982, y: 0.11947982, z: 0.11947982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013502675250}
@@ -122,6 +123,22 @@ BoxCollider2D:
   m_Offset: {x: -0.21268767, y: 0.18639709}
   serializedVersion: 2
   m_Size: {x: 8.190738, y: 3.5356193}
+--- !u!68 &68000013040436356
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014221738542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -3.88836, y: 1.1030967}
+  - {x: -0.04658229, y: 2.7252476}
+  - {x: 3.3545315, y: 1.201244}
 --- !u!114 &114000011181773778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,8 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690521c07ceb049c780e0816d4670293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawnPoint: {fileID: 0}
-  m_walkingSpeed: 0.1
+  m_walkingSpeed: 0.05
   m_jumpSpeed: 6.5
   m_doubleJumpFactor: 1.65
 --- !u!114 &114000011582379092

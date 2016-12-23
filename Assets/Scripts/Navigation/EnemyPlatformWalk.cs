@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class EnemyPlatformWalk : MonoBehaviour {
-
-	//[Header("Spawn Point")]
-	//public Transform m_spawnPoint;
+	
 
 	[Header("Moving Parameters"), Range(0f,5f)]
 	public float m_walkingSpeed = 0.05f;
@@ -23,28 +21,30 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 	private bool moving;
 	private bool canMove;
-	private bool climbing;
+	private bool climbing_up;
+	private bool climbing_down;
 	private bool jumping;
 
 	// Use this for initialization
 	void Start () {
 		this.canMove = true;
 		this.moving = true;
-		this.climbing = false;
+		this.climbing_up = false;
+		this.climbing_down = false;
 		this.jumping = false;
 		this.tr = this.gameObject.GetComponent<Transform> () as Transform;
 		this.rb2d = this.gameObject.GetComponent<Rigidbody2D> () as Rigidbody2D;
 		this.direction = Vector3.left;
-		//this.tr.position = this.m_spawnPoint.position;
-
 		this.gravityScale = this.rb2d.gravityScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (this.climbing)
+        if (this.climbing_up)
             this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.up;
+		else if(this.climbing_down)
+			this.tr.position = this.tr.position + this.m_walkingSpeed * Vector3.down;
         else if (this.moving && this.canMove)
 			this.tr.position = this.tr.position + this.m_walkingSpeed * this.direction;
 	}
@@ -52,6 +52,11 @@ public class EnemyPlatformWalk : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 
 		print (other.gameObject.tag);
+
+		if (other.gameObject.tag == "Enemy") {
+			this.canMove = false;
+			this.moving = false;
+		}
 
 		if (other.gameObject.tag == "platform") {
 			this.toggleJumping (false);
@@ -80,14 +85,19 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		}
 
 		// LADDERS
-		if (other.gameObject.tag == "climb_point") {
-			this.toggleClimbing (true);
+		if (other.gameObject.tag == "climb_point_up") {
+			this.toggleClimbingUp (true);
+			this.rb2d.gravityScale = 0f;
+		}
+		if (other.gameObject.tag == "climb_point_down") {
+			this.toggleClimbingDown (true);
 			this.rb2d.gravityScale = 0f;
 		}
 		if (other.gameObject.tag == "stop_climb_point") {
 			this.rb2d.gravityScale = this.gravityScale;
 			this.moveToNextPoint (other.gameObject.GetComponent<Point> () as Point);
-			this.toggleClimbing (false);
+			this.toggleClimbingUp (false);
+			this.toggleClimbingDown (false);
 		}
 
 		// FLIP MOVEMENT
@@ -112,11 +122,17 @@ public class EnemyPlatformWalk : MonoBehaviour {
 		this.moving = moving;
 	}
 
-    private void toggleClimbing(bool climb) {
+    private void toggleClimbingUp(bool climb) {
         this.moving = !climb;
-        this.climbing = climb;
+        this.climbing_up = climb;
         GetComponent<BoxCollider2D>().enabled = !climb;
     }
+
+	private void toggleClimbingDown(bool climb) {
+		this.moving = !climb;
+		this.climbing_down = climb;
+		GetComponent<BoxCollider2D>().enabled = !climb;
+	}
     
 	private void toggleJumping(bool jumping){
 		this.jumping = jumping;

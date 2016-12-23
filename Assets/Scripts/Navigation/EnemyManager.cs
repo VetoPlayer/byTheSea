@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour {
 		this.crabDiedCtr++;
 		if (this.crabDiedCtr == this.m_crabsNumber) {
 			print ("[Event]: EndAction_PlayerWins"); 
-			EventManager.TriggerEvent ("EndAction_PlayerWins");
+			//EventManager.TriggerEvent ("EndAction_PlayerWins");
 		}
 	}
 

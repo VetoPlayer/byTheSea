@@ -21,7 +21,7 @@ public class SpawnBaseTower : MonoBehaviour {
 				print ("spawn in: " + go.transform.position.ToString ());
 				GameObject ob = ObjectPoolingManager.Instance.GetObject (baseTower.name);
 				Vector3 parentPosition = go.GetComponent<RectTransform> ().position;
-				parentPosition.y = parentPosition.y + 17.3f;
+				parentPosition.y = parentPosition.y+ 17.3f;
 				ob.transform.position = parentPosition;
 				print ("spawned in: " + ob.transform.position.ToString());
 			}

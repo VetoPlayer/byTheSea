@@ -60,16 +60,17 @@ public class EnemyPlatformAttack : MonoBehaviour {
 	}
 
 	private void detectPlayer(){
-
+		
 		RaycastHit2D hit = Physics2D.Raycast (
 								this.tr.position, 
 								this.shootingDirection, 
 								this.m_playerAttackDistance, 
-								1 << LayerMask.NameToLayer("Default"));
+								1 << LayerMask.NameToLayer("Player"));
 		
 		if (hit.transform != null) {
 
 			if (hit.transform.gameObject.tag == "Player" && hit.distance <= this.m_playerAttackDistance) {
+				print ("enemy attacking player");
 				this.attackingPlayer = true;
 				this.target = hit.transform.gameObject;
 			} else {
@@ -128,10 +129,12 @@ public class EnemyPlatformAttack : MonoBehaviour {
 
 		if ((this.attackingPlayer || this.attackingTreasureShield || this.attackingTreasure) 
 			&& ((Time.time - this.lastAttack) > this.m_attackSpeed)) {
+
 			// attack target
 			PlatformEntityLife otherLife = this.target.GetComponent<PlatformEntityLife> () as PlatformEntityLife;
 			otherLife.damage (this.m_attackPower);
 			this.lastAttack = Time.time;
+			print ("target attacked");
 
 			//TODO: need to call animator for attack animation
 		}

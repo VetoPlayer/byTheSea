@@ -6,6 +6,8 @@ public class PlayerMovements : MonoBehaviour {
 	[Header("Player Parameters")]
 	public float m_walkSpeed=5f;
 	public float m_jumpSpeed=0.5f;
+	[Range(0,50f)]
+	public float m_killJumpForce = 23f;
 
 	private bool landing;
 	private Vector3 direction;
@@ -30,6 +32,10 @@ public class PlayerMovements : MonoBehaviour {
 	void FixedUpdate() {
 		this.handleMovement ();
 		this.handleJump ();
+		if (this.rb2d.velocity.magnitude > this.m_jumpSpeed) {
+			
+			rb2d.velocity = rb2d.velocity.normalized * m_jumpSpeed;
+		}
 	}
 
 	private void handleJump (){
@@ -58,5 +64,9 @@ public class PlayerMovements : MonoBehaviour {
 
 	public Vector3 getMovementDirection(){
 		return this.direction;
+	}
+
+	public float getKillJumpForce(){
+		return this.m_killJumpForce;
 	}
 }

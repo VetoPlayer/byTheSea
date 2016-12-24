@@ -51,7 +51,7 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		print (other.gameObject.tag);
+		//debug print (other.gameObject.tag);
 
 		if (other.gameObject.tag == "Enemy") {
 			this.canMove = false;

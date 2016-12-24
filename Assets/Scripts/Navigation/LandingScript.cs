@@ -13,7 +13,7 @@ public class LandingScript : MonoBehaviour {
 		this.landingTags = new List<string> {
 			"platform",
 			"Enemy",
-			"treasure"
+			"treasure_shield"
 		};
 	}
 	
@@ -33,7 +33,8 @@ public class LandingScript : MonoBehaviour {
 			killing = true;
 
 			Rigidbody2D rb2d = this.gameObject.GetComponentsInParent<Rigidbody2D> ()[0] as Rigidbody2D;
-			rb2d.AddForce(Vector3.up * 24f, ForceMode2D.Impulse);
+			float killJumpForce = this.gameObject.GetComponentInParent<PlayerMovements> ().getKillJumpForce ();
+			rb2d.AddForce(Vector3.up * killJumpForce, ForceMode2D.Impulse);
 
 			other.gameObject.SetActive (false);
 		}

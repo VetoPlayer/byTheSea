@@ -9,17 +9,13 @@ public class Point : MonoBehaviour {
 
 	public bool m_disableOnEnter;
 
-	public bool m_enableOtherOnEnter;
+//	public bool m_enableOtherOnEnter;
 
-	public GameObject m_pointToEnable;
-
-	private List<int> hasVisited;
+//	public GameObject m_pointToEnable;
 
 
 	// Use this for initialization
-	void Start () {
-		this.hasVisited = new List<int> ();
-	}
+	void Start () {}
 	
 	// Update is called once per frame
 	void Update () {}
@@ -39,14 +35,13 @@ public class Point : MonoBehaviour {
 		//if (this.m_disableOnEnter && other.gameObject.tag == "Enemy" && !this.hasVisited.Contains(this.gameObject.GetHashCode())) {
 		if(this.m_disableOnEnter && other.gameObject.tag == "moving_point"){
 			StartCoroutine (deactivate (0.05f));
-			this.hasVisited.Add (this.gameObject.GetHashCode ());
 		}
 
-		if (this.m_enableOtherOnEnter && other.gameObject.tag == "Enemy") {
-			if (!m_pointToEnable.gameObject.activeSelf) {
-				StartCoroutine(reactivatePoint(0.01f));
-			}
-		}
+//		if (this.m_enableOtherOnEnter && other.gameObject.tag == "Enemy") {
+//			if (!m_pointToEnable.gameObject.activeSelf) {
+//				StartCoroutine(reactivatePoint(0.01f));
+//			}
+//		}
 	}
 
 	IEnumerator deactivate(float time){
@@ -56,9 +51,9 @@ public class Point : MonoBehaviour {
 		this.gameObject.SetActive (false);
 	}
 
-	IEnumerator reactivatePoint(float time){
-		yield return new WaitForSeconds (time);
-
-		this.m_pointToEnable.SetActive (true);
-	}
+//	IEnumerator reactivatePoint(float time){
+//		yield return new WaitForSeconds (time);
+//
+//		this.m_pointToEnable.SetActive (true);
+//	}
 }

@@ -37,7 +37,6 @@ public class EnemyManager : MonoBehaviour {
             Transform spawn = this.selectRandomSpawn ();
 			enemy.transform.position = spawn.position;
 			enemy.transform.rotation = spawn.rotation;
-            Debug.Log(enemy.transform.position);
 			this.crabCount++;
 			this.timeLastCrabSpawned = Time.time;
 		}
@@ -51,8 +50,9 @@ public class EnemyManager : MonoBehaviour {
 	private void crabDied(){
 		this.crabDiedCtr++;
 		if (this.crabDiedCtr == this.m_crabsNumber) {
-			print ("[Event]: EndAction_PlayerWins"); 
-			//EventManager.TriggerEvent ("EndAction_PlayerWins");
+			
+			// debug : print ("[Event]: EndAction_PlayerWins"); 
+			EventManager.TriggerEvent ("EndAction_PlayerWins");
 		}
 	}
 

@@ -5157,8 +5157,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010162427006}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010024799258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5173,8 +5171,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010786750990}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010041109856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5189,8 +5185,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010447124964}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010075222876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5206,6 +5200,7 @@ MonoBehaviour:
   m_timeWaiting: 5
   m_movingHorizontal: 0
   m_movingDirection: 0
+  m_toEnableOnMove: {fileID: 1000010336706802}
 --- !u!114 &114000010137394102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5219,8 +5214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010144275526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5234,8 +5227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010260275702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5249,8 +5240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010409276624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5265,8 +5254,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000011027058892}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010462336276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5280,8 +5267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010734467702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5296,8 +5281,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000014263435142}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010776066594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5311,8 +5294,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010804206068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5326,8 +5307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010824755436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5341,8 +5320,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010888432862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5356,8 +5333,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000010989958920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5371,8 +5346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011090397980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5387,8 +5360,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000014086183168}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011491886542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5403,8 +5374,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012831901192}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011577269622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5419,8 +5388,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000013121750514}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011584376232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5435,8 +5402,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000011210820206}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011640966998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5451,8 +5416,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000013150685232}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 1
-  m_pointToEnable: {fileID: 1000011525353790}
 --- !u!114 &114000011642570276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5467,8 +5430,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010804130756}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011816357790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5483,8 +5444,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012688332570}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011955399654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5498,8 +5457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012080529912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5513,8 +5470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012131194518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5528,8 +5483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012174917644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5543,8 +5496,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012218417762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5559,8 +5510,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010736971874}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012258490504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5574,8 +5523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 1
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012341220820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5589,8 +5536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012469395318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5604,8 +5549,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012558934042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5620,8 +5563,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000013534723710}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012692757258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5635,8 +5576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 1
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012882241658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5651,8 +5590,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010811950050}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012987036914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5667,8 +5604,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010214384208}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013014313712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5683,8 +5618,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000011850275092}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013076937448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5699,8 +5632,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010612132954}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013323794006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5714,8 +5645,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013633920780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5729,8 +5658,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013658348944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5745,8 +5672,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012084659764}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013827970090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5760,8 +5685,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013870041744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5776,8 +5699,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010554774962}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013962451250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5791,8 +5712,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013974811832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5806,8 +5725,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000013989906396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5823,6 +5740,7 @@ MonoBehaviour:
   m_timeWaiting: 5
   m_movingHorizontal: 0
   m_movingDirection: 1
+  m_toEnableOnMove: {fileID: 1000011525353790}
 --- !u!114 &114000014071815442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5836,8 +5754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000014079447178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5851,8 +5767,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000014119778566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5867,8 +5781,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012449355350}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000014172323970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5883,8 +5795,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000013065933274}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000014229963420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5898,8 +5808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000014272311098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5913,8 +5821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!212 &212000010023524206
 SpriteRenderer:
   m_ObjectHideFlags: 1

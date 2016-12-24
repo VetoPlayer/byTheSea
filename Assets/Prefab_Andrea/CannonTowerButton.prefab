@@ -102,8 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_type: 3
   m_button_text: {fileID: 114000013316681414}
-  m_archer_dummy_prefab: {fileID: 1000010693015254, guid: 3c6cd1996881f46428425af747382f1d,
-    type: 2}
+  m_archer_dummy_prefab: {fileID: 0}
   m_cannon_dummy_prefab: {fileID: 1000013957148784, guid: b317f4bdd8048cb48b4a241e39551c2f,
     type: 2}
   m_dummy_tower_spawn_position: {fileID: 0}
@@ -216,7 +215,7 @@ RectTransform:
   m_GameObject: {fileID: 1000013063444484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 11.193748, y: 11.193748, z: 11.193748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000012211594992}
@@ -224,7 +223,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244.80002, y: 141}
+  m_AnchoredPosition: {x: 246.65802, y: -116.577484}
   m_SizeDelta: {x: 79, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012211594992

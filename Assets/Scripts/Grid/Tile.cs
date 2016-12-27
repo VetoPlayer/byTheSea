@@ -190,6 +190,10 @@ public class Tile : MonoBehaviour {
 			free = false;
 			other.gameObject.SendMessage ("SetParentTile", this.gameObject);
 		}
+		if (other.gameObject.tag == "trap") {
+			free = false;
+			other.gameObject.SendMessage ("SetParentTile", this.gameObject);
+		}
 		//Debug.Log ("Hit");
 		// If an enemy is over a tile it is no more free, such that the player cannot build things over the head of enemies
 		if (other.gameObject.tag == "ArcherCastleDummy" ||

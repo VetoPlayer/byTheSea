@@ -7,13 +7,27 @@ public class SandHoleBehaviour : MonoBehaviour {
 	public float m_trapTime = 0f;
 	// Tile that has generated it. This class needs it because when the sand hole disappears it has to tell to its parent tile.
 	private GameObject parent_tile;
+	private bool hit;
+	private System.Collections.Generic.List<GameObject> list;
+
+	private float hittingTime;
 	// Use this for initialization
 	void Start () {
-	
+		list = new System.Collections.Generic.List<GameObject> ();
+		
+	}
+
+	void OnEnable(){
+		hit = false;
+		list = new System.Collections.Generic.List<GameObject> ();
+		hittingTime = - m_trapTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (hit && (Time.time > hittingTime + m_trapTime)) {
+			death ();
+		}
 	
 	}
 
@@ -27,24 +41,25 @@ public class SandHoleBehaviour : MonoBehaviour {
 	private void death(){
 		
 		parent_tile.SendMessage ("SetFree");
-
+		hit = false;
+		setTrappedFree ();
 		this.gameObject.SetActive (false);
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-
-		if (other.gameObject.tag == "Enemy") {
-			StartCoroutine(stopEnemy(other.gameObject));
+	void setTrappedFree(){
+		foreach (GameObject go in list) {
+			if( go.activeSelf){
+				go.GetComponent<Trappable> ().unlockThis ();
+			}
 		}
 	}
 
-	IEnumerator stopEnemy(GameObject enemy){
-
-		enemy.GetComponent<EnemyMovement> ().enabled = false;
-
-		yield return new WaitForSeconds (m_trapTime);
-
-		enemy.GetComponent<EnemyMovement> ().enabled = true;
-		death ();
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.gameObject.tag == "Enemy") {
+			other.gameObject.GetComponent<Trappable> ().lockThis ();
+			list.Add (other.gameObject);
+			hit = true;
+			hittingTime = Time.time;
+		}
 	}
 }

@@ -33,8 +33,4 @@ public class EnemyAttack : MonoBehaviour {
 	public void setTargetAttack(CastleLife target){
 		targetAttack = target;
 	}
-
-
-
-
 }

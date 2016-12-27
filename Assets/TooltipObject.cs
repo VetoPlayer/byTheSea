@@ -9,13 +9,13 @@ public class TooltipObject : MonoBehaviour {
 
 	[Header("Tooltip parameters")]
 	[Range(0f,3f), Tooltip("The number of seconds to wait to display the tooltip")]
-	public float m_secondsForTooltip = 0f;
+	public float m_secondsForTooltip = 0.45f;
 
-	[Range(0f,10f), Tooltip("Tooltip horizontal distance from mouse")]
-	public float m_xDistance = 0f;
+	[Range(0f,5f), Tooltip("Tooltip horizontal distance from mouse")]
+	public float m_xDistance = 2.5f;
 
-	[Range(0f,10f), Tooltip("Tooltip vertical distance from mouse")]
-	public float m_yDistance = 0f;
+	[Range(0f,5f), Tooltip("Tooltip vertical distance from mouse")]
+	public float m_yDistance = 2.5f;
 
 	[TextArea(5,10), Tooltip("Text to show in the tooltip")]
 	public string m_tooltipText = "";
@@ -32,15 +32,14 @@ public class TooltipObject : MonoBehaviour {
 
 	void OnMouseEnter(){
 		entered = true;
-		print ("asidjao");
 		StartCoroutine (showTooltip ());
 	}
 
 	void OnMouseExit(){
 		entered = false;
-		print ("asdsadas");
-		m_UITooltipText.enabled = false;
-		m_UITooltipText.gameObject.GetComponentInChildren<RawImage> ().enabled = false;
+		m_UITooltipText.gameObject.SetActive (false);
+		//m_UITooltipText.enabled = false;
+		//m_UITooltipText.gameObject.GetComponentInChildren<RawImage> ().enabled = false;
 	}
 
 	IEnumerator showTooltip(){
@@ -52,8 +51,9 @@ public class TooltipObject : MonoBehaviour {
 			tooltipPosition.y = mousePosition.y - m_yDistance;
 			m_UITooltipText.text = m_tooltipText;
 			m_UITooltipText.transform.position = tooltipPosition;
-			m_UITooltipText.enabled = true;
-			m_UITooltipText.gameObject.GetComponentInChildren<RawImage> ().enabled = true;
+			m_UITooltipText.gameObject.SetActive (true);
+			//enabled = true;
+			//m_UITooltipText.gameObject.GetComponentInChildren<RawImage> ().enabled = true;
 		}
 	}
 }

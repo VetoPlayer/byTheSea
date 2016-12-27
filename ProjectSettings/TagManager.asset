@@ -28,6 +28,7 @@ TagManager:
   - climb_point_down
   - climb_point
   - water
+  - trap
   layers:
   - Default
   - TransparentFX

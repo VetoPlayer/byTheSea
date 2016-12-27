@@ -45,7 +45,7 @@ public class CastleLife : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		StartCoroutine (hitColorChanging ());
+		
 		currentLife = currentLife - (attack - armor);
 		GetComponent<LifeBarManager> ().UpdateBar (currentLife, initialLife);
 		if (currentLife <= 0) {
@@ -53,6 +53,7 @@ public class CastleLife : MonoBehaviour {
 			death ();
 			return true;
 		} else {
+			StartCoroutine (hitColorChanging ());
 			return false;
 		}
 	}

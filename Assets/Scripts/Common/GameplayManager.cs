@@ -8,6 +8,7 @@ using POLIMIGameCollective;
 public class GameplayManager : MonoBehaviour {
 
 
+
 	public string m_towerDefenseSceneName = "TowerDefense";
 	public string m_platformSceneName = "Platform";
 
@@ -37,7 +38,6 @@ public class GameplayManager : MonoBehaviour {
 
 
 	void GoToPlatformScene(){
-
 		SavedInfo.instance.setNotFirstSceneAnymore ();
 		//Debug.Log ("Not First scene anymore");
 		SceneManager.LoadScene (m_platformSceneName);

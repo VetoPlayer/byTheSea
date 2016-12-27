@@ -112,7 +112,9 @@ public class Tile : MonoBehaviour {
 			collided_with_dummy = false;
 			//Debug.Log ("BuildCastle has been called");
 			EventManager.TriggerEvent ("SettedWithSuccess");
-			instance_in_preview.SetActive (false);
+			if (instance_in_preview != null) {
+				instance_in_preview.SetActive (false);
+			}
 			if (instance_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = MaterializeGameObject(m_archer_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
@@ -221,6 +223,14 @@ public class Tile : MonoBehaviour {
 		}
 
 	}
+
+//	void OnTriggerEnter(Collider other){
+//		if (other.gameObject.tag == "water") {
+//			Debug.Log ("----------water trigg");
+//			free = false;
+//			other.gameObject.SendMessage ("setDaddy", this.gameObject);
+//		}
+//	}
 
 	void OnTriggerExit2D(Collider2D other){
 		//DestroyThePreview.

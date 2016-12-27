@@ -32,11 +32,13 @@ public class TooltipObject : MonoBehaviour {
 
 	void OnMouseEnter(){
 		entered = true;
+		print ("asidjao");
 		StartCoroutine (showTooltip ());
 	}
 
 	void OnMouseExit(){
 		entered = false;
+		print ("asdsadas");
 		m_UITooltipText.enabled = false;
 		m_UITooltipText.gameObject.GetComponentInChildren<RawImage> ().enabled = false;
 	}

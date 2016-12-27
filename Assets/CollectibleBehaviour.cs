@@ -58,5 +58,6 @@ public class CollectibleBehaviour : MonoBehaviour {
 	}
 
 
+
 		
 }

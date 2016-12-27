@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 
 	// Remark: since the spawner reads directly form the Scriptableobject what kind of enemy to spawn, it doesn't require any prefab
 
-	private int current_level=0;
+	public int current_level=0;
 	private float number_enemy=1;
 
 	public int starting_enemy=1;
@@ -68,13 +68,13 @@ public class Spawner : MonoBehaviour {
 		//Debug.Log ("Spawer tries to load");
 		if (!SavedInfo.instance.isFirstScene ()) {
 			current_level = SavedInfo.instance.LoadCurrentLevel ();
-			Debug.Log ("Level Loaded:"+ current_level);
+			//Debug.Log ("Level Loaded:"+ current_level);
 		}
 	}
 
 	private void Save(){
 		SavedInfo.instance.SaveLevel (current_level);
-		Debug.Log ("Level Saved");
+		//Debug.Log ("Level Saved:" + current_level);
 	}
 
 

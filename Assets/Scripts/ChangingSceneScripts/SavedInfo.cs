@@ -63,7 +63,7 @@ public class SavedInfo : MonoBehaviour {
 
 
 	public void SaveLevel(int level_number){
-		current_level = level_number;
+		current_level = level_number + 1;
 	}
 
 

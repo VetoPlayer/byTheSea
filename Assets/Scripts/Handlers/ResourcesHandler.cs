@@ -88,8 +88,10 @@ public class ResourcesHandler : MonoBehaviour {
 	/// Resets the integer counters.
 	/// </summary>
 	private void resetCounters(){
-		this.sandCounter = this.m_startingSand;
-		this.waterCounter = this.m_startingWater;
+		if (SavedInfo.instance.isFirstScene()) {
+			this.sandCounter = this.m_startingSand;
+			this.waterCounter = this.m_startingWater;
+		}
 	}
 
 	/// <summary>

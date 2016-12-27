@@ -15,20 +15,18 @@ public class ResourcesManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		EventManager.StartListening ("PassToPlatformScene", Save);
-
+		Debug.Log ("URLO");
 		//Give the player the resoruces
 		Load();
 	}
 
 	private void Load(){
 		//Debug.Log ("Load Called");
-		if (SavedInfo.instance.isFirstScene ()) {
-			StartCoroutine (InitializePlayerResources (m_initial_water, m_initial_sand));
-		} else {
-			//Debug.Log ("Resources:");
+		//Debug.Log ("Is First Scene:" + SavedInfo.instance.isFirstScene() + "");
+		if (!SavedInfo.instance.isFirstScene ()) {
 			int n_sand = SavedInfo.instance.LoadSandResource ();
 			int n_water = SavedInfo.instance.LoadWaterResource ();
-
+			//Debug.Log ("Trying to looad old Resources:" + n_sand + n_water);
 			StartCoroutine (InitializePlayerResources (n_water, n_sand));
 		}
 

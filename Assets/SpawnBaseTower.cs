@@ -18,12 +18,12 @@ public class SpawnBaseTower : MonoBehaviour {
 		if (SavedInfo.instance.isFirstScene()) {
 			ObjectPoolingManager.Instance.CreatePool (baseTower, 5, 7);
 			foreach (GameObject go in m_baseTowersPositions) {
-				print ("spawn in: " + go.transform.position.ToString ());
+				//print ("spawn in: " + go.transform.position.ToString ());
 				GameObject ob = ObjectPoolingManager.Instance.GetObject (baseTower.name);
 				Vector3 parentPosition = go.GetComponent<RectTransform> ().position;
 				parentPosition.y = parentPosition.y+ 17.3f;
 				ob.transform.position = parentPosition;
-				print ("spawned in: " + ob.transform.position.ToString());
+				//print ("spawned in: " + ob.transform.position.ToString());
 			}
 		}
 

@@ -70,7 +70,7 @@ public class EnemyPlatformAttack : MonoBehaviour {
 		if (hit.transform != null) {
 
 			if (hit.transform.gameObject.tag == "Player" && hit.distance <= this.m_playerAttackDistance) {
-				print ("enemy attacking player");
+//				print ("enemy attacking player");
 				this.attackingPlayer = true;
 				this.target = hit.transform.gameObject;
 			} else {

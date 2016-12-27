@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Tile : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class Tile : MonoBehaviour {
 
 	// free if it has no constructions or traps over it
 	public bool free=true;
+	public string resonWhyImNotFree;
 
 	private bool collided_with_dummy=false;
 
@@ -91,6 +93,7 @@ public class Tile : MonoBehaviour {
 
 		// DontDestroyTheTilesOnLoad!!! The tiles stay persistent between a scene and another
 		//DontDestroyOnLoad (this.gameObject);
+		free=true;
 
 	}
 
@@ -115,30 +118,48 @@ public class Tile : MonoBehaviour {
 			if (instance_in_preview != null) {
 				instance_in_preview.SetActive (false);
 			}
+
+
 			if (instance_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = MaterializeGameObject(m_archer_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.ArcherTower.ToString());
+				free = false;
+				resonWhyImNotFree = "Castlearcher";
 			}
+
 			if (instance_to_build == BuildableEnum.CannonTower) {
 				GameObject go = MaterializeGameObject (m_cannon_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CannonTower.ToString());
+				free = false;
+				resonWhyImNotFree = "Castlecannon";
 			}
+
 			if (instance_to_build == BuildableEnum.SandHole) {
 				GameObject go = MaterializeGameObject (m_sand_trap_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.SandHole.ToString());
+				free = false;
+				resonWhyImNotFree = "sandhole";
 			}
-			free = false;
+
 		}
 	}
 
+	void Update(){
+		
+		if(free)
+			gameObject.GetComponentInParent<Image> ().color = Color.green;
+		else
+			gameObject.GetComponentInParent<Image> ().color = Color.red;
+	}
 
 	// This methodsets water over the selected tile.
 	public void SetWater(){
 
 		free = false;
+		resonWhyImNotFree = "Water";
 		///!!!Check the water to be collectible, the sand has to be it too.
 		//Instantiate the water as its own child
 		GameObject go = MaterializeGameObject(m_my_tile_water.name);
@@ -188,10 +209,12 @@ public class Tile : MonoBehaviour {
 
 		if (other.gameObject.tag == "Castle") {
 			free = false;
+			resonWhyImNotFree = "CastleHit";
 			other.gameObject.SendMessage ("SetParentTile", this.gameObject);
 		}
 		if (other.gameObject.tag == "trap") {
 			free = false;
+			resonWhyImNotFree = "trapHit";
 			other.gameObject.SendMessage ("SetParentTile", this.gameObject);
 		}
 		//Debug.Log ("Hit");
@@ -238,11 +261,10 @@ public class Tile : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		//DestroyThePreview.
-
+		collided_with_dummy = false;
 		if(instance_in_preview!= null){
 			instance_in_preview.SetActive (false);
 			instance_to_build = BuildableEnum.NoBuilding;
-			collided_with_dummy = false;
 		}
 	}
 }

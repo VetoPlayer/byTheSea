@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour {
 	private Transform tr;
 
 	// free if it has no constructions or traps over it
-	private bool free=true;
+	public bool free=true;
 
 	private bool collided_with_dummy=false;
 
@@ -112,6 +112,7 @@ public class Tile : MonoBehaviour {
 			collided_with_dummy = false;
 			//Debug.Log ("BuildCastle has been called");
 			EventManager.TriggerEvent ("SettedWithSuccess");
+			instance_in_preview.SetActive (false);
 			if (instance_to_build == BuildableEnum.ArcherTower) {
 				GameObject go = MaterializeGameObject(m_archer_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);

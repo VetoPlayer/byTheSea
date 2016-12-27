@@ -16,15 +16,10 @@ public class SavedInfo : MonoBehaviour {
 	private int current_level=0;
 
 	//GameObjects call this class method when they born in order to initialize themselves.
-	//Every GameObject to be initialized call its corresponding method offered by this Singletor, static class
-
-	//Tile informations
-	private Dictionary<int, BuildableEnum> tiles_informations = new Dictionary<int, BuildableEnum>();
+	//Every GameObject to be initialized call its corresponding method offered by this Singleton
 
 	// Tower Buttons informations
 	private Dictionary<BuildableEnum, int> tower_buttons_informations = new Dictionary <BuildableEnum, int>();
-
-	//
 
 
 
@@ -55,10 +50,6 @@ public class SavedInfo : MonoBehaviour {
 
 
 	//Save Information Methods: Everything at the end
-
-	public void SaveTile(int tile_id, BuildableEnum building){
-		tiles_informations.Add (tile_id, building);
-	}
 		
 
 	public void SaveTowerButton(BuildableEnum button_type, int number_of_towers){
@@ -82,14 +73,10 @@ public class SavedInfo : MonoBehaviour {
 	 // Infromation Retrieval methods:
 
 
-	public BuildableEnum LoadTileInformation(int tile_id){
-		BuildableEnum building = tiles_informations [tile_id];
-		return building;
-	}
-
 	//Each button call this with a different type: everyone with its own
 	public int LoadTowerButtonInformation(BuildableEnum button_type){
 		int number_of_tower_stored = tower_buttons_informations [button_type];
+		StartCoroutine (ResetDictionary());
 		return number_of_tower_stored;
 	}
 
@@ -107,7 +94,11 @@ public class SavedInfo : MonoBehaviour {
 	}
 
 
+	IEnumerator ResetDictionary(){
+		yield return new WaitForSeconds(0.5f);
+		tower_buttons_informations = new Dictionary <BuildableEnum, int>();
 
+	}
 
 
 

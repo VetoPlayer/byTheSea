@@ -25,8 +25,10 @@ public class SandHoleBehaviour : MonoBehaviour {
 
 	//TODO: define the SandHole behaviour, then at the very end it has to execute the following line of code:
 	private void death(){
+		
 		parent_tile.SendMessage ("SetFree");
 
+		this.gameObject.SetActive (false);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -43,6 +45,6 @@ public class SandHoleBehaviour : MonoBehaviour {
 		yield return new WaitForSeconds (m_trapTime);
 
 		enemy.GetComponent<EnemyMovement> ().enabled = true;
-		this.gameObject.SetActive (false);
+		death ();
 	}
 }

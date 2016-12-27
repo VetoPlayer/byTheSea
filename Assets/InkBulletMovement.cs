@@ -25,7 +25,9 @@ public class InkBulletMovement : MonoBehaviour {
 			other.GetComponent<CastleLife> ().decreaseLife (attack);
 			gameObject.SetActive (false);
 		}
-
+		if (other.gameObject.tag == "basetower") {
+			gameObject.SetActive (false);
+		}
 
 	}
 

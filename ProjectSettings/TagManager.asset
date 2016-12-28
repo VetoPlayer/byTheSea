@@ -31,6 +31,8 @@ TagManager:
   - trap
   - basetower
   - CatapultCastleDummy
+  - BallDummy
+  - Ball
   layers:
   - Default
   - TransparentFX

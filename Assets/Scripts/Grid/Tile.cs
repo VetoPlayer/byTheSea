@@ -21,30 +21,28 @@ public class Tile : MonoBehaviour {
 	public GameObject m_my_tile_water;
 
 	//DUMMY TOWERS PREVIEW: ACTUALLY THEY ARE SIMPLY A SPRITE AND WON'T SHOOT TO THE INCOMING ENEMIES
-	[Header("Archer Castle Preview")]
+	[Header("Objects previews")]
 	public GameObject m_preview_archer_castle_prefab;
 
-	[Header("Cannon Castle Preview")]
 	public GameObject m_preview_cannon_castle_prefab;
 
-	[Header("Catapult Castle Preview")]
 	public GameObject m_preview_catapult_castle_prefab;
 
-	//REAL TOWERS THAT HAVE TO BE BUILT
-	[Header("Archer Castle")]
-	public GameObject m_archer_castle_prefab;
-
-	[Header("Cannon Castle")]
-	public GameObject m_cannon_castle_prefab;
-
-	[Header("Sand Hole Dummy")]
 	public GameObject m_sand_hole_preview_prefab;
 
-	[Header("Sand Hole")]
+	public GameObject m_preview_ball_prefab;
+
+	//REAL TOWERS THAT HAVE TO BE BUILT
+	[Header("Real Objects")]
+	public GameObject m_archer_castle_prefab;
+
+	public GameObject m_cannon_castle_prefab;
+
 	public GameObject m_sand_trap_prefab;
 
-	[Header("Catapult Castle")]
 	public GameObject m_catapult_castle_prefab;
+
+	public GameObject m_ball_prefab;
 
 
 	//Insance being displayed in preview:
@@ -72,9 +70,12 @@ public class Tile : MonoBehaviour {
 	void Start ()
 	{
 		//POOLS THINGS!!
-		//WATER
+		/// Pooling resources previews
+		// water
 		ObjectPoolingManager.Instance.CreatePool (m_my_tile_water, 50, 50);
 
+
+		/// Pooling previews
 		// ArcherCastle preview
 		ObjectPoolingManager.Instance.CreatePool (m_preview_archer_castle_prefab, 5, 5);
 
@@ -84,6 +85,14 @@ public class Tile : MonoBehaviour {
 		// Cannon Castle preview
 		ObjectPoolingManager.Instance.CreatePool (m_preview_catapult_castle_prefab, 5, 5);
 
+		// Sand Trap preview
+		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_preview_prefab,20,20);
+
+		// Ball Trap preview
+		ObjectPoolingManager.Instance.CreatePool(m_preview_ball_prefab, 10,10);
+
+
+		/// Pooling real objects
 		// ArcherCastle
 		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 50, 50);
 
@@ -93,16 +102,15 @@ public class Tile : MonoBehaviour {
 		// Catapult Castle
 		ObjectPoolingManager.Instance.CreatePool (m_catapult_castle_prefab, 50, 50);
 
-
 		// Sand Trap
 		ObjectPoolingManager.Instance.CreatePool (m_sand_trap_prefab, 50, 50);
 
-		// Sand Trap preview
-		ObjectPoolingManager.Instance.CreatePool (m_sand_hole_preview_prefab,20,20);
+		// Ball Trap
+		ObjectPoolingManager.Instance.CreatePool(m_ball_prefab, 10,10);
+
 
 
 		// Castle Spawn Events. they update the castle_to_build enum variable
-
 		EventManager.StartListening ("MouseReleased",BuildCastle);
 
 		// DontDestroyTheTilesOnLoad!!! The tiles stay persistent between a scene and another
@@ -164,6 +172,12 @@ public class Tile : MonoBehaviour {
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.SandHole.ToString());
 				free = false;
 				resonWhyImNotFree = "sandhole";
+			}
+
+			if (instance_to_build == BuildableEnum.BeachBall) {
+				GameObject go = MaterializeGameObject (m_ball_prefab.name);
+				//go.SendMessage ("SetParentTile", this.gameObject);
+				EventManager.TriggerEvent("DummyPositioned_"+BuildableEnum.BeachBall.ToString());
 			}
 
 		}
@@ -244,7 +258,8 @@ public class Tile : MonoBehaviour {
 		if (other.gameObject.tag == "ArcherCastleDummy" ||
 			other.gameObject.tag == "CannonCastleDummy" ||
 			other.gameObject.tag == "CatapultCastleDummy" ||
-			other.gameObject.tag == "SandHoleDummy") {
+			other.gameObject.tag == "SandHoleDummy" ||
+			other.gameObject.tag == "BallDummy") {
 			
 			collided_with_dummy = true;
 			if (free == true) {
@@ -271,7 +286,11 @@ public class Tile : MonoBehaviour {
 						GameObject go = MaterializeGameObject (m_sand_hole_preview_prefab.name);
 						instance_in_preview = go;
 					}
-
+					if (other.gameObject.tag == "BallDummy") {
+						instance_to_build = BuildableEnum.BeachBall;
+						GameObject go = MaterializeGameObject (m_preview_ball_prefab.name);
+						instance_in_preview = go;
+					}
 				}
 
 			}

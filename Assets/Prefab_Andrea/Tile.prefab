@@ -54,11 +54,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21103c73446d6c40aa49f023cefeab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  free: 1
+  resonWhyImNotFree: 
   m_my_tile_water: {fileID: 1000011992469418, guid: e1a25a2eb5340b04680bc1d7172b8839,
     type: 2}
   m_preview_archer_castle_prefab: {fileID: 1000010741150218, guid: 390ed8d5f7de7c1448b27cebfdbb508e,
     type: 2}
   m_preview_cannon_castle_prefab: {fileID: 1000011745986116, guid: 3575b1d15748a164691d730adbef14b0,
+    type: 2}
+  m_preview_catapult_castle_prefab: {fileID: 1000013705437738, guid: caf6c6562b0525c4e8202525a61cd063,
     type: 2}
   m_archer_castle_prefab: {fileID: 1000010489009116, guid: 08b34b7f515cf4b99b2627c217836bc6,
     type: 2}
@@ -68,7 +72,8 @@ MonoBehaviour:
     type: 2}
   m_sand_trap_prefab: {fileID: 1000013105418854, guid: 057bb4b910d0de840808f9ea673fa37e,
     type: 2}
-  tile_id: 0
+  m_catapult_castle_prefab: {fileID: 1000011463905668, guid: 46771bbc1298e7e4eae710514495be32,
+    type: 2}
 --- !u!212 &212000012223078366
 SpriteRenderer:
   m_ObjectHideFlags: 1

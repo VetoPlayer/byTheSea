@@ -7,7 +7,7 @@ public class ResourcesManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		EventManager.StartListening ("PassToPlatformScene", Save);
-		Debug.Log ("URLO");
+		//Debug.Log ("URLO");
 		//Give the player the resoruces
 		Load();
 	}

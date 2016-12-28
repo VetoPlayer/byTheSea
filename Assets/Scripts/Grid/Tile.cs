@@ -27,6 +27,9 @@ public class Tile : MonoBehaviour {
 	[Header("Cannon Castle Preview")]
 	public GameObject m_preview_cannon_castle_prefab;
 
+	[Header("Catapult Castle Preview")]
+	public GameObject m_preview_catapult_castle_prefab;
+
 	//REAL TOWERS THAT HAVE TO BE BUILT
 	[Header("Archer Castle")]
 	public GameObject m_archer_castle_prefab;
@@ -39,6 +42,10 @@ public class Tile : MonoBehaviour {
 
 	[Header("Sand Hole")]
 	public GameObject m_sand_trap_prefab;
+
+	[Header("Catapult Castle")]
+	public GameObject m_catapult_castle_prefab;
+
 
 	//Insance being displayed in preview:
 	private GameObject instance_in_preview;
@@ -74,11 +81,18 @@ public class Tile : MonoBehaviour {
 		// Cannon Castle preview
 		ObjectPoolingManager.Instance.CreatePool (m_preview_cannon_castle_prefab, 5, 5);
 
+		// Cannon Castle preview
+		ObjectPoolingManager.Instance.CreatePool (m_preview_catapult_castle_prefab, 5, 5);
+
 		// ArcherCastle
 		ObjectPoolingManager.Instance.CreatePool (m_archer_castle_prefab, 50, 50);
 
 		// Cannon Castle
 		ObjectPoolingManager.Instance.CreatePool (m_cannon_castle_prefab, 50, 50);
+
+		// Catapult Castle
+		ObjectPoolingManager.Instance.CreatePool (m_catapult_castle_prefab, 50, 50);
+
 
 		// Sand Trap
 		ObjectPoolingManager.Instance.CreatePool (m_sand_trap_prefab, 50, 50);
@@ -130,6 +144,14 @@ public class Tile : MonoBehaviour {
 
 			if (instance_to_build == BuildableEnum.CannonTower) {
 				GameObject go = MaterializeGameObject (m_cannon_castle_prefab.name);
+				go.SendMessage ("SetParentTile", this.gameObject);
+				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CannonTower.ToString());
+				free = false;
+				resonWhyImNotFree = "Castlecannon";
+			}
+
+			if (instance_to_build == BuildableEnum.CatapultTower) {
+				GameObject go = MaterializeGameObject (m_catapult_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
 				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CannonTower.ToString());
 				free = false;
@@ -221,6 +243,7 @@ public class Tile : MonoBehaviour {
 		// If an enemy is over a tile it is no more free, such that the player cannot build things over the head of enemies
 		if (other.gameObject.tag == "ArcherCastleDummy" ||
 			other.gameObject.tag == "CannonCastleDummy" ||
+			other.gameObject.tag == "CatapultCastleDummy" ||
 			other.gameObject.tag == "SandHoleDummy") {
 			
 			collided_with_dummy = true;
@@ -234,6 +257,11 @@ public class Tile : MonoBehaviour {
 					if (other.gameObject.tag == "CannonCastleDummy") {
 						instance_to_build = BuildableEnum.CannonTower;
 						GameObject go = MaterializeGameObject (m_preview_cannon_castle_prefab.name);
+						instance_in_preview = go;
+					}
+					if (other.gameObject.tag == "CatapultCastleDummy") {
+						instance_to_build = BuildableEnum.CatapultTower;
+						GameObject go = MaterializeGameObject (m_preview_catapult_castle_prefab.name);
 						instance_in_preview = go;
 					}
 				} //If it's a light tile, you want to show the trap preview.

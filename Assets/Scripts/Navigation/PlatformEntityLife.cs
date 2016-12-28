@@ -38,7 +38,6 @@ public class PlatformEntityLife : MonoBehaviour {
 	}
 
 	public void damage(float percentage){
-		print ("qua");
 		this.m_life -= (percentage - this.m_armor);
 		this.lifebarHandler.updateLifebar (this.m_life);
 	}

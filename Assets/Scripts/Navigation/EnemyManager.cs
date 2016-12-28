@@ -49,8 +49,6 @@ public class EnemyManager : MonoBehaviour {
 
 	private void crabDied(){
 		this.crabDiedCtr++;
-		print ("player win condition: " + this.crabDiedCtr.ToString () + " == " + this.m_crabsNumber + " --> " + (this.crabDiedCtr == this.m_crabsNumber)
-			.ToString ());
 		if (this.crabDiedCtr == this.m_crabsNumber) {
 			
 			// debug : print ("[Event]: EndAction_PlayerWins"); 

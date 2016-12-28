@@ -29,6 +29,8 @@ TagManager:
   - climb_point
   - water
   - trap
+  - basetower
+  - CatapultCastleDummy
   layers:
   - Default
   - TransparentFX

@@ -3,14 +3,6 @@ using System.Collections;
 
 public class ResourcesManager : MonoBehaviour {
 
-	[Header("Initial Water Amount")]
-	[Range(0,20)]
-	public int m_initial_water;
-
-	[Header("Initial Sand Amount")]
-	[Range(0,20)]
-	public int m_initial_sand;
-
 
 	// Use this for initialization
 	void Start () {

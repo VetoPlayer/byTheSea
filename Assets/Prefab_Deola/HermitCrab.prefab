@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4e5e8c4eaaf4f3ca6996a1155a45d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.3
   speedUpTimes: 3
 --- !u!114 &114000011106719216
 MonoBehaviour:
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sand: {fileID: 1000011737158346, guid: 03f4c2f622e5a49369351aa3f43b2630, type: 2}
-  m_spawn_probability: 0.33
+  m_spawn_probability: 0.58
 --- !u!114 &114000012109699380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escapeRate: 0.3
-  initialLife: 100
+  initialLife: 90
   armor: 0
 --- !u!114 &114000013315479574
 MonoBehaviour:

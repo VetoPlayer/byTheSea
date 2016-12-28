@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5765d8b6c2d64760b5d090d671cf034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfShield: 3
+  numberOfShield: 1
 --- !u!114 &114000012401944982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -639,8 +639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec7868b8350f4eb9876c727979b4225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapeRate: 0.3
-  initialLife: 100
+  escapeRate: 0.2
+  initialLife: 110
   armor: 0
 --- !u!114 &114000012762330112
 MonoBehaviour:
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sand: {fileID: 1000011737158346, guid: 03f4c2f622e5a49369351aa3f43b2630, type: 2}
-  m_spawn_probability: 0.78
+  m_spawn_probability: 0.61
 --- !u!114 &114000013239228070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inkBullet: {fileID: 1000012759694830, guid: 68c0c7251e97247078dc7621579b1f7c, type: 2}
   inkFireSpot: {fileID: 1000013757991698}
-  timeRange: 1
+  timeRange: 4
 --- !u!114 &114000013318972630
 MonoBehaviour:
   m_ObjectHideFlags: 1

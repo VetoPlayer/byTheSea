@@ -27,6 +27,14 @@ public class EnemyPlatformWalk : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		reset ();
+	}
+
+	void OnEnable(){
+		reset ();
+	}
+
+	private void reset(){
 		this.canMove = true;
 		this.moving = true;
 		this.climbing_up = false;

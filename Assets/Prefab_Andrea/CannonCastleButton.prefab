@@ -42,6 +42,7 @@ GameObject:
   - 114: {fileID: 114000010547094528}
   - 114: {fileID: 114000013123281326}
   - 114: {fileID: 114000013294452722}
+  - 65: {fileID: 65000012922559234}
   m_Layer: 0
   m_Name: CannonCastleButton
   m_TagString: Untagged
@@ -49,6 +50,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65000012922559234
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013759966484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 92.91671, y: 41.359344, z: 0.9999998}
+  m_Center: {x: -2.1000977, y: 0.5828686, z: 0}
 --- !u!114 &114000010547094528
 MonoBehaviour:
   m_ObjectHideFlags: 1

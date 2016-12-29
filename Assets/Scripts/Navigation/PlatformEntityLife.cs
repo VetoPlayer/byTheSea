@@ -31,6 +31,7 @@ public class PlatformEntityLife : MonoBehaviour {
 		// entity is dead
 		if (this.m_life <= 0f) {
 			string name = this.gameObject.name.Replace ("(Clone)", "");
+			name = name.Replace(" (1)", "");
 			print ("[Event] Entity_" + name + "_died");
 			EventManager.TriggerEvent("Entity_"+name+"_died");
 			this.gameObject.SetActive (false);

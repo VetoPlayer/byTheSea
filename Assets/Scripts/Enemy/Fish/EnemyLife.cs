@@ -95,10 +95,13 @@ public class EnemyLife : MonoBehaviour {
 
 
 	IEnumerator hitColorChanging(){
-		rend.color = Color.red;
+		if(rend != null)
+			rend.color = Color.red;
 
 		yield return new WaitForSeconds (0.1f);
-		rend.color = Color.white;
+
+		if(rend != null)
+			rend.color = Color.white;
 	}
 
 

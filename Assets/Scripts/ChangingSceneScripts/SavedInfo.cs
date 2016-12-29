@@ -14,6 +14,7 @@ public class SavedInfo : MonoBehaviour {
 	private int player_water_resource=0;
 	private int player_sand_resource=0;
 	private int current_level=0;
+	private float number_enemy = 0;
 
 	//GameObjects call this class method when they born in order to initialize themselves.
 	//Every GameObject to be initialized call its corresponding method offered by this Singleton
@@ -66,6 +67,9 @@ public class SavedInfo : MonoBehaviour {
 		current_level = level_number + 1;
 	}
 
+	public void SaveNumberEnemy(float number_of_enemies){
+		number_enemy = number_of_enemies;
+	}
 
 		
 
@@ -91,6 +95,11 @@ public class SavedInfo : MonoBehaviour {
 
 	public int LoadCurrentLevel(){
 		return current_level;
+	}
+
+	public float LoadNumberOfEnemy(){
+		return number_enemy;
+
 	}
 
 

@@ -70,11 +70,16 @@ public class Spawner : MonoBehaviour {
 			current_level = SavedInfo.instance.LoadCurrentLevel ();
 			//Debug.Log ("Level Loaded:"+ current_level);
 		}
+		if (!SavedInfo.instance.isFirstScene ()) {
+			number_enemy = SavedInfo.instance.LoadNumberOfEnemy ();
+			//Debug.Log ("Level Loaded:"+ current_level);
+		}
 	}
 
 	private void Save(){
 		SavedInfo.instance.SaveLevel (current_level);
 		//Debug.Log ("Level Saved:" + current_level);
+		SavedInfo.instance.SaveNumberEnemy(number_enemy);
 	}
 
 

@@ -30,7 +30,7 @@ public class EnemyLife : MonoBehaviour {
 	}
 
 	public bool decreaseLife(int attack){
-		
+		StartCoroutine (hitColorChanging ());
 		int prev = currentLife;
 		currentLife = currentLife - ( attack-armor );
 		GetComponent < LifeBarManager>().UpdateBar (currentLife, initialLife);
@@ -70,23 +70,27 @@ public class EnemyLife : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 
-		if (other.gameObject.tag == "Bullet") {
+		if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "granade" ) {
 			response( other.GetComponent<BulletMovement> ().attack, other.gameObject);
+		}
+		if (other.gameObject.tag == "Ball") {
+			response (other.GetComponent<BallAttack> ().attack, other.gameObject);
 		}
 
 	}
 
 
 	public void response(int attack, GameObject bullet){
+		if (bullet.tag == "granade" || bullet.tag == "Ball") {
 
-		if (hit ()) {
 			decreaseLife (attack);
-			bullet.GetComponent<BulletMovement> ().hitResponse ();
 
 		} else {
+			if (hit ()) {
+				decreaseLife (attack);
+				bullet.GetComponent<BulletMovement> ().hitResponse ();
 
-
-
+			}
 		}
 
 
@@ -103,7 +107,7 @@ public class EnemyLife : MonoBehaviour {
 
 	public bool hit(){
 		if (Random.value > escapeRate) {
-			StartCoroutine (hitColorChanging ());
+			
 			return true;
 		}else
 			return false;

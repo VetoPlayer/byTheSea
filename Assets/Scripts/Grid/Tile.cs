@@ -161,7 +161,7 @@ public class Tile : MonoBehaviour {
 			if (instance_to_build == BuildableEnum.CatapultTower) {
 				GameObject go = MaterializeGameObject (m_catapult_castle_prefab.name);
 				go.SendMessage ("SetParentTile", this.gameObject);
-				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CannonTower.ToString());
+				EventManager.TriggerEvent ("DummyPositioned_"+BuildableEnum.CatapultTower.ToString());
 				free = false;
 				resonWhyImNotFree = "Castlecannon";
 			}

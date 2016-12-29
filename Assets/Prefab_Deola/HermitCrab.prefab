@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 114000013315479574}
   - 114: {fileID: 114000013201739476}
   - 60: {fileID: 60000013393498320}
+  - 114: {fileID: 114000010526932420}
   m_Layer: 8
   m_Name: HermitCrab
   m_TagString: Enemy
@@ -368,6 +369,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.3
   speedUpTimes: 3
+--- !u!114 &114000010526932420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011720806472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62a8c017e33b449e9a0dfe27e0338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  escapeRate: 0.3
+  initialLife: 100
+  armor: 10
 --- !u!114 &114000011106719216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -446,7 +461,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011720806472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ec3aa90f1ab04132950c0de49d86b43, type: 3}
   m_Name: 

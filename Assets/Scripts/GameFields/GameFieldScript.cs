@@ -19,6 +19,7 @@ public class GameFieldScript : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 	//	Debug.Log ("bullet exit");
+		print (other.gameObject.tag);
 		other.gameObject.SetActive (false);
 	}
 

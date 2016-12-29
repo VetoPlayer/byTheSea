@@ -36,9 +36,6 @@ public class LandingScript : MonoBehaviour {
 			float killJumpForce = this.gameObject.GetComponentInParent<PlayerMovements> ().getKillJumpForce ();
 			rb2d.AddForce(Vector3.up * killJumpForce, ForceMode2D.Impulse);
 
-			PlatformEntityLife enemyLife = other.gameObject.GetComponent<PlatformEntityLife> () as PlatformEntityLife;
-			enemyLife.m_life = -1;
-
 			other.gameObject.SetActive (false);
 			string name = other.gameObject.name.Replace ("(Clone)", "");
 			EventManager.TriggerEvent("Entity_"+name+"_died");

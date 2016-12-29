@@ -13,8 +13,8 @@ public class GameFieldResize : MonoBehaviour {
 		Vector2 size = new Vector2 (canvasTransform.rect.width, canvasTransform.rect.height);
 		Vector2 colliderSize = this.gameObject.GetComponent<BoxCollider2D> ().size;
 
-		colliderSize.x = size.x * 0.052f;
-		colliderSize.y = size.y * 0.052f;
+		colliderSize.x = size.x * 0.062f;
+		colliderSize.y = size.y * 0.062f;
 
 		this.gameObject.GetComponent<BoxCollider2D> ().size = colliderSize;
 

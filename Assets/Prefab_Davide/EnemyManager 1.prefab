@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eaa4821ee4664687bcfa491bdc76d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyCrab: {fileID: 0}
+  m_enemyCrab: {fileID: 1000014221738542, guid: a0886fc0297be4bcb9d280c2a502a8bd,
+    type: 2}
   m_crabsNumber: 10
   m_crabSpawnFrequency: 1.08
   m_spawnPoints:

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class EnemyLife : MonoBehaviour {
 
@@ -48,20 +49,16 @@ public class EnemyLife : MonoBehaviour {
 	public void death (){
 		GetComponent<EnemyMovement> ().enabled = false;
 		GetComponent<EnemyAttack> ().enabled = false;
+		try{
+			GetComponent <ReleaseSandOnDeath>().realeaseSand();
+		} catch(NullReferenceException e){}
 		StartCoroutine (animation ());
-
-
-
 	}
 
 	IEnumerator animation(){
 		Animator animator = GetComponent<Animator> () as Animator;
 		animator.SetTrigger ("Death");
 		yield return new WaitForSeconds (0.433f);
-
-		//CHANGE THIS, OR NOT
-		//Call for realeasing the sand
-		GetComponent <ReleaseSandOnDeath>().realeaseSand();
 
 		//Deactivates Itself
 		this.gameObject.SetActive (false);
@@ -106,7 +103,7 @@ public class EnemyLife : MonoBehaviour {
 
 
 	public bool hit(){
-		if (Random.value > escapeRate) {
+		if (UnityEngine.Random.value > escapeRate) {
 			
 			return true;
 		}else

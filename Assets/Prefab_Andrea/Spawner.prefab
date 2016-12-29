@@ -206,9 +206,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d7cff11c4ee1584897c587fa3390e60, type: 2}
   - {fileID: 11400000, guid: 4fb70b418a14e984d806d56abd299ae9, type: 2}
   - {fileID: 11400000, guid: 385914bf4775acf44bd1a6e3839d6206, type: 2}
+  current_level: 0
   starting_enemy: 1
-  percentage_increment: 0.3
-  n_water_drops: 5
+  percentage_increment: 0.2
+  n_water_drops: 3
   m_first_lane: {fileID: 0}
   m_second_lane: {fileID: 0}
   m_third_lane: {fileID: 0}

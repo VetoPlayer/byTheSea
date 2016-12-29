@@ -12,6 +12,7 @@ public class Grid : MonoBehaviour
 	public List<GameObject> m_shadow_grid = new List<GameObject> ();
 
 
+	private List<int> availableIndexes;
 
 	void Start () {
 
@@ -33,6 +34,35 @@ public class Grid : MonoBehaviour
 	}
 		
 	public void spawnRandomWater(int water_units){
+
+		availableIndexes = new List<int> ();
+
+		// gets all the free 
+		for (int lightCellIndex=0; lightCellIndex < m_light_grid.Count; lightCellIndex++) {
+			MessageClass in_preview = new MessageClass ();
+			m_light_grid [lightCellIndex].SendMessage ("IsDisplayingInPreview", in_preview);
+
+			MessageClass args = new MessageClass ();
+			m_light_grid [lightCellIndex].SendMessage ("IsFree", args);
+
+			if (args.isfree && !in_preview.isfree) {
+				availableIndexes.Add (lightCellIndex);
+			}
+		}
+			
+		int max = water_units;
+		if (availableIndexes.Count <= water_units) {
+			max = availableIndexes.Count;
+		}
+
+		for (int i = 0; i < max; i++) {
+
+			int selectedIndex = Random.Range (0, availableIndexes.Count);
+			m_light_grid[availableIndexes [selectedIndex]].SendMessage ("SetWater");
+			availableIndexes.RemoveAt (selectedIndex);
+		}
+
+		/**
 		for(int i=0; i < water_units;){
 			int randomIndex = Random.Range (0,m_light_grid.Count);
 			//Checks if it is free
@@ -46,9 +76,9 @@ public class Grid : MonoBehaviour
 			if (args.isfree && !in_preview.isfree) {
 				m_light_grid [randomIndex].SendMessage ("SetWater");
 				i++;
-
 			}
 		}
+		**/
 	}
 		
 
@@ -58,9 +88,4 @@ public class Grid : MonoBehaviour
 			m_light_grid [i].SendMessage ("setLightTile");
 
 	}
-
-
-
-
-
 }

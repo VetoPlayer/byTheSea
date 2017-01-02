@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour {
 
 	Animator animator;
 
-	static public float timeAnimationBase = 0.317f;
+	static public float timeAnimationBase = 0.333f;
 	bool readyAnim=false;
 	float nextTime;
 	// Use this for initialization

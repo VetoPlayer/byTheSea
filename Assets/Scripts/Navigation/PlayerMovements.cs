@@ -14,9 +14,16 @@ public class PlayerMovements : MonoBehaviour {
 	private Transform tr;
 	private Rigidbody2D rb2d;
 
+	private Animator anim;
+	float rightX;
+	float leftX;
+
 
 	// Use this for initialization
 	void Start () {
+		anim = GetComponent<Animator> ();
+		rightX = transform.localScale.x;
+		leftX = -rightX;
 		this.landing = false;
 		this.tr = this.gameObject.transform;
 		this.rb2d = this.gameObject.GetComponent<Rigidbody2D> () as Rigidbody2D;
@@ -40,6 +47,7 @@ public class PlayerMovements : MonoBehaviour {
 
 	private void handleJump (){
 		if (Input.GetKeyDown (KeyCode.Space) && this.landing) {
+			anim.SetTrigger ("Jump");
 			this.landing = false;
 			this.rb2d.AddForce(Vector3.up * this.m_jumpSpeed, ForceMode2D.Impulse);
 		}
@@ -47,11 +55,18 @@ public class PlayerMovements : MonoBehaviour {
 
 	private void handleMovement(){
 		if (Input.GetKey (KeyCode.RightArrow)) {
+			anim.SetTrigger ("Walk");
+			transform.localScale = new Vector3 (rightX, transform.localScale.y,transform.localScale.z);
 			this.direction = Vector3.right;
+
 		}
 		else if (Input.GetKey (KeyCode.LeftArrow)) {
+			anim.SetTrigger ("Walk");
+			transform.localScale = new Vector3 (leftX, transform.localScale.y,transform.localScale.z);
 			this.direction = Vector3.left;
+			
 		} else {
+			anim.SetTrigger ("StopWalk");
 			this.direction = Vector3.zero;
 		}
 
@@ -59,6 +74,8 @@ public class PlayerMovements : MonoBehaviour {
 	}
 
 	public void setLanding(bool newVal){
+		if(newVal=true)
+			anim.SetTrigger ("StopJump");
 		landing = newVal;
 	}
 

@@ -90,6 +90,28 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61609817 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010303424552, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 506487030}
+--- !u!95 &61609818
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 61609817}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 076bcbb0d432e4c2c892ec100bb3016c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &76378567
 Prefab:
   m_ObjectHideFlags: 0
@@ -373,6 +395,16 @@ Prefab:
     - target: {fileID: 4000011383364252, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011609512180, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011609512180, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}

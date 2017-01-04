@@ -13,6 +13,8 @@ public class PauseScreenCanvasBehaviour : MonoBehaviour {
 		//Disable the whole canvas
 		this.gameObject.SetActive(false);
 
+		MusicManager.Instance.UnmuteAll ();
+
 	}
 
 

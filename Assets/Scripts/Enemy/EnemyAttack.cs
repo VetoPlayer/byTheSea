@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GetComponent<Animator> ().SetTrigger ("Attack");
 		attackTime = Time.time;
 	}
 		

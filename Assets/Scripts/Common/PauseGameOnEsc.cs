@@ -9,7 +9,9 @@ public class PauseGameOnEsc : MonoBehaviour {
 	[Header("Pause Screen Canvas")]
 	public GameObject m_pause_screen;
 
-
+	void Start(){
+		DontDestroyOnLoad (m_pause_screen);
+	}
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape)) {

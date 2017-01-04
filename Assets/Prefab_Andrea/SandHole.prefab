@@ -21,9 +21,9 @@ GameObject:
   - 4: {fileID: 4000012824697864}
   - 212: {fileID: 212000013515623626}
   - 114: {fileID: 114000010043835718}
-  - 68: {fileID: 68000011985874772}
   - 50: {fileID: 50000013640649876}
   - 114: {fileID: 114000014224767226}
+  - 61: {fileID: 61000011649152438}
   m_Layer: 0
   m_Name: SandHole
   m_TagString: trap
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013105418854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.288258, y: -1.200281, z: 100}
+  m_LocalPosition: {x: 14.393568, y: -14.15675, z: 100}
   m_LocalScale: {x: 0.3650791, y: 0.3445653, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -61,8 +61,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &68000011985874772
-EdgeCollider2D:
+--- !u!61 &61000011649152438
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -70,12 +70,11 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -1.8502656, y: -0.6463856}
-  - {x: -1.8101311, y: 1.0441626}
+  m_Offset: {x: -0.065985195, y: 0.17478408}
+  serializedVersion: 2
+  m_Size: {x: 4.020482, y: 1.8421913}
 --- !u!114 &114000010043835718
 MonoBehaviour:
   m_ObjectHideFlags: 1

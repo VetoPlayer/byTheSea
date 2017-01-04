@@ -5,10 +5,6 @@ using POLIMIGameCollective;
 
 public class PauseScreenCanvasBehaviour : MonoBehaviour {
 
-	void Start(){
-
-	}
-
 
 	public void BackToGame(){
 		//Button Pressed

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using POLIMIGameCollective;
 
 public class EnemyAttack : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class EnemyAttack : MonoBehaviour {
 	void Update () {
 		if ((Time.time - attackTime) > damageSpawnTime ) {
 			attackTime = Time.time;
+			SfxManager.Instance.Play ("crab_attack");
 			bool died = targetAttack.decreaseLife(damage);
 			if (died) {
 				this.GetComponent<EnemyAttack> ().enabled = false;

@@ -72,6 +72,7 @@ GameObject:
   - 50: {fileID: 50000014029521100}
   - 114: {fileID: 114000012147854260}
   - 114: {fileID: 114000010729716458}
+  - 114: {fileID: 114000012852168480}
   m_Layer: 10
   m_Name: CannonCastle
   m_TagString: Castle
@@ -205,6 +206,18 @@ MonoBehaviour:
   timeRange: 3.5
   bullet: {fileID: 1000010780359386, guid: 2010efea098ce4f2f870d0fd2e82ead7, type: 2}
   fireSpot: {fileID: 1000011597392430}
+  castle_type: 3
+--- !u!114 &114000012852168480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013781776324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010237401390
 SpriteRenderer:
   m_ObjectHideFlags: 1

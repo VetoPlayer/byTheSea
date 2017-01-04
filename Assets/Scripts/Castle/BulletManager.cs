@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using POLIMIGameCollective;
 
 public class BulletManager : MonoBehaviour {
 
@@ -7,7 +8,7 @@ public class BulletManager : MonoBehaviour {
 	public float timeRange;
 	public GameObject bullet;
 	public GameObject fireSpot;
-
+	public BuildableEnum castle_type;
 	// Use this for initialization
 	void Start () {
 		lastShot = Time.time;
@@ -25,10 +26,19 @@ public class BulletManager : MonoBehaviour {
 			GameObject b=ObjectPoolingManager.Instance.GetObject (bullet.name);
 			b.transform.position = fireSpot.transform.position;
 			b.transform.rotation = fireSpot.transform.rotation;
+			PlaySoundShot ();
 
 			
 		}
 	
+	}
+
+	private void PlaySoundShot (){
+		if (castle_type == BuildableEnum.ArcherTower) {
+			SfxManager.Instance.Play ("arrow_shot");
+		} else if (castle_type == BuildableEnum.CannonTower) {
+			SfxManager.Instance.Play ("cannon_shot");
+		}
 	}
 
 

@@ -25,6 +25,7 @@ GameObject:
   - 50: {fileID: 50000010721736076}
   - 114: {fileID: 114000010132192160}
   - 114: {fileID: 114000011981251940}
+  - 114: {fileID: 114000013987427258}
   m_Layer: 10
   m_Name: CatapultCastle
   m_TagString: Castle
@@ -179,6 +180,7 @@ MonoBehaviour:
   timeRange: 2
   bullet: {fileID: 1000014109461650, guid: 296d2cd39fc7e4a9b9fbcd626f440e07, type: 2}
   fireSpot: {fileID: 1000011733955580}
+  castle_type: 0
 --- !u!114 &114000010898956798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +207,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 1000012909228088}
+--- !u!114 &114000013987427258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011463905668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010620609796
 SpriteRenderer:
   m_ObjectHideFlags: 1

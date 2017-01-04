@@ -40,6 +40,7 @@ GameObject:
   - 50: {fileID: 50000011528385910}
   - 114: {fileID: 114000010123328112}
   - 114: {fileID: 114000012354306626}
+  - 114: {fileID: 114000013120386000}
   m_Layer: 10
   m_Name: ArrowCastle
   m_TagString: Castle
@@ -178,6 +179,7 @@ MonoBehaviour:
   timeRange: 3
   bullet: {fileID: 1000012958526304, guid: 69142c8dbf2914a6da2b107bc9ca4a5b, type: 2}
   fireSpot: {fileID: 1000012296874330}
+  castle_type: 1
 --- !u!114 &114000012354306626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,6 +206,17 @@ MonoBehaviour:
   initialLife: 300
   armor: 10
   castle: {fileID: 1000010254240910}
+--- !u!114 &114000013120386000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010489009116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010395402362
 SpriteRenderer:
   m_ObjectHideFlags: 1

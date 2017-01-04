@@ -117,9 +117,11 @@ public class MenuManager : Singleton<MenuManager> {
 	public void Play() {
 		MusicManager.Instance.StopAll ();
 		MusicManager.Instance.PlayMusic ("GameplayMusic");
-		SceneManager.LoadScene ("TDmain");
+		SceneManager.LoadScene ("TowerDefense");
 	}
 
-
+	public void Exit(){
+		Application.Quit ();
+	}
 
 }

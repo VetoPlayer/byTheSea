@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000012262417402}
   - 114: {fileID: 114000012866008544}
   - 61: {fileID: 61000012400469282}
+  - 114: {fileID: 114000014032569310}
   m_Layer: 0
   m_Name: BaseTower
   m_TagString: basetower
@@ -65,6 +66,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 025c5ed175d1afe47a01e8de2eeecfe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000014032569310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013082592870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212000012262417402

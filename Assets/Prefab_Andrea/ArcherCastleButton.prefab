@@ -25,6 +25,8 @@ GameObject:
   - 114: {fileID: 114000012647126974}
   - 114: {fileID: 114000010652951970}
   - 114: {fileID: 114000011648586622}
+  - 65: {fileID: 65000013293918812}
+  - 114: {fileID: 114000013365035618}
   m_Layer: 0
   m_Name: ArcherCastleButton
   m_TagString: Untagged
@@ -49,6 +51,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65000013293918812
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010115086532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 92.04313, y: 41.540424, z: 0.99999976}
+  m_Center: {x: -2.235016, y: 0.34256747, z: 0}
 --- !u!114 &114000010652951970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,8 +181,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CastleToBuild: 1
   m_button: {fileID: 114000012062744696}
-  m_cooldown: 1
+  m_cooldown: 2
   m_cooldownMask: {fileID: 114000011266994934}
+--- !u!114 &114000013365035618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010115086532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0e7fe2e27cf4a059c920b90fe3d38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UITooltipText: {fileID: 0}
+  m_secondsForTooltip: 0.5
+  m_xDistance: 0
+  m_yDistance: 1.17
+  m_tooltipText: "Costruisci Castello con arcere \n(1 Acqua, 1 Sabbia)"
 --- !u!114 &114000013608056654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,7 +254,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -167.07, y: 0.92103386}
+  m_AnchoredPosition: {x: -166.95003, y: 0.75436044}
   m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013746041704

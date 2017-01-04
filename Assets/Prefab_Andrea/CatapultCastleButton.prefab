@@ -42,6 +42,8 @@ GameObject:
   - 114: {fileID: 114000012741983500}
   - 114: {fileID: 114000013756993202}
   - 114: {fileID: 114000011428219188}
+  - 114: {fileID: 114000013453889180}
+  - 65: {fileID: 65000013945425058}
   m_Layer: 0
   m_Name: CatapultCastleButton
   m_TagString: Untagged
@@ -49,6 +51,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65000013945425058
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010692848872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 89.33218, y: 38.285934, z: 0.9999999}
+  m_Center: {x: -2.8853912, y: 0.000102996826, z: -0.00012207031}
 --- !u!114 &114000010220513228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.13235295, b: 0.13235295, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -155,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CastleToBuild: 2
   m_button: {fileID: 114000010220513228}
-  m_cooldown: 1
+  m_cooldown: 2.5
   m_cooldownMask: {fileID: 114000012886676498}
 --- !u!114 &114000012886676498
 MonoBehaviour:
@@ -184,6 +198,25 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
+--- !u!114 &114000013453889180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010692848872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0e7fe2e27cf4a059c920b90fe3d38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UITooltipText: {fileID: 0}
+  m_tooltipobject: {fileID: 0}
+  m_secondsForTooltip: 0.45
+  m_xDistance: 2.5
+  m_yDistance: 2.5
+  m_tooltipText: 'Build a Catapult Castle
+
+    (3 Water, 2 Sand)'
 --- !u!114 &114000013756993202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +275,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -0.3765}
+  m_AnchoredPosition: {x: -278.24997, y: 0.7543838}
   m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}

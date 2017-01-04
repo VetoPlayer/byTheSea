@@ -43,6 +43,7 @@ GameObject:
   - 114: {fileID: 114000013123281326}
   - 114: {fileID: 114000013294452722}
   - 65: {fileID: 65000012922559234}
+  - 114: {fileID: 114000010440462182}
   m_Layer: 0
   m_Name: CannonCastleButton
   m_TagString: Untagged
@@ -62,6 +63,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 92.91671, y: 41.359344, z: 0.9999998}
   m_Center: {x: -2.1000977, y: 0.5828686, z: 0}
+--- !u!114 &114000010440462182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013759966484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0e7fe2e27cf4a059c920b90fe3d38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UITooltipText: {fileID: 0}
+  m_tooltipobject: {fileID: 0}
+  m_secondsForTooltip: 0.45
+  m_xDistance: 2.5
+  m_yDistance: 2.5
+  m_tooltipText: 'Build a Cannon Castle
+
+    (6 Water, 6 Sand)'
 --- !u!114 &114000010547094528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CastleToBuild: 3
   m_button: {fileID: 114000012831626550}
-  m_cooldown: 1
+  m_cooldown: 3
   m_cooldownMask: {fileID: 114000010574076560}
 --- !u!114 &114000010574076560
 MonoBehaviour:
@@ -255,6 +275,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.20999, y: 0.75436}
+  m_AnchoredPosition: {x: -55.650055, y: 0.75437}
   m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}

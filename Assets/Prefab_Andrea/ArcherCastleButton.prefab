@@ -195,10 +195,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UITooltipText: {fileID: 0}
+  m_tooltipobject: {fileID: 0}
   m_secondsForTooltip: 0.5
   m_xDistance: 0
-  m_yDistance: 1.17
-  m_tooltipText: "Costruisci Castello con arcere \n(1 Acqua, 1 Sabbia)"
+  m_yDistance: 1.5
+  m_tooltipText: 'Build an Archer Castle
+
+    (1 Water, 1 Sand)'
 --- !u!114 &114000013608056654
 MonoBehaviour:
   m_ObjectHideFlags: 1

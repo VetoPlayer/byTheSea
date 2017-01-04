@@ -26,7 +26,6 @@ GameObject:
   - 114: {fileID: 114000011106719216}
   - 114: {fileID: 114000012596870834}
   - 114: {fileID: 114000013239228070}
-  - 95: {fileID: 95000011433492056}
   - 114: {fileID: 114000014103694050}
   - 114: {fileID: 114000012762330112}
   - 114: {fileID: 114000012401944982}
@@ -35,6 +34,7 @@ GameObject:
   - 114: {fileID: 114000013318972630}
   - 60: {fileID: 60000010483117924}
   - 114: {fileID: 114000011915301474}
+  - 95: {fileID: 95000010928403884}
   m_Layer: 8
   m_Name: Octopus
   m_TagString: Enemy
@@ -541,7 +541,7 @@ PolygonCollider2D:
       - {x: 2.689238, y: -1.6615038}
       - {x: 2.5864646, y: -1.7642772}
       - {x: 2.6035936, y: -1.7642772}
---- !u!95 &95000011433492056
+--- !u!95 &95000010928403884
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -550,7 +550,7 @@ Animator:
   m_GameObject: {fileID: 1000011720806472}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02124b9e3487941ac8fe58af4fd99da8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2fc9fbdbc2d7b4249b02f8eeafacd4f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

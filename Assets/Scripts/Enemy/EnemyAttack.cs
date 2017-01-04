@@ -26,6 +26,7 @@ public class EnemyAttack : MonoBehaviour {
 			bool died = targetAttack.decreaseLife(damage);
 			if (died) {
 				this.GetComponent<EnemyAttack> ().enabled = false;
+				GetComponent<Animator> ().SetTrigger("Walk");
 				this.GetComponent<EnemyMovement> ().enabled = true;
 			}
 		}

@@ -94,7 +94,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6408c62001d14463a8f8a2b31ce97ee, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sandRequired: 1
-  m_waterRequired: 1
+  m_waterRequired: 2
   m_button: {fileID: 114000012062744696}
 --- !u!114 &114000012062744696
 MonoBehaviour:
@@ -199,9 +199,9 @@ MonoBehaviour:
   m_secondsForTooltip: 0.5
   m_xDistance: 0
   m_yDistance: 1.5
-  m_tooltipText: 'Build an Archer Castle
+  m_tooltipText: 'Archer Castle
 
-    (1 Water, 1 Sand)'
+    (2 Water, 1 Sand)'
 --- !u!114 &114000013608056654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +221,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6408c62001d14463a8f8a2b31ce97ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -257,7 +257,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -166.95003, y: 0.75436044}
+  m_AnchoredPosition: {x: -241, y: -0.00010276}
   m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013746041704

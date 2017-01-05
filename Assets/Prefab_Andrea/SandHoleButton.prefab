@@ -161,7 +161,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11815cd8fff54473d8134ff547746ef3, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -199,9 +199,9 @@ MonoBehaviour:
   m_secondsForTooltip: 0.45
   m_xDistance: 2.5
   m_yDistance: 2.5
-  m_tooltipText: 'Place a Sand Hole Trap
+  m_tooltipText: 'Sand Hole Trap
 
-    that stuns the enemies'
+    stuns the enemies'
 --- !u!114 &114000013956166546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,14 +214,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94482756, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11815cd8fff54473d8134ff547746ef3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -257,7 +257,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -404.7, y: 0.7543696}
+  m_AnchoredPosition: {x: -482, y: 0.75451}
   m_SizeDelta: {x: 111.29999, y: 52.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013442649902

@@ -23,6 +23,23 @@ public class SavedInfo : MonoBehaviour {
 	private Dictionary<BuildableEnum, int> tower_buttons_informations = new Dictionary <BuildableEnum, int>();
 
 
+	private void resetInformations(){
+		player_sand_resource = 0;
+		player_water_resource = 0;
+		current_level = 0;
+		number_enemy = 0;
+		very_first_scene = false;
+		tower_buttons_informations.Clear ();
+
+	}
+
+	void Start(){
+		EventManager.StartListening ("MenuScreen", resetInformations);
+		EventManager.StartListening("GameOverScreen", resetInformations);
+
+	}
+
+
 
 	void Awake(){
 		if (instance== null) {
@@ -108,9 +125,6 @@ public class SavedInfo : MonoBehaviour {
 		tower_buttons_informations = new Dictionary <BuildableEnum, int>();
 
 	}
+		
 
-
-
-
-	// Last thing to do: check it out how this does work for the resources. Check out the ResourcesManager
 }

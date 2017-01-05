@@ -22,6 +22,7 @@ public class PauseScreenCanvasBehaviour : MonoBehaviour {
 		MusicManager.Instance.StopAll ();
 		Time.timeScale = 1;
 		EventManager.TriggerEvent ("MenuScreen");
+		this.gameObject.SetActive (false);
 	}
 
 

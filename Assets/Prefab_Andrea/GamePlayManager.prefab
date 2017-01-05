@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000013979725628}
   - 114: {fileID: 114000013602660918}
   - 114: {fileID: 114000013416557210}
-  - 114: {fileID: 114000013837744758}
+  - 114: {fileID: 114000010657001934}
   m_Layer: 0
   m_Name: GamePlayManager
   m_TagString: Untagged
@@ -44,6 +44,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000010657001934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012386306032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8982701ad4098134a867f118e58cda3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013416557210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,17 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3755b7269a438eb46a342806011c3c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000013837744758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012386306032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013979725628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a44abeef74214d3fbc36835b0309777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_towerDefenseSceneName: TowerDefense
-  m_platformSceneName: Platform
+  m_towerDefenseSceneName: PlatformToTDScene
+  m_platformSceneName: TDtoPlatformerScene
 --- !u!212 &212000013930027078
 SpriteRenderer:
   m_ObjectHideFlags: 1

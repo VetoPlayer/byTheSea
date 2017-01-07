@@ -392,7 +392,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5f0efe72c2deb4f9c919259a409560c5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f7f914c228d83e144a0e592273e48f76, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -816,7 +816,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: about screen
+  m_Text: "Programmers: \nAndrea Brunato\n Davide Cremona\n Simone Deola\nGame Design:
+    \nGiulia Barnaba\nSound Design: \nGaia Anna Urbanetto\n Federico Corsaro\nArtists:
+    Gaia Anna Urbanetto\n Maria Marciov"
 --- !u!222 &442050251
 CanvasRenderer:
   m_ObjectHideFlags: 0

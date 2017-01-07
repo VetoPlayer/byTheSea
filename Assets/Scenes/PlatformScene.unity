@@ -141,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 11472899
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0ec7e37e6d484d3dafb8354230e4396, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25ffb36c9d4164ea1a0dcbf3ecec70f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1019,7 +1019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011383364252, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -39.12
+      value: -38.4
       objectReference: {fileID: 0}
     - target: {fileID: 4000011383364252, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1076,12 +1076,30 @@ Prefab:
     - target: {fileID: 61000010335834160, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
         type: 2}
       propertyPath: m_Offset.y
-      value: 0.18662195
+      value: -0.03908342
       objectReference: {fileID: 0}
     - target: {fileID: 61000010335834160, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
         type: 2}
       propertyPath: m_Size.y
-      value: 3.1659029
+      value: 4.915147
+      objectReference: {fileID: 0}
+    - target: {fileID: 61000010335834160, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012508579964, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013472386508, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 58000012776048308, guid: 5ad6d1a1aadca624598f61e1aabb07e8,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212000011609512180, guid: 5ad6d1a1aadca624598f61e1aabb07e8, type: 2}

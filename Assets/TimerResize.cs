@@ -21,15 +21,21 @@ public class TimerResize : MonoBehaviour {
 	IEnumerator resize(){
 		yield return new WaitForEndOfFrame();
 
-		RectTransform localRT = this.gameObject.GetComponent<RectTransform> () as RectTransform;
+		Transform localTR = this.gameObject.GetComponent<Transform> () as Transform;
 		RectTransform parentRT = this.gameObject.GetComponentInParent<RectTransform> () as RectTransform;
+	
+		Vector2 parentSize = new Vector2 (parentRT.sizeDelta.x, parentRT.sizeDelta.y);
+		Vector3 localScale = localTR.localScale;
+		Vector3 localPosition = localTR.position;
 
-		Vector2 localSize = new Vector2 (localRT.sizeDelta.x, localRT.sizeDelta.y);
-		Vector2 parentSize = new Vector2 (parentRT.sizeDelta.x, localRT.sizeDelta.y);
+		float widthScale = parentSize.x * 0.01503759f;
 
-		localSize.x = parentSize.x;
-		localSize.y = parentSize.y;
+		localScale.x *= widthScale;
+		localScale.y *= widthScale;
 
-		localRT.sizeDelta = parentSize;
+		localPosition.y -= (localPosition.y * -3.0f);
+
+		localTR.localScale = localScale;
+		localTR.position = localPosition;
 	}	
 }

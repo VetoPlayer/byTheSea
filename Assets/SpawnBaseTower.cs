@@ -15,10 +15,15 @@ public class SpawnBaseTower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		EventManager.StartListening ("GridResized", placeTowers);
+
+	}
+
+	private void placeTowers(){
 		if (SavedInfo.instance.isFirstScene()) {
 			StartCoroutine (place ());
 		}
-
 	}
 
 	IEnumerator place(){

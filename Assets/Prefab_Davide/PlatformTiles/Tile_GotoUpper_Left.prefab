@@ -123,8 +123,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011641353576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.242, z: 0}
-  m_LocalScale: {x: 0.24867108, y: 1, z: 1}
+  m_LocalPosition: {x: 0.352, y: 1.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012753762242}
@@ -192,8 +192,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010758643260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8783, y: 0.00000021234, z: 0}
-  m_LocalScale: {x: 0.2486711, y: 1, z: 1}
+  m_LocalPosition: {x: 2.15, y: 0.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010258895402}
@@ -252,9 +252,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 1.25, y: 0.3125}
+  m_Offset: {x: -0.003954649, y: -0.00038576126}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.625}
+  m_Size: {x: 0.6809191, y: 0.6686586}
 --- !u!61 &61000012197876694
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -266,9 +266,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 1
-  m_Offset: {x: 1.25, y: 0.3125}
+  m_Offset: {x: -0.005194187, y: -0.004630655}
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.625}
+  m_Size: {x: 0.6825053, y: 0.6729664}
 --- !u!68 &68000014147414160
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -298,8 +298,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012753762242}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000011851430964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,8 +312,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000010258895402}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012025598726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,8 +326,6 @@ MonoBehaviour:
   m_nextPoints:
   - {fileID: 4000012155038406}
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!114 &114000012573601596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,8 +339,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nextPoints: []
   m_disableOnEnter: 0
-  m_enableOtherOnEnter: 0
-  m_pointToEnable: {fileID: 0}
 --- !u!212 &212000012218313482
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -376,7 +368,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1350075611
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d90a8faf6fb9540b084ef2825cc3a5dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0bdd074219ec4bae80abf27b921c0e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -442,7 +434,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1350075611
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d90a8faf6fb9540b084ef2825cc3a5dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0bdd074219ec4bae80abf27b921c0e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

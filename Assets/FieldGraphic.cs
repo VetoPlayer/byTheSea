@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 public class FieldGraphic : MonoBehaviour {
 
+	void Awake(){
+		StartCoroutine (Resize ());
+	}
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (Resize ());
+		
 	}
 	
 	// Update is called once per frame
@@ -24,5 +27,6 @@ public class FieldGraphic : MonoBehaviour {
 		vlg.padding.top = Mathf.FloorToInt(rtSize.y * 0.236f);
 
 		LayoutRebuilder.MarkLayoutForRebuild (rt);
+		EventManager.TriggerEvent ("GridResized");
 	}
 }

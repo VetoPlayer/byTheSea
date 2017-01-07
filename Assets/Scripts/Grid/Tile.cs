@@ -185,10 +185,10 @@ public class Tile : MonoBehaviour {
 
 	void Update(){
 		
-		if(free)
-			gameObject.GetComponentInParent<Image> ().color = Color.green;
-		else
-			gameObject.GetComponentInParent<Image> ().color = Color.red;
+		//if(free)
+		//	gameObject.GetComponentInParent<Image> ().color = Color.green;
+		//else
+		//	gameObject.GetComponentInParent<Image> ().color = Color.red;
 	}
 
 	// This methodsets water over the selected tile.

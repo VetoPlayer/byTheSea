@@ -208,7 +208,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 385914bf4775acf44bd1a6e3839d6206, type: 2}
   current_level: 0
   starting_enemy: 1
-  percentage_increment: 0.2
+  percentage_increment: 80
   n_water_drops: 3
   m_first_lane: {fileID: 0}
   m_second_lane: {fileID: 0}

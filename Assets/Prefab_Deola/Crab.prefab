@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sand: {fileID: 1000011737158346, guid: 03f4c2f622e5a49369351aa3f43b2630, type: 2}
-  m_spawn_probability: 0.48
+  m_spawn_probability: 0.3
 --- !u!114 &114000011079400072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,8 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62a8c017e33b449e9a0dfe27e0338c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapeRate: 0.3
-  initialLife: 60
+  escapeRate: 0.2
+  initialLife: 58
   armor: 0
 --- !u!114 &114000012631863150
 MonoBehaviour:

@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad35ea6cd9d0f4b1ab1f7455f43c5cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sandRequired: 1
-  m_waterRequired: 1
+  m_sandRequired: 4
+  m_waterRequired: 5
   m_button: {fileID: 114000010220513228}
 --- !u!114 &114000011492831862
 MonoBehaviour:
@@ -141,16 +141,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.13235295, b: 0.13235295, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d720f04134275254680030763585ec8e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CastleToBuild: 2
   m_button: {fileID: 114000010220513228}
-  m_cooldown: 2.5
+  m_cooldown: 4
   m_cooldownMask: {fileID: 114000012886676498}
 --- !u!114 &114000012886676498
 MonoBehaviour:
@@ -190,9 +190,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 450bce4e87d072447bb07b905784f596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d720f04134275254680030763585ec8e, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -211,12 +211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UITooltipText: {fileID: 0}
   m_tooltipobject: {fileID: 0}
-  m_secondsForTooltip: 0.45
+  m_secondsForTooltip: 0.3
   m_xDistance: 2.5
   m_yDistance: 2.5
-  m_tooltipText: 'Build a Catapult Castle
+  m_tooltipText: 'Catapult Castle
 
-    (3 Water, 2 Sand)'
+    (4 Water, 3 Sand)'
 --- !u!114 &114000013756993202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +275,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -362, y: 0.75452}
-  m_SizeDelta: {x: 111.29999, y: 52.158}
+  m_AnchoredPosition: {x: -73, y: 0.4}
+  m_SizeDelta: {x: 111.29999, y: 52.158005}
   m_Pivot: {x: 0.5, y: 0.5}

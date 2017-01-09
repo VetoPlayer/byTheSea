@@ -188,9 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4052517b7254147ee9b303262fcf46c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRange: 1
+  timeRange: 3
   bullet: {fileID: 1000010780359386, guid: 2010efea098ce4f2f870d0fd2e82ead7, type: 2}
   fireSpot: {fileID: 1000011928584246}
+  castle_type: 0
 --- !u!114 &114000014221726188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,8 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734225ac855dc469f8f4ff59908e77a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialLife: 400
-  armor: 10
+  initialLife: 290
+  armor: 8
+  castle: {fileID: 0}
 --- !u!212 &212000012873511360
 SpriteRenderer:
   m_ObjectHideFlags: 1

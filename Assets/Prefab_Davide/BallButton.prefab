@@ -94,9 +94,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7c33058076f2646fe9472bb0c97001bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 349f64b21b6c8014f9700e9d24dd968f, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -196,10 +196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UITooltipText: {fileID: 0}
   m_tooltipobject: {fileID: 0}
-  m_secondsForTooltip: 0.45
+  m_secondsForTooltip: 0.3
   m_xDistance: 2.5
   m_yDistance: 2.5
-  m_tooltipText: "Beach Ball trap\ndamages all enemies \nin the row\n"
+  m_tooltipText: "Beach Ball \ndamages enemies \nin the row\n"
 --- !u!114 &114000014121037216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,9 +219,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7c33058076f2646fe9472bb0c97001bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 349f64b21b6c8014f9700e9d24dd968f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -271,8 +271,8 @@ RectTransform:
   - {fileID: 224000012333976408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -603, y: 0.75449}
-  m_SizeDelta: {x: 111.29999, y: 52.158}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 264.6, y: -0.5}
+  m_SizeDelta: {x: 111.29999, y: 52.158005}
   m_Pivot: {x: 0.5, y: 0.5}

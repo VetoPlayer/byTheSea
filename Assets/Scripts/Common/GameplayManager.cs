@@ -33,6 +33,8 @@ public class GameplayManager : MonoBehaviour {
 	void Update () {}
 
 	void GoToTowerDefenseScene(){
+		MusicManager.Instance.StopAll ();
+		MusicManager.Instance.PlayMusic ("GameplayMusic");
 		SceneManager.LoadScene (m_towerDefenseSceneName);
 	}
 
@@ -40,7 +42,10 @@ public class GameplayManager : MonoBehaviour {
 	void GoToPlatformScene(){
 		SavedInfo.instance.setNotFirstSceneAnymore ();
 		//Debug.Log ("Not First scene anymore");
+		MusicManager.Instance.StopAll();
+		MusicManager.Instance.PlayMusic ("PlatformMusic");
 		SceneManager.LoadScene (m_platformSceneName);
+
 	}
 
 	void GoToGameOverScene(){

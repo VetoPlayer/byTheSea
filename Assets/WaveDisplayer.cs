@@ -15,12 +15,13 @@ public class WaveDisplayer : MonoBehaviour {
 	void Start () {
 		EventManager.StartListening ("NewWave", updateText);
 		wave_text = GetComponent<Text>();
-		wave_number = 0;
 		if (SavedInfo.instance.isFirstScene ()) {
 			wave_text.text = "Enemy Wave N° --";
+			wave_number = 0;
 		} else {
 			int current_level = SavedInfo.instance.LoadCurrentLevel ();
 			wave_text.text = "Enemy Wave N° " + current_level + "";
+			wave_number = current_level;
 		}
 	}
 		

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -35,7 +36,6 @@ public class SavedInfo : MonoBehaviour {
 
 	void Start(){
 		EventManager.StartListening ("MenuScreen", resetInformations);
-		EventManager.StartListening("GameOverScreen", resetInformations);
 
 	}
 

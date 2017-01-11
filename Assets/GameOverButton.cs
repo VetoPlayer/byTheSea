@@ -8,6 +8,7 @@ public class GameOverButton : MonoBehaviour {
 	
 	}
 	public void GameOver(){
+		SavedInfo.instance = null;
 		EventManager.TriggerEvent ("MenuScreen");
 		Debug.Log ("Button Clicked");
 	}

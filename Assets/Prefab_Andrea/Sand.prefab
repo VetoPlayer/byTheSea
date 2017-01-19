@@ -21,6 +21,8 @@ GameObject:
   - 4: {fileID: 4000010859717416}
   - 114: {fileID: 114000011523394198}
   - 65: {fileID: 65000011558667384}
+  - 114: {fileID: 114000011285143678}
+  - 114: {fileID: 114000012056082074}
   m_Layer: 0
   m_Name: Sand
   m_TagString: Untagged
@@ -84,6 +86,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000011285143678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011737158346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011523394198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -105,6 +118,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b049a16b2f4e4eec8188903ce8f6ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000012056082074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011737158346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f237451540ed8408e97f48571aa737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212000010876581072

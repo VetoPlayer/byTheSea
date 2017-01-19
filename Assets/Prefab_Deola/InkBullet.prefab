@@ -22,6 +22,7 @@ GameObject:
   - 58: {fileID: 58000012064277360}
   - 212: {fileID: 212000010581069468}
   - 114: {fileID: 114000013407348420}
+  - 114: {fileID: 114000010545416686}
   m_Layer: 0
   m_Name: InkBullet
   m_TagString: Untagged
@@ -56,6 +57,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.40854764
+--- !u!114 &114000010545416686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012759694830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef695a5904050b24181d73d43fef41f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013407348420
 MonoBehaviour:
   m_ObjectHideFlags: 1

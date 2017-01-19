@@ -37,8 +37,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011554485036}
   - 114: {fileID: 114000012904086422}
-  - 58: {fileID: 58000013028856568}
   - 114: {fileID: 114000013366458648}
+  - 61: {fileID: 61000014141751392}
+  - 50: {fileID: 50000013536639138}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012561230684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.069996, y: 2.982924, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -73,8 +74,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011554485036}
   m_RootOrder: 0
---- !u!58 &58000013028856568
-CircleCollider2D:
+--- !u!50 &50000013536639138
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012561230684}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61000014141751392
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -86,7 +104,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Size: {x: 0.5, y: 0.7}
 --- !u!95 &95000013693039308
 Animator:
   serializedVersion: 3

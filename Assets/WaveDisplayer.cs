@@ -16,7 +16,7 @@ public class WaveDisplayer : MonoBehaviour {
 		EventManager.StartListening ("NewWave", updateText);
 		wave_text = GetComponent<Text>();
 		if (SavedInfo.instance.isFirstScene ()) {
-			wave_text.text = "Enemy Wave N° --";
+			wave_text.text = "Enemy Wave N° ";
 			wave_number = 0;
 		} else {
 			int current_level = SavedInfo.instance.LoadCurrentLevel ();

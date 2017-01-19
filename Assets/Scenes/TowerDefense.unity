@@ -2568,6 +2568,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 753947178}
+--- !u!1 &802461369 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012386306032, guid: 83ad03dfc46059d478ed19145c4ce8b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1317309295}
+--- !u!114 &802461375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 802461369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd06bf752015bb14b87d50ecf9754816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pause_screen: {fileID: 432611745}
 --- !u!1 &808119650 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010204130156, guid: a2f2aa0cd87674b5ca9d94c3c6a6874a,
@@ -4927,7 +4944,8 @@ Prefab:
       propertyPath: m_pause_screen
       value: 
       objectReference: {fileID: 432611745}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013416557210, guid: 83ad03dfc46059d478ed19145c4ce8b7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 83ad03dfc46059d478ed19145c4ce8b7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1405501592
@@ -5007,8 +5025,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 432611746}
-        m_MethodName: GoToMenu
+      - m_Target: {fileID: 1405501597}
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
